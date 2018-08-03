@@ -1,0 +1,35 @@
+{
+  "name": "wa-sdk",
+  "version": "1.0.0",
+  "description": "A client for interacting with WolkAbout IoT Platform's API",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "tsc && tsc -p test/tsconfig.json",
+    "watch": "tsc --watch",
+    "unit-test": "mocha --opts ./test/mocha.opts",
+    "watch-unit-test": "mocha --recursive --require ts-node/register --watch test/**/*.spec.* --watch-extensions ts",
+    "test": "npm run unit-test",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "tslint --project tsconfig.json && tslint --project test/tsconfig.json"
+  },
+  "author": "WolkAbout",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.5.5",
+    "@types/qs": "^6.5.1",
+    "chai": "^4.1.2",
+    "coffeescript": "^2.3.1",
+    "mocha": "^5.2.0",
+    "mocha-typescript": "^1.1.17",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "typescript": "^3.0.1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "qs": "^6.5.2"
+  }
+}
