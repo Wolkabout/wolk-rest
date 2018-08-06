@@ -1,12 +1,16 @@
 {
   "name": "wolk-rest",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A client for interacting with WolkAbout IoT Platform's API",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wolkabout/wolk-rest"
+  },
   "files": [
-    "./dist"
+    "dist/"
   ],
   "scripts": {
     "compile": "tsc && tsc -p test/tsconfig.json",
