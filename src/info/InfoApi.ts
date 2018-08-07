@@ -1,33 +1,48 @@
+import { WolkResponse } from './../index';
 import Client from '../Client';
 import ServerDetails from './model/ServerDetails';
 
 export default class InfoApi {
-  constructor(private readonly client: Client) {}
+  constructor(private readonly client: Client) { }
 
-  public async serverDetails(): Promise<ServerDetails> {
-    const serverDetails: ServerDetails = await this.client.request(
-      'GET',
-      '/api/infos/server'
-    );
+  public async serverDetails(): Promise<WolkResponse<ServerDetails>> {
+    try {
+      const serverDetails = await this.client.request(
+        'GET',
+        '/api/infos/server'
+      );
+      return serverDetails;
+    } catch (error) {
+      throw error;
+    }
 
-    return serverDetails;
   }
 
-  public async availableProtocols(): Promise<string[]> {
-    const availableProtocols: string[] = await this.client.request(
-      'GET',
-      '/api/infos/availableProtocols'
-    );
+  public async availableProtocols(): Promise<WolkResponse<string[]>> {
+    try {
+      const availableProtocols = await this.client.request(
+        'GET',
+        '/api/infos/availableProtocols'
+      );
+      return availableProtocols;
+    } catch (error) {
+      throw error;
+    }
 
-    return availableProtocols;
   }
 
-  public async signupEnabled(): Promise<boolean> {
-    const signupEnabled: boolean = await this.client.request(
-      'GET',
-      '/api/infos/signupEnabled'
-    );
+  public async signupEnabled(): Promise<WolkResponse<boolean>> {
+    try {
+      const signupEnabled = await this.client.request(
+        'GET',
+        '/api/infos/signupEnabled'
+      );
 
-    return signupEnabled;
+      return signupEnabled;
+
+    } catch (error) {
+      throw error;
+
+    }
   }
 }

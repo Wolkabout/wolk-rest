@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import WolkREST from '../../src';
+import WolkREST from '../../src/index';
 import SignInResponse from '../../src/authentication/model/SignInResponse';
 import environment from '../resources/environment';
 import user from './resources/user';
