@@ -4,11 +4,11 @@ import SignInRequest from './model/SignInRequest';
 import SignInResponse from './model/SignInResponse';
 
 export default class AuthenticationApi {
-  constructor(private readonly client: Client) {}
+  constructor(private readonly client: Client) { }
 
   public async emailSignIn(data: SignInRequest): Promise<SignInResponse|any> {
     // Clear client access token
-    this.client.clearToken();
+    this.client.token = '';
 
     const requestConfig: AxiosRequestConfig = {
       data,
@@ -17,20 +17,19 @@ export default class AuthenticationApi {
       }
     };
 
-    const authentication: SignInResponse = await this.client.request(
-      'POST',
-      '/api/emailSignIn',
-      requestConfig
-    );
-
-    // TODO: Check if authentication success, then setToken
-    // Persist client access token
     try {
-      this.client.setToken(authentication.accessList[0].accessToken);
-    } catch (err) {
-      //
-    }
+      const authResponse = await this.client.request(
+        'POST',
+        '/api/emailSignIn',
+        requestConfig
+      );
 
-    return authentication;
+      // Save new access token inside client instance
+      this.client.token = authResponse.data.accessList[0].accessToken;
+
+      return authResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 }

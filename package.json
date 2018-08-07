@@ -15,7 +15,7 @@
   "scripts": {
     "compile": "tsc && tsc -p tsconfig.spec.json",
     "build": "rollup -c",
-    "unit-test": "mocha --opts ./test/mocha.opts",
+    "unit-test": "mocha --opts ./test/mocha.opts test/**/*.spec.*",
     "test": "npm run unit-test",
     "pretest": "npm run compile && npm run lint",
     "lint": "tslint --project ./tsconfig.spec.json && tslint --project ./tsconfig.app.json"
@@ -53,5 +53,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "qs": "^6.5.2"
+  },
+  "engines": {
+    "node": ">=10.8.0",
+    "npm": ">=6.2.0"
   }
 }

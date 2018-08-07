@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import * as qs from 'qs';
 
 export default class Client {
@@ -18,37 +18,44 @@ export default class Client {
    * @param url Server URL
    * @param requestConfig Custom Axios config https://github.com/axios/axios#request-config
    */
-  public async request(
+  public request(
     method: string,
     url: string,
     requestConfig?: AxiosRequestConfig
   ): Promise<any> {
-    try {
-      const response: AxiosResponse = await this.axios.request({
+    return new Promise((resolve, rejects) => {
+      this.axios.request({
         method,
         url,
         ...requestConfig
-      });
-      // TODO: perhaps to return the whole response, to cover more things in tests?
-      return response.data;
-    } catch (err) {
-      // throw new Error(error.response.data.message);
-      return err.response.data;
-    }
+      })
+        .then((response: AxiosResponse) => resolve(response))
+        .catch((error: AxiosError) => {
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+
+          } else if (error.request) {
+            // The request was made but no response was received
+
+          } else {
+            // Something happened in setting up the request that triggered an Error
+
+          }
+
+          return rejects(error);
+        });
+    });
   }
 
   /**
-   * Set token on Axios configuration
+   * Set or Remove token on Axios configuration
+   * Call with empty string to delete current token
    * @param token Retrieved by register or login
    */
-  public setToken(token: string): void {
-    this.axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  }
-
-  /**
-   * Remove token from Axios configuration
-   */
-  public clearToken(): void {
-    delete this.axios.defaults.headers.common.Authorization;
+  set token(token: string) {
+    token === ''
+     ? delete this.axios.defaults.headers.common.Authorization
+     : this.axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   }
 }

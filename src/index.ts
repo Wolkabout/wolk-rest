@@ -5,7 +5,7 @@ import DashboardApi from './dashboard/DashboardApi';
 import BrandApi from './brand/BrandApi';
 import ReadingTypeApi from './readingType/ReadingTypeApi';
 import TemplateApi from './semantics/template/TemplateApi';
-import DeviceManifestApi from './device/template/deviceManifestApi';
+import DeviceManifestApi from './device/template/DeviceManifestApi';
 
 /**
  * Default constructor.

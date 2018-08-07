@@ -10,7 +10,8 @@
         "--timeout",
         "999999",
         "--colors",
-        "${workspaceFolder}/test"
+        "${workspaceFolder}/test",
+        "test/**/*.spec.*"
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
