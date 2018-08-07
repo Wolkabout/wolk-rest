@@ -1,59 +1,52 @@
-import { AxiosRequestConfig } from 'axios';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import Client from '../Client';
 import Brand from './model/Brand';
+import BrandResponse from './model/BrandResponse';
 
 export default class BrandApi {
-  constructor(private readonly client: Client) {}
+  constructor(private readonly client: Client) { }
 
-  public async create(data: Brand): Promise<any> {
+  public async create(brandDto: Brand): Promise<AxiosResponse> {
     const requestConfig: AxiosRequestConfig = {
-      data,
+      data: brandDto,
       headers: {
         Accept: 'application/json'
       }
     };
 
-    const response = await this.client.request(
+    return await this.client.request(
       'POST',
       '/api/brands',
       requestConfig
     );
-
-    return response;
   }
 
-  public async read(): Promise<Brand|any> {
-    const brand: Brand = await this.client.request(
+  public async read(): Promise<BrandResponse> {
+    return await this.client.request(
       'GET',
       '/api/brands'
     );
-
-    return brand;
   }
 
-  public async update(data: Brand): Promise<any> {
+  public async update(brandDto: Brand): Promise<AxiosResponse> {
     const requestConfig: AxiosRequestConfig = {
-      data,
+      data: brandDto,
       headers: {
         Accept: 'application/json'
       }
     };
 
-    const response = await this.client.request(
+    return await this.client.request(
       'PUT',
       '/api/brands',
       requestConfig
     );
-
-    return response;
   }
 
-  public async deleteBrand(): Promise<any> {
-    const response: Brand = await this.client.request(
+  public async deleteBrand(): Promise<AxiosResponse> {
+    return await this.client.request(
       'DELETE',
       '/api/brands'
     );
-
-    return response;
   }
 }

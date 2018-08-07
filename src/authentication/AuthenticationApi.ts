@@ -6,7 +6,7 @@ import SignInResponse from './model/SignInResponse';
 export default class AuthenticationApi {
   constructor(private readonly client: Client) { }
 
-  public async emailSignIn(data: SignInRequest): Promise<SignInResponse|any> {
+  public async emailSignIn(data: SignInRequest): Promise<SignInResponse> {
     // Clear client access token
     this.client.token = '';
 
@@ -18,16 +18,16 @@ export default class AuthenticationApi {
     };
 
     try {
-      const authResponse = await this.client.request(
+      const response: SignInResponse = await this.client.request(
         'POST',
         '/api/emailSignIn',
         requestConfig
       );
 
-      // Save new access token inside client instance
-      this.client.token = authResponse.data.accessList[0].accessToken;
+      // Save new access token inside Client's instance
+      this.client.token = response.data.accessList[0].accessToken;
 
-      return authResponse;
+      return response;
     } catch (err) {
       throw err;
     }
