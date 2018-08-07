@@ -4,7 +4,7 @@ import ServerDetails from './model/ServerDetails';
 export default class InfoApi {
   constructor(private readonly client: Client) {}
 
-  public async serverDetails(): Promise<any> {
+  public async serverDetails(): Promise<ServerDetails> {
     const serverDetails: ServerDetails = await this.client.request(
       'GET',
       '/api/infos/server'
@@ -13,7 +13,7 @@ export default class InfoApi {
     return serverDetails;
   }
 
-  public async availableProtocols(): Promise<any> {
+  public async availableProtocols(): Promise<string[]> {
     const availableProtocols: string[] = await this.client.request(
       'GET',
       '/api/infos/availableProtocols'
@@ -22,7 +22,7 @@ export default class InfoApi {
     return availableProtocols;
   }
 
-  public async signupEnabled(): Promise<any> {
+  public async signupEnabled(): Promise<boolean> {
     const signupEnabled: boolean = await this.client.request(
       'GET',
       '/api/infos/signupEnabled'

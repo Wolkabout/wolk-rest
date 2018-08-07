@@ -29,6 +29,7 @@ export default class Client {
         url,
         ...requestConfig
       });
+      // TODO: perhaps to return the whole response, to cover more things in tests?
       return response.data;
     } catch (err) {
       // throw new Error(error.response.data.message);
