@@ -1,4 +1,5 @@
 {
   "editor.rulers": [120],
-  "tslint.autoFixOnSave": true
+  "tslint.autoFixOnSave": true,
+  "javascript.preferences.quoteStyle": "single"
 }

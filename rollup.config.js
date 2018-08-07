@@ -41,6 +41,7 @@ plugins: [
    * Must be 2.0+
    */
     typescript({
+      tsconfig: "tsconfig.app.json",
       typescript: require('typescript'),
     }),
   ],
