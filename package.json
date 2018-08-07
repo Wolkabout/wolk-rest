@@ -1,11 +1,21 @@
 {
-  "name": "wa-sdk",
-  "version": "1.0.0",
+  "name": "wolk-rest",
+  "version": "0.0.1",
   "description": "A client for interacting with WolkAbout IoT Platform's API",
   "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wolkabout/wolk-rest"
+  },
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "compile": "tsc && tsc -p test/tsconfig.json",
-    "watch": "tsc --watch",
+    "build": "rollup -c",
+    "watch": "rollup -cw",
     "unit-test": "mocha --opts ./test/mocha.opts",
     "watch-unit-test": "mocha --recursive --require ts-node/register --watch test/**/*.spec.* --watch-extensions ts",
     "test": "npm run unit-test",
@@ -13,6 +23,18 @@
     "lint": "tslint --project tsconfig.json && tslint --project test/tsconfig.json"
   },
   "author": "WolkAbout",
+  "contributors": [
+    {
+      "name": "Mladen Ruzicic",
+      "email": "mladen.ruzicic@wolkabout.com",
+      "url": "http://github.com/cedevita"
+    },
+    {
+      "name": "Radovan Skendzic",
+      "email": "radovan.skendzic@wolkabout.com",
+      "url": "http://github.com/rskendzic"
+    }
+  ],
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/chai": "^4.1.4",
@@ -23,6 +45,8 @@
     "coffeescript": "^2.3.1",
     "mocha": "^5.2.0",
     "mocha-typescript": "^1.1.17",
+    "rollup": "^0.63.5",
+    "rollup-plugin-typescript2": "^0.16.1",
     "ts-node": "^7.0.0",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
