@@ -29,8 +29,8 @@ export default class AuthenticationApi {
       this.client.token = authResponse.data.accessList[0].accessToken;
 
       return authResponse;
-    } catch (err) {
-      throw err;
+    } catch (error) {
+      throw error;
     }
   }
 }

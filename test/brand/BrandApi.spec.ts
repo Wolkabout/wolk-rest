@@ -20,13 +20,13 @@ describe('Brand API', () => {
     before(async () => {
       try {
         await wolkRest.brand().deleteBrand();
-      } catch (err) {
+      } catch (error) {
         // Brand already exist
       }
 
       try {
         await wolkRest.brand().create(brandMock.BRANDING_1);
-      } catch (err) {
+      } catch (error) {
       }
     });
 
@@ -43,7 +43,7 @@ describe('Brand API', () => {
     before(async () => {
       try {
         await wolkRest.brand().deleteBrand();
-      } catch (err) {
+      } catch (error) {
         // Brand does not exist
       }
     });
@@ -60,13 +60,13 @@ describe('Brand API', () => {
     before(async () => {
       try {
         await wolkRest.brand().deleteBrand();
-      } catch (err) {
+      } catch (error) {
         // Brand already exist
       }
 
       try {
         await wolkRest.brand().create(brandMock.BRANDING_1);
-      } catch (err) {
+      } catch (error) {
       }
     });
 
@@ -82,13 +82,13 @@ describe('Brand API', () => {
     before(async () => {
       try {
         await wolkRest.brand().deleteBrand();
-      } catch (err) {
+      } catch (error) {
         // Brand already exist
       }
 
       try {
         await wolkRest.brand().create(brandMock.BRANDING_1);
-      } catch (err) {
+      } catch (error) {
       }
     });
 

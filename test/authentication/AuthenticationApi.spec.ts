@@ -26,8 +26,8 @@ describe('Authentication API', () => {
         username: user.invalid.email,
         password: user.invalid.password
       });
-    } catch (err) {
-      expect(err.response.status).to.equal(401);
+    } catch (error) {
+      expect(error.response.status).to.equal(401);
     }
   });
 
