@@ -1,9 +1,8 @@
 import { expect } from 'chai';
-import WolkREST from '../../src';
-import ServerDetails from '../../src/info/model/ServerDetails';
+import WolkREST from '../../src/index';
 import environment from '../resources/environment';
 import serverInfo from './resources/serverInfo';
-import { isTypeofBoolean } from '../utils';
+import { isTypeofBoolean } from '../utils/index';
 
 describe('Infos API', () => {
   let wolkRest: WolkREST;
@@ -13,21 +12,27 @@ describe('Infos API', () => {
   });
 
   it('[GET] /api/infos/server', async () => {
-    const serverDetails: ServerDetails = await wolkRest.info().serverDetails();
+    const { data: serverDetails, status }
+      = await wolkRest.info().serverDetails();
 
     expect(serverDetails).to.deep.include(serverInfo);
+    expect(status).to.be.equal(200);
   });
 
   it('[GET] /api/infos/availableProtocols', async () => {
-    const availableProtocols: string[] = await wolkRest.info().availableProtocols();
+    const { data: availableProtocols, status }
+      = await wolkRest.info().availableProtocols();
 
     expect(availableProtocols).to.be.an.instanceof(Array);
+    expect(status).to.be.equal(200);
   });
 
   it('[GET] /api/infos/signupEnabled', async () => {
-    const signupEnabled: boolean = await wolkRest.info().signupEnabled();
+    const { data: signupEnabled, status }
+      = await wolkRest.info().signupEnabled();
 
     expect(signupEnabled).to.satisfy(isTypeofBoolean);
+    expect(status).to.be.equal(200);
   });
 
 });
