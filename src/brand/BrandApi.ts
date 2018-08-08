@@ -14,22 +14,30 @@ export default class BrandApi {
       }
     };
 
-    const response = await this.client.request(
-      'POST',
-      '/api/brands',
-      requestConfig
-    );
+    try {
+      const response = await this.client.request(
+        'POST',
+        '/api/brands',
+        requestConfig
+      );
 
-    return response;
+      return response;
+    } catch (error) {
+      throw error;
+    }
   }
 
   public async read(): Promise<WolkResponse<Brand>> {
-    const brand = await this.client.request(
-      'GET',
-      '/api/brands'
-    );
+    try {
+      const brand = await this.client.request(
+        'GET',
+        '/api/brands'
+      );
 
-    return brand;
+      return brand;
+    } catch (error) {
+      throw error;
+    }
   }
 
   public async update(data: Brand): Promise<WolkResponse<string>> {
@@ -40,21 +48,29 @@ export default class BrandApi {
       }
     };
 
-    const response = await this.client.request(
-      'PUT',
-      '/api/brands',
-      requestConfig
-    );
+    try {
+      const response = await this.client.request(
+        'PUT',
+        '/api/brands',
+        requestConfig
+      );
 
-    return response;
+      return response;
+    } catch (error) {
+      throw error;
+    }
   }
 
   public async deleteBrand(): Promise<WolkResponse<string>> {
-    const response = await this.client.request(
-      'DELETE',
-      '/api/brands'
-    );
+    try {
+      const response = await this.client.request(
+        'DELETE',
+        '/api/brands'
+      );
 
-    return response;
+      return response;
+    } catch (error) {
+      throw error;
+    }
   }
 }
