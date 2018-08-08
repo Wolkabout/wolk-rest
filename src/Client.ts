@@ -1,6 +1,6 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosError } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios';
 import * as qs from 'qs';
-import WolkResponse from './model/WolkResponse';
+import { WolkError } from './utils';
 
 export default class Client {
   private readonly axios: AxiosInstance;
@@ -30,22 +30,8 @@ export default class Client {
         url,
         ...requestConfig
       })
-        .then((response: WolkResponse<any>) => resolve(response))
-        .catch((error: AxiosError) => {
-          if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-
-          } else if (error.request) {
-            // The request was made but no response was received
-
-          } else {
-            // Something happened in setting up the request that triggered an Error
-
-          }
-
-          return rejects(error);
-        });
+        .then((response: AxiosResponse) => resolve(response))
+        .catch((error: AxiosError) => rejects(new WolkError(error)));
     });
   }
 

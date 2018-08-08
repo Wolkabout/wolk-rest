@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import WolkREST from '../../src/index';
 import environment from '../resources/environment';
 import user from './resources/user';
+import { debug } from 'util';
 
 describe('Authentication API', () => {
   let wolkRest: WolkREST;
@@ -26,8 +27,8 @@ describe('Authentication API', () => {
         username: user.invalid.email,
         password: user.invalid.password
       });
-    } catch (error) {
-      expect(error.response.status).to.equal(401);
+    } catch (err) {
+      expect(err.code).to.equal(401);
     }
   });
 
