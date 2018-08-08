@@ -1,4 +1,4 @@
-import { WolkResponse } from './../index';
+import WolkResponse from './../model/WolkResponse';
 import Client from '../Client';
 import ServerDetails from './model/ServerDetails';
 

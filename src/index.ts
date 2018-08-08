@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios';
 import Client from './Client';
 import AuthenticationApi from './authentication/AuthenticationApi';
 import InfoApi from './info/InfoApi';
@@ -7,17 +6,6 @@ import BrandApi from './brand/BrandApi';
 import ReadingTypeApi from './readingType/ReadingTypeApi';
 import TemplateApi from './semantics/template/TemplateApi';
 import DeviceManifestApi from './device/template/DeviceManifestApi';
-
-/**
- * Overloading / Overwriting the original AxiosResponse
- * to Generic Interface we need for usage in our application
- */
-
-export interface WolkResponse<T> extends AxiosResponse<T> {
-  data: T;
-  status: number;
-  statusText: string;
-}
 
 /**
  * Default constructor.
