@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import WolkREST from '../../src/index';
-import SignInResponse from '../../src/authentication/model/SignInResponse';
 import environment from '../resources/environment';
 import user from './resources/user';
 
@@ -12,11 +11,12 @@ describe('Authentication API', () => {
   });
 
   it('[POST] /api/emailSignIn', async () => {
-    const { data }: { data: SignInResponse} = await wolkRest.auth().emailSignIn({
+    const { data, status } = await wolkRest.auth().emailSignIn({
       username: user.valid.email,
       password: user.valid.password
     });
 
+    expect(status).to.equal(200);
     expect(data.user.email).to.equal(user.valid.email);
   });
 
@@ -26,8 +26,8 @@ describe('Authentication API', () => {
         username: user.invalid.email,
         password: user.invalid.password
       });
-    } catch (err) {
-      expect(err.response.status).to.equal(401);
+    } catch (error) {
+      expect(error.response.status).to.equal(401);
     }
   });
 
