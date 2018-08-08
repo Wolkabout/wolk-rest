@@ -1,12 +1,10 @@
 import Images from './Images';
 import Theme from './Theme';
 
-interface Brand {
+export default interface Brand {
   id?: number;
-  contextId?: number;
+  contextId?: string;
   images: Images;
   name: string;
   theme: Theme;
 }
-
-export default Brand;

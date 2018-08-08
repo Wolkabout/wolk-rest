@@ -1,4 +1,4 @@
-interface Theme {
+export default interface Theme {
   accentColor?: string;
   alarmColor?: string;
   alarmWidgetTextColor?: string;
@@ -13,5 +13,3 @@ interface Theme {
   warningColor?: string;
   warningWidgetTextColor?: string;
 }
-
-export default Theme;

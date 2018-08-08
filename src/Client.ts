@@ -1,5 +1,6 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosError } from 'axios';
 import * as qs from 'qs';
+import WolkResponse from './model/WolkResponse';
 
 export default class Client {
   private readonly axios: AxiosInstance;
@@ -29,7 +30,7 @@ export default class Client {
         url,
         ...requestConfig
       })
-        .then((response: AxiosResponse) => resolve(response))
+        .then((response: WolkResponse<any>) => resolve(response))
         .catch((error: AxiosError) => {
           if (error.response) {
             // The request was made and the server responded with a status code

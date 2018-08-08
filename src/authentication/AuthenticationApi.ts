@@ -2,11 +2,12 @@ import { AxiosRequestConfig } from 'axios';
 import Client from '../Client';
 import SignInRequest from './model/SignInRequest';
 import SignInResponse from './model/SignInResponse';
+import WolkResponse from '../model/WolkResponse';
 
 export default class AuthenticationApi {
   constructor(private readonly client: Client) { }
 
-  public async emailSignIn(data: SignInRequest): Promise<SignInResponse|any> {
+  public async emailSignIn(data: SignInRequest): Promise<WolkResponse<SignInResponse>> {
     // Clear client access token
     this.client.token = '';
 
