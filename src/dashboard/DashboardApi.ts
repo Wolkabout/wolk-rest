@@ -1,11 +1,12 @@
+import { WolkResponse } from './../../dist/index.d';
 import Client from '../Client';
 import Dashboard from './model/Dashboard';
 
 export default class DashboardApi {
   constructor(private readonly client: Client) {}
 
-  public async list(): Promise<Dashboard[]> {
-    const dashboardsList: Dashboard[] = await this.client.request(
+  public async list(): Promise<WolkResponse<Dashboard[]>> {
+    const dashboardsList = await this.client.request(
       'GET',
       '/api/dashboards'
     );
