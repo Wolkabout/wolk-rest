@@ -1,4 +1,4 @@
-export default interface WolkErrorResponse {
+export interface WolkErrorResponse {
   data?: WolkErrorData;
   status: number;
   statusText: string;

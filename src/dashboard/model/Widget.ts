@@ -1,6 +1,6 @@
-import WidgetItem from './WidgetItem';
+import { WidgetItem } from './WidgetItem';
 
-interface Widget {
+export interface Widget {
   col: number;
   sizeX: number;
   sizeY: number;
@@ -12,5 +12,3 @@ interface Widget {
   type: string;
   items: WidgetItem[];
 }
-
-export default Widget;

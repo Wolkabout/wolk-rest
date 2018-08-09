@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import WolkREST from '../../src/index';
+import WolkREST from '../../src';
 import environment from '../resources/environment';
 import user from './resources/user';
 

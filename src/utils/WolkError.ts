@@ -1,7 +1,7 @@
-import * as fromUtils from './index';
+import { getKeyByValue } from './helpers';
 import { AxiosError } from 'axios';
 import HTTP_ERRORS from './HTTPErrorsEnum';
-import WolkErrorResponse from '../model/WolkErrorResponse';
+import * as fromRoot from '../model/';
 
 export class WolkError extends Error {
   private code: number;
@@ -14,10 +14,10 @@ export class WolkError extends Error {
     if (Error.captureStackTrace) {
       Error.captureStackTrace(this, WolkError);
     }
-    const { data = {}, status = 500, statusText = ''   } = error.response as WolkErrorResponse || {};
+    const { data = {}, status = 500, statusText = '' } = error.response as fromRoot.WolkErrorResponse || {};
 
     this.code = status;
-    this.type = fromUtils.getKeyByValue(HTTP_ERRORS, status);
+    this.type = getKeyByValue(HTTP_ERRORS, status);
     this.messages = data.messages;
   }
 }

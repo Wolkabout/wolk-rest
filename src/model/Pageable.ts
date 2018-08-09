@@ -1,6 +1,6 @@
-import Sort from './Sort';
+import { Sort } from './Sort';
 
-export default interface Pageable {
+export interface Pageable {
   paged: boolean;
   pageNumber: number;
   offset: number;

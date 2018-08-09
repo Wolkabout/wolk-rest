@@ -1,15 +1,13 @@
 import { expect } from 'chai';
-import WolkREST from '../../src/index';
-import * as fromResources from './resources/index';
-import Widget from '../../src/dashboard/model/Widget';
-import WidgetItem from '../../src/dashboard/model/WidgetItem';
-import Dashboard from '../../src/dashboard/model/Dashboard';
+import WolkREST from '../../src';
+import * as fromResources from './resources';
+import * as fromModels from '../../src/dashboard/model';
 import { getAuthenticatedWolkRestInstance } from '../utils';
 
 describe('Widget API', () => {
   let wolkRest: WolkREST;
   let newWidgetId: number;
-  let widgetItems: WidgetItem[];
+  let widgetItems: fromModels.WidgetItem[];
 
   before(async () => {
     wolkRest = await getAuthenticatedWolkRestInstance();
@@ -71,7 +69,7 @@ describe('Widget API', () => {
         items: widgetItems
       };
 
-      const widgetDto: Widget = Object.assign(fromResources.readingWidgetDataNoId, updateDto);
+      const widgetDto: fromModels.Widget = Object.assign(fromResources.readingWidgetDataNoId, updateDto);
       const { status } = await wolkRest.widget().update(fromResources.dashboardId, widgetDto);
 
       expect(status).to.be.equal(200);
@@ -95,7 +93,8 @@ describe('Widget API', () => {
     });
 
     it('Should UPDATE widgets bulk', async () => {
-      const { widgets } = dashboardList.find((dashboard: Dashboard) => fromResources.dashboardId === dashboard.id);
+      const { widgets } = dashboardList
+        .find((dashboard: fromModels.Dashboard) => fromResources.dashboardId === dashboard.id);
       const { status } = await wolkRest.widget().updateBulk(fromResources.dashboardId, widgets);
 
       expect(status).to.be.equal(200);

@@ -1,12 +1,12 @@
 import { AxiosRequestConfig } from 'axios';
+import * as fromRoot from '../model';
+import * as fromModels from './model';
 import Client from '../Client';
-import Widget from './model/Widget';
-import WolkResponse from '../model/WolkResponse';
 
 export default class WidgetApi {
   constructor(private readonly client: Client) { }
 
-  public async create(dashboardId: number, data: Widget): Promise<WolkResponse<number>> {
+  public async create(dashboardId: number, data: fromModels.Widget): Promise<fromRoot.WolkResponse<number>> {
     const requestConfig: AxiosRequestConfig = {
       data,
       headers: {
@@ -26,9 +26,9 @@ export default class WidgetApi {
 
   }
 
-  public async read(dashboardId: number, widgetId: number): Promise<WolkResponse<Widget>> {
+  public async read(dashboardId: number, widgetId: number): Promise<fromRoot.WolkResponse<fromModels.Widget>> {
     try {
-      const response: WolkResponse<Widget> = await this.client.request(
+      const response: fromRoot.WolkResponse<fromModels.Widget> = await this.client.request(
         'GET',
         `/api/dashboards/${dashboardId}/widgets/${widgetId}`,
       );
@@ -39,7 +39,7 @@ export default class WidgetApi {
 
   }
 
-  public async delete(dashboardId: number, id: number): Promise<WolkResponse<any>> {
+  public async delete(dashboardId: number, id: number): Promise<fromRoot.WolkResponse<any>> {
     try {
       const response = await this.client.request(
         'DELETE',
@@ -51,7 +51,7 @@ export default class WidgetApi {
     }
   }
 
-  public async update(dashboardId: number, data: Widget): Promise<WolkResponse<any>> {
+  public async update(dashboardId: number, data: fromModels.Widget): Promise<fromRoot.WolkResponse<any>> {
     const requestConfig: AxiosRequestConfig = {
       data,
       headers: {
@@ -74,7 +74,7 @@ export default class WidgetApi {
     }
   }
 
-  public async updateBulk(dashboardId: number, data: Widget[]): Promise<WolkResponse<any>> {
+  public async updateBulk(dashboardId: number, data: fromModels.Widget[]): Promise<fromRoot.WolkResponse<any>> {
     const requestConfig: AxiosRequestConfig = {
       data,
       headers: {

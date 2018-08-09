@@ -1,3 +1,3 @@
 export * from './WolkError';
 export * from './HTTPErrorsEnum';
-export * from './Helpers';
+export * from './helpers';

@@ -1,4 +1,4 @@
-import { WolkResponse } from './../dist/index.d';
+import * as fromRoot from './model';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosError } from 'axios';
 import * as qs from 'qs';
 import { WolkError } from './utils';
@@ -31,7 +31,7 @@ export default class Client {
         url,
         ...requestConfig
       })
-        .then((response: WolkResponse<any>) => resolve(response))
+        .then((response: fromRoot.WolkResponse<any>) => resolve(response))
         .catch((error: AxiosError) => rejects(new WolkError(error)));
     });
   }
@@ -43,7 +43,7 @@ export default class Client {
    */
   set token(token: string) {
     token === ''
-     ? delete this.axios.defaults.headers.common.Authorization
-     : this.axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+      ? delete this.axios.defaults.headers.common.Authorization
+      : this.axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   }
 }
