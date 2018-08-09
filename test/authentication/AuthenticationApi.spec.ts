@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import WolkREST from '../../src/index';
+import WolkREST from '../../src';
 import environment from '../resources/environment';
 import user from './resources/user';
 
@@ -26,8 +26,8 @@ describe('Authentication API', () => {
         username: user.invalid.email,
         password: user.invalid.password
       });
-    } catch (error) {
-      expect(error.response.status).to.equal(401);
+    } catch ({ code }) {
+      expect(code).to.equal(401);
     }
   });
 

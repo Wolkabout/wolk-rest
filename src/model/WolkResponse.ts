@@ -1,4 +1,4 @@
-export default interface WolkResponse<T> {
+export interface WolkResponse<T = any> {
   data: T;
   status: number;
   statusText: string;

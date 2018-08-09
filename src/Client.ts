@@ -1,6 +1,7 @@
+import * as fromRoot from './model';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosError } from 'axios';
 import * as qs from 'qs';
-import WolkResponse from './model/WolkResponse';
+import { WolkError } from './utils';
 
 export default class Client {
   private readonly axios: AxiosInstance;
@@ -30,22 +31,8 @@ export default class Client {
         url,
         ...requestConfig
       })
-        .then((response: WolkResponse<any>) => resolve(response))
-        .catch((error: AxiosError) => {
-          if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-
-          } else if (error.request) {
-            // The request was made but no response was received
-
-          } else {
-            // Something happened in setting up the request that triggered an Error
-
-          }
-
-          return rejects(error);
-        });
+        .then((response: fromRoot.WolkResponse<any>) => resolve(response))
+        .catch((error: AxiosError) => rejects(new WolkError(error)));
     });
   }
 
@@ -56,7 +43,7 @@ export default class Client {
    */
   set token(token: string) {
     token === ''
-     ? delete this.axios.defaults.headers.common.Authorization
-     : this.axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+      ? delete this.axios.defaults.headers.common.Authorization
+      : this.axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   }
 }

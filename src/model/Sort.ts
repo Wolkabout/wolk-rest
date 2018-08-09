@@ -1,4 +1,4 @@
-export default interface Sort {
+export interface Sort {
   unsorted: boolean;
   sorted: boolean;
 }

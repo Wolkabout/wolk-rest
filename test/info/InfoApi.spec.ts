@@ -1,8 +1,8 @@
 import { expect } from 'chai';
-import WolkREST from '../../src/index';
+import WolkREST from '../../src';
 import environment from '../resources/environment';
 import serverInfo from './resources/serverInfo';
-import { isTypeofBoolean } from '../utils/index';
+import { isTypeofBoolean } from '../utils';
 
 describe('Infos API', () => {
   let wolkRest: WolkREST;
