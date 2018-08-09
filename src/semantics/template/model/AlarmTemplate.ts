@@ -1,6 +1,4 @@
-interface AlarmTemplate {
+export interface AlarmTemplate {
   name: string;
   id?: number;
 }
-
-export default AlarmTemplate;

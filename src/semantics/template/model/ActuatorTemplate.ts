@@ -1,11 +1,9 @@
-import Unit from '../../../unit/model/Unit';
-import ReadingType from '../../../readingType/model/ReadingType';
+import { Unit } from './../../../unit/model';
+import { ReadingType } from './../../../readingType/model';
 
-interface ActuatorTemplate {
+export interface ActuatorTemplate {
   id?: number;
   name: string;
   unit?: Unit;
   readingType?: ReadingType;
 }
-
-export default ActuatorTemplate;
