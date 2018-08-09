@@ -3,7 +3,7 @@ import WolkREST from '../../src';
 import brandMock from './resources/brand';
 import { getAuthenticatedWolkRestInstance } from '../utils';
 
-describe.only('Brand API', () => {
+describe('Brand API', () => {
   let wolkRest: WolkREST;
 
   before(async () => {
