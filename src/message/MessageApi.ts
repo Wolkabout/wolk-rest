@@ -17,7 +17,7 @@ export default class MessageApi {
     } = {}): Promise<WolkResponse<PageOfMessage>> {
 
     const requestConfig: AxiosRequestConfig = {
-      data: {
+      params: {
         since,
         to,
         type,
