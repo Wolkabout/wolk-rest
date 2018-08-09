@@ -1,12 +1,10 @@
 import { expect } from 'chai';
 import WolkREST from '../../src/index';
-import environment from '../resources/environment';
-import user from '../authentication/resources/user';
 import * as fromResources from './resources/index';
 import Widget from '../../src/dashboard/model/Widget';
-import HTTP_ERRORS from '../../src/utils/HTTPErrorsEnum';
 import WidgetItem from '../../src/dashboard/model/WidgetItem';
 import Dashboard from '../../src/dashboard/model/Dashboard';
+import { getAuthenticatedWolkRestInstance } from '../utils';
 
 describe('Widget API', () => {
   let wolkRest: WolkREST;
@@ -14,11 +12,7 @@ describe('Widget API', () => {
   let widgetItems: WidgetItem[];
 
   before(async () => {
-    wolkRest = new WolkREST(environment.baseURL);
-    await wolkRest.auth().emailSignIn({
-      username: user.valid.email,
-      password: user.valid.password
-    });
+    wolkRest = await getAuthenticatedWolkRestInstance();
   });
 
   context('[POST] /api/dashboard/{dashboardId}/widget', async () => {
@@ -70,7 +64,6 @@ describe('Widget API', () => {
     });
 
     it('Should update widget', async () => {
-
       const updateDto = {
         id: newWidgetId,
         col: 1,
@@ -79,29 +72,17 @@ describe('Widget API', () => {
       };
 
       const widgetDto: Widget = Object.assign(fromResources.readingWidgetDataNoId, updateDto);
+      const { status } = await wolkRest.widget().update(fromResources.dashboardId, widgetDto);
 
-      try {
-        const { data: widget, status } = await wolkRest.widget()
-          .update(fromResources.dashboardId, widgetDto);
-        expect(status).to.be.equal(200);
-      } catch ({ code, type }) {
-        expect(code).to.be.equal(HTTP_ERRORS.UNAUTHORIZED);
-        expect(type).to.be.equal('UNAUTHORIZED');
-      }
+      expect(status).to.be.equal(200);
     });
   });
 
   context('[DELETE] /api/dashboards/{dashboardId}/widgets/{id}', async () => {
-
     it('Should delete widget', async () => {
+      const { status } = await wolkRest.widget().delete(fromResources.dashboardId, newWidgetId);
 
-      try {
-        const { data: widget, status } = await wolkRest.widget().delete(fromResources.dashboardId, newWidgetId);
-        expect(status).to.be.equal(200);
-      } catch ({ code, type }) {
-        expect(code).to.be.equal(HTTP_ERRORS.UNAUTHORIZED);
-        expect(type).to.be.equal('UNAUTHORIZED');
-      }
+      expect(status).to.be.equal(200);
     });
   });
 
@@ -109,18 +90,14 @@ describe('Widget API', () => {
     let dashboardList: any;
 
     before(async () => {
-      try {
-        const { data } = await wolkRest.dashboard().list();
-        dashboardList = data;
-      } catch ({ code, type }) {
-        expect(code).to.be.equal(403);
-      }
+      const { data } = await wolkRest.dashboard().list();
+      dashboardList = data;
     });
 
     it('Should UPDATE widgets bulk', async () => {
-
       const { widgets } = dashboardList.find((dashboard: Dashboard) => fromResources.dashboardId === dashboard.id);
       const { status } = await wolkRest.widget().updateBulk(fromResources.dashboardId, widgets);
+
       expect(status).to.be.equal(200);
     });
   });
