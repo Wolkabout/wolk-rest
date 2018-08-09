@@ -1,18 +1,18 @@
+import { ActuatorManifest } from './ActuatorManifest';
 import { Config } from './Config';
-import { Alarm } from '../../../alarms/model/Alarm';
-import { Actuator } from '../../../actuator/model/Actuator';
-import { Feed } from '../../../feed/model/Feed';
+import { AlarmManifest } from './AlarmManifest';
+import { FeedManifest } from './FeedManifest';
 
-export default interface DeviceManifest {
+export interface DeviceManifest {
   generallyAvailable: boolean;
   configs: Config[];
-  alarms: Alarm[];
+  alarms: AlarmManifest[];
   description: string;
   published: boolean;
   protocol: string;
-  actuators: Actuator[];
+  actuators: ActuatorManifest[];
   inUse: boolean;
   firmwareUpdateProtocol: string;
   name: string;
-  feeds: Feed[];
+  feeds: FeedManifest[];
 }

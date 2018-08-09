@@ -1,7 +1,7 @@
-import DataType from './enumeration/DataType';
-import Unit from '../../unit/model/Unit';
+import { Unit } from '../../unit/model';
+import { DataType } from './enumeration/DataType';
 
-interface ReadingType {
+export interface ReadingType {
   image: string;
   fileName: string;
   dataType: DataType;
@@ -15,5 +15,3 @@ interface ReadingType {
   name: string;
   id?: number;
 }
-
-export default ReadingType;

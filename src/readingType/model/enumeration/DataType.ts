@@ -1,6 +1,4 @@
-type DataType
+export type DataType
   = 'STRING'
   | 'NUMERIC'
   | 'BOOLEAN';
-
-export default DataType;

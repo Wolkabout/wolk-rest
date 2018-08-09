@@ -1,12 +1,13 @@
-export default ({
-  id: 228,
-  name: 'Python Simulator Manifest 88',
-  protocol: 'JsonMultiReferenceProtocol',
-  description: 'New Python Simulator Manifest',
+export const deviceManifest = {
+  id: 84,
+  name: 'QA device simulator',
+  protocol: 'JsonSingleReferenceProtocol',
+  firmwareUpdateProtocol: 'DFUProtocol',
+  description: 'Manifest with all supported features',
   published: true,
   feeds: [
     {
-      id: 139,
+      id: 174,
       name: 'Temperature',
       reference: 'T',
       description: '',
@@ -20,7 +21,7 @@ export default ({
         inUse: true
       },
       minimum: -40,
-      maximum: 80,
+      maximum: 85,
       readingType: {
         id: 2,
         name: 'TEMPERATURE',
@@ -31,8 +32,8 @@ export default ({
       }
     },
     {
-      id: 140,
-      name: 'Pritisak',
+      id: 175,
+      name: 'Pressure',
       reference: 'P',
       description: '',
       unit: {
@@ -44,7 +45,7 @@ export default ({
         context: null,
         inUse: true
       },
-      minimum: 900,
+      minimum: 300,
       maximum: 1100,
       readingType: {
         id: 3,
@@ -54,11 +55,93 @@ export default ({
         precision: 1,
         labels: null
       }
+    },
+    {
+      id: 176,
+      name: 'Humidity',
+      reference: 'H',
+      description: '',
+      unit: {
+        id: 124,
+        name: 'HUMIDITY_PERCENT',
+        symbol: '%',
+        readingTypeId: 4,
+        system: 'NON_SI',
+        context: null,
+        inUse: true
+      },
+      minimum: 0,
+      maximum: 100,
+      readingType: {
+        id: 4,
+        name: 'HUMIDITY',
+        dataType: 'NUMERIC',
+        size: 1,
+        precision: 1,
+        labels: null
+      }
+    },
+    {
+      id: 177,
+      name: 'Accelerometer',
+      reference: 'ACL',
+      description: '',
+      unit: {
+        id: 24,
+        name: 'METRES_PER_SQUARE_SECOND',
+        symbol: 'm/s²',
+        readingTypeId: 8,
+        system: 'SI',
+        context: null,
+        inUse: true
+      },
+      minimum: 0,
+      maximum: 100,
+      readingType: {
+        id: 8,
+        name: 'ACCELEROMETER',
+        dataType: 'NUMERIC',
+        size: 3,
+        precision: 1,
+        labels: [
+          'x',
+          'y',
+          'z'
+        ]
+      }
+    },
+    {
+      id: 178,
+      name: 'Location',
+      reference: 'LOC',
+      description: '',
+      unit: {
+        id: 139,
+        name: 'LOCATION',
+        symbol: null,
+        readingTypeId: 11,
+        system: 'CUSTOM',
+        context: null,
+        inUse: true
+      },
+      minimum: 0,
+      maximum: 1,
+      readingType: {
+        id: 11,
+        name: 'LOCATION',
+        dataType: 'NUMERIC',
+        size: 2,
+        precision: 7,
+        labels: [
+          'lat',
+          'long'
+        ]
+      }
     }
   ],
   actuators: [
     {
-      id: 133,
+      id: 48,
       name: 'Switch',
       reference: 'SW',
       description: '',
@@ -83,8 +166,8 @@ export default ({
       }
     },
     {
-      id: 134,
-      name: 'Slajder',
+      id: 49,
+      name: 'Slider',
       reference: 'SL',
       description: '',
       unit: {
@@ -106,27 +189,103 @@ export default ({
         precision: 1,
         labels: null
       }
+    },
+    {
+      id: 50,
+      name: 'String',
+      reference: 'ST',
+      description: '',
+      unit: {
+        id: 144,
+        name: 'TEXT(ACTUATOR)',
+        symbol: null,
+        readingTypeId: 30,
+        system: 'CUSTOM',
+        context: null,
+        inUse: true
+      },
+      minimum: null,
+      maximum: null,
+      readingType: {
+        id: 30,
+        name: 'STRING(ACTUATOR)',
+        dataType: 'STRING',
+        size: 1,
+        precision: 1,
+        labels: null
+      }
     }
   ],
   alarms: [
     {
-      id: 45,
-      name: 'Temperature High',
-      description: 'Eto sto sam vruc',
-      message: 'Ala je vruce',
-      severity: 'CRITICAL',
-      reference: 'TH'
-    },
-    {
-      id: 46,
-      name: 'Visoka Vlaznost',
-      description: 'So damp',
-      message: 'Very moist',
-      severity: 'ERROR',
-      reference: 'ALM'
+      id: 27,
+      name: 'High Humidity',
+      description: 'Sensor has reported a high level of humidity',
+      message: 'High humidity has been detected',
+      severity: 'ALERT',
+      reference: 'HH'
     }
   ],
-  configs: [],
+  configs: [
+    {
+      id: 32,
+      name: 'configuration_1',
+      reference: 'config_1',
+      defaultValue: '',
+      nullValue: null,
+      description: '',
+      minimum: 0,
+      maximum: 100,
+      dataType: 'NUMERIC',
+      size: 1,
+      labels: null
+    },
+    {
+      id: 33,
+      name: 'configuration_2',
+      reference: 'config_2',
+      defaultValue: '',
+      nullValue: null,
+      description: null,
+      minimum: null,
+      maximum: null,
+      dataType: 'BOOLEAN',
+      size: 1,
+      labels: null
+    },
+    {
+      id: 34,
+      name: 'configuration_3',
+      reference: 'config_3',
+      defaultValue: '',
+      nullValue: null,
+      description: null,
+      minimum: null,
+      maximum: null,
+      dataType: 'STRING',
+      size: 1,
+      labels: null
+    },
+    {
+      id: 35,
+      name: 'configuration_4',
+      reference: 'config_4',
+      defaultValue: '',
+      nullValue: null,
+      description: null,
+      minimum: null,
+      maximum: null,
+      dataType: 'STRING',
+      size: 3,
+      labels: [
+        'a',
+        'b',
+        'c'
+      ]
+    }
+  ],
   inUse: true,
-  generallyAvailable: false
-});
+  generallyAvailable: true
+};
+
+export const deviceManifestFailName = 'Python Simulator 88';

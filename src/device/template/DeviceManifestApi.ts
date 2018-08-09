@@ -1,11 +1,13 @@
 import { AxiosRequestConfig } from 'axios';
 import Client from '../../Client';
-import DeviceManifest from './model/DeviceManifest';
+import * as fromModels from './model';
+import * as fromRoot from '../../model';
 
 export default class DeviceManifestApi {
   constructor(private readonly client: Client) { }
 
-  public async getPublicDeviceManifest(manifestName: string): Promise<DeviceManifest> {
+  public async getPublicDeviceManifest(manifestName: string):
+    Promise<fromRoot.WolkResponse<fromModels.DeviceManifest>> {
 
     const requestConfig: AxiosRequestConfig = {
       headers: {
@@ -16,12 +18,16 @@ export default class DeviceManifestApi {
       }
     };
 
-    const deviceManifests: DeviceManifest = await this.client.request(
-      'GET',
-      '/api/deviceManifests',
-      requestConfig
-    );
+    try {
+      const deviceManifests = await this.client.request(
+        'GET',
+        '/api/deviceManifests',
+        requestConfig
+      );
+      return deviceManifests;
+    } catch (error) {
+      throw error;
+    }
 
-    return deviceManifests;
   }
 }

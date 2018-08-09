@@ -1,11 +1,11 @@
 import { expect } from 'chai';
 import WolkREST from '../../../src';
-import ReadingType from '../../../src/readingType/model/ReadingType';
+import { ReadingType } from '../../../src/readingType/model';
 import Template from '../../../src/semantics/template/model/Template';
 import TemplateAttributeType from '../../../src/semantics/template/model/enumeration/TemplateAttributeType';
 import { getAuthenticatedWolkRestInstance } from '../../utils';
 
-describe('ReadingType API', () => {
+describe('Data Semantics - Template API', () => {
   let wolkRest: WolkREST;
   let templateId: number;
 
@@ -15,7 +15,7 @@ describe('ReadingType API', () => {
 
   context('[POST] /api/templates', async () => {
     it('Should create new template with attribute, feed, actuator and alarm', async () => {
-      const readingTypes: ReadingType[] = await wolkRest.readingType().getList();
+      const { data: readingTypes } = await wolkRest.readingType().getList();
       const temperatureReadingType = readingTypes.find(readingType => readingType.name === 'TEMPERATURE');
       const switchReadingType = readingTypes.find(readingType => readingType.name === 'SWITCH(ACTUATOR)');
       const randomTemplateNumber = Math.floor(Math.random() * 100); // to avoid creating same name template
@@ -67,7 +67,7 @@ describe('ReadingType API', () => {
         description: 'Template 1 Description IS UPDATED',
         feeds: [],
         actuators: [],
-        alarms:[],
+        alarms: [],
         id: templateId
       };
 

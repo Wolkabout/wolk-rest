@@ -1,7 +1,7 @@
-import Unit from '../../unit/model/Unit';
-import ReadingType from '../../readingType/model/ReadingType';
+import { Unit } from '../../../unit/model';
+import { ReadingType } from '../../../readingType/model';
 
-export interface Actuator {
+export interface ActuatorManifest {
   reference: string;
   unit: Unit;
   name: string;

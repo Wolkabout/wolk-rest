@@ -1,4 +1,4 @@
-export interface Alarm {
+export interface AlarmManifest {
   severity: string;
   reference: string;
   name: string;

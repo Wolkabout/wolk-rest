@@ -1,6 +1,6 @@
-import System from './enumeration/System';
+import { System } from './enumeration/System';
 
-interface Unit {
+export interface Unit {
   symbol: string;
   readingTypeId: number;
   inUse: boolean;
@@ -8,5 +8,3 @@ interface Unit {
   system: System;
   name: string;
 }
-
-export default Unit;
