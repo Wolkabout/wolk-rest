@@ -2,7 +2,6 @@ import { expect } from 'chai';
 import WolkREST from '../../src/index';
 import environment from '../resources/environment';
 import user from './resources/user';
-import { debug } from 'util';
 
 describe('Authentication API', () => {
   let wolkRest: WolkREST;

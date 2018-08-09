@@ -13,13 +13,30 @@ export default class WidgetApi {
         Accept: 'application/json'
       }
     };
+    try {
+      const response = await this.client.request(
+        'POST',
+        `/api/dashboards/${dashboardId}/widgets`,
+        requestConfig
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
 
-    const response = await this.client.request(
-      'POST',
-      `/api/dashboards/${dashboardId}/widgets`,
-      requestConfig
-    );
-
-    return response;
   }
+
+  public async read(dashboardId: number, widgetId: number): Promise<WolkResponse<Widget>> {
+    try {
+      const response: WolkResponse<Widget> = await this.client.request(
+        'GET',
+        `/api/dashboards/${dashboardId}/widgets/${widgetId}`,
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+
+  }
+
 }

@@ -6,7 +6,7 @@ import WolkErrorResponse from '../model/WolkErrorResponse';
 export class WolkError extends Error {
   private code: number;
   private readonly messages: string[] | undefined;
-  errorName: string | undefined;
+  type: string | undefined;
 
   constructor(error: AxiosError) {
     super();
@@ -17,7 +17,7 @@ export class WolkError extends Error {
     const { data = {}, status = 500, statusText = ''   } = error.response as WolkErrorResponse || {};
 
     this.code = status;
-    this.errorName = fromUtils.getKeyByValue(HTTP_ERRORS, status);
+    this.type = fromUtils.getKeyByValue(HTTP_ERRORS, status);
     this.messages = data.messages;
   }
 }

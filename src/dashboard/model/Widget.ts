@@ -6,9 +6,9 @@ interface Widget {
   sizeY: number;
   mobileReady: boolean;
   name: string;
-  extras: object;
+  extras?: object;
   row: number;
-  id: number;
+  id?: number;
   type: string;
   items: WidgetItem[];
 }

@@ -7,6 +7,7 @@ import ReadingTypeApi from './readingType/ReadingTypeApi';
 import TemplateApi from './semantics/template/TemplateApi';
 import DeviceManifestApi from './device/template/DeviceManifestApi';
 import MessageApi from './message/MessageApi';
+import WidgetApi from './dashboard/WidgetApi';
 
 /**
  * Default constructor.
@@ -22,6 +23,7 @@ export default class WolkREST {
   private readonly templateApi: TemplateApi;
   private readonly deviceManifestApi: DeviceManifestApi;
   private readonly messageApi: MessageApi;
+  private readonly widgetApi: WidgetApi;
 
   constructor(baseURL: string) {
     this.client = new Client(baseURL);
@@ -33,24 +35,24 @@ export default class WolkREST {
     this.templateApi = new TemplateApi(this.client);
     this.deviceManifestApi = new DeviceManifestApi(this.client);
     this.messageApi = new MessageApi(this.client);
+    this.widgetApi = new WidgetApi(this.client);
   }
 
   auth(): AuthenticationApi {
     return this.authenticationApi;
   }
-
-  info(): InfoApi {
-    return this.infoApi;
-  }
-
-  dashboard(): DashboardApi {
-    return this.dashboardApi;
-  }
-
   brand(): BrandApi {
     return this.brandApi;
   }
-
+  dashboard(): DashboardApi {
+    return this.dashboardApi;
+  }
+  deviceManifest(): DeviceManifestApi {
+    return this.deviceManifestApi;
+  }
+  info(): InfoApi {
+    return this.infoApi;
+  }
   readingType(): ReadingTypeApi {
     return this.readingTypeApi;
   }
@@ -59,8 +61,8 @@ export default class WolkREST {
     return this.templateApi;
   }
 
-  deviceManifest(): DeviceManifestApi {
-    return this.deviceManifestApi;
+  widget(): WidgetApi {
+    return this.widgetApi;
   }
 
   message(): MessageApi {
