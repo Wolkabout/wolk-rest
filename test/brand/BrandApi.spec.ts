@@ -1,18 +1,13 @@
 import { expect } from 'chai';
 import WolkREST from '../../src';
-import environment from '../resources/environment';
-import user from '../authentication/resources/user';
 import brandMock from './resources/brand';
+import { getAuthenticatedWolkRestInstance } from '../utils';
 
-describe('Brand API', () => {
+describe.only('Brand API', () => {
   let wolkRest: WolkREST;
 
   before(async () => {
-    wolkRest = new WolkREST(environment.baseURL);
-    await wolkRest.auth().emailSignIn({
-      username: user.valid.email,
-      password: user.valid.password
-    });
+    wolkRest = await getAuthenticatedWolkRestInstance();
   });
 
   context('[GET] /api/brands', async () => {

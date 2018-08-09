@@ -1,21 +1,16 @@
 import { expect } from 'chai';
 import WolkREST from '../../../src';
-import environment from '../../resources/environment';
-import user from '../../authentication/resources/user';
 import ReadingType from '../../../src/readingType/model/ReadingType';
 import Template from '../../../src/semantics/template/model/Template';
 import TemplateAttributeType from '../../../src/semantics/template/model/enumeration/TemplateAttributeType';
+import { getAuthenticatedWolkRestInstance } from '../../utils';
 
 describe('ReadingType API', () => {
   let wolkRest: WolkREST;
   let templateId: number;
 
   before(async () => {
-    wolkRest = new WolkREST(environment.baseURL);
-    await wolkRest.auth().emailSignIn({
-      username: user.valid.email,
-      password: user.valid.password
-    });
+    wolkRest = await getAuthenticatedWolkRestInstance();
   });
 
   context('[POST] /api/templates', async () => {
