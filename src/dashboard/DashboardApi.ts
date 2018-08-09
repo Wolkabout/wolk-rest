@@ -1,4 +1,4 @@
-import { WolkResponse } from './../../dist/index.d';
+import WolkResponse from './../model/WolkResponse';
 import Client from '../Client';
 import Dashboard from './model/Dashboard';
 

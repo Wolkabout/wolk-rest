@@ -1,4 +1,5 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios';
+import { WolkResponse } from './../dist/index.d';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosError } from 'axios';
 import * as qs from 'qs';
 import { WolkError } from './utils';
 
@@ -30,7 +31,7 @@ export default class Client {
         url,
         ...requestConfig
       })
-        .then((response: AxiosResponse) => resolve(response))
+        .then((response: WolkResponse<any>) => resolve(response))
         .catch((error: AxiosError) => rejects(new WolkError(error)));
     });
   }
