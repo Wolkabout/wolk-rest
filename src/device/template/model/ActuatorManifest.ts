@@ -5,9 +5,9 @@ export interface ActuatorManifest {
   reference: string;
   unit: Unit;
   name: string;
-  maximum: number;
+  maximum: number | null;
   description: string;
   id: number;
-  minimum: number;
+  minimum: number | null;
   readingType: ReadingType;
 }

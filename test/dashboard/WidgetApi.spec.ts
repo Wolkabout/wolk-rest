@@ -52,7 +52,6 @@ describe('Widget API', () => {
   });
 
   context('[PUT] /api/dashboards/{dashboardId}/widgets/{id}', async () => {
-    // Create brand to be updated
     before(async () => {
       await wolkRest.widget().create(fromResources.dashboardId, fromResources.readingWidgetDataNoId);
 
