@@ -5,13 +5,6 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Wolkabout/wolk-rest"
-  },
-  "files": [
-    "dist/"
-  ],
   "scripts": {
     "compile": "tsc && tsc -p tsconfig.spec.json",
     "build": "rollup -c",
@@ -20,6 +13,13 @@
     "pretest": "npm run compile && npm run lint",
     "lint": "tslint --project ./tsconfig.spec.json && tslint --project ./tsconfig.app.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wolkabout/wolk-rest"
+  },
+  "files": [
+    "dist/"
+  ],
   "author": "WolkAbout",
   "contributors": [
     {
@@ -36,6 +36,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/chai": "^4.1.4",
+    "@types/dotenv": "^4.0.3",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.5.5",
     "@types/qs": "^6.5.1",
@@ -52,6 +53,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "dotenv": "^6.0.0",
     "qs": "^6.5.2"
   },
   "engines": {

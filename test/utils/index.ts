@@ -1,6 +1,5 @@
 import WolkREST from '../../src';
-import environment from '../resources/environment';
-import user from '../authentication/resources/user';
+import * as fromConfig from '../../src/utils/config';
 
 export function isTypeofBoolean(n: any) {
   return typeof n === 'boolean';
@@ -11,11 +10,11 @@ export function isTypeofBoolean(n: any) {
  * @returns {Promise<WolkREST>} Authenticated instance of WolkREST Class
  */
 export async function getAuthenticatedWolkRestInstance(): Promise<WolkREST> {
-  const wolkRest = new WolkREST(environment.baseURL);
+  const wolkRest = new WolkREST(fromConfig.WA_TEST_BASEURL);
 
   await wolkRest.auth().emailSignIn({
-    username: user.valid.email,
-    password: user.valid.password
+    username: fromConfig.WA_TEST_USER,
+    password: fromConfig.WA_TEST_PASS
   });
 
   return wolkRest;

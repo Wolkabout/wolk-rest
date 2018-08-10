@@ -1,4 +1,4 @@
-import User from '../../authentication/model/User';
+import { User } from '../../authentication/model/User';
 import { Widget } from './Widget';
 import Permission from './enumeration/Permission';
 import WidgetType from './enumeration/WidgetType';

@@ -1,20 +1,20 @@
 import { expect } from 'chai';
 import WolkREST from '../../src';
-import environment from '../resources/environment';
-import serverInfo from './resources/serverInfo';
+import * as fromResources from './resources/serverInfo';
+import * as fromConfig from '../../src/utils/config';
 import { isTypeofBoolean } from '../utils';
 
 describe('Infos API', () => {
   let wolkRest: WolkREST;
 
   before(() => {
-    wolkRest = new WolkREST(environment.baseURL);
+    wolkRest = new WolkREST(fromConfig.WA_TEST_BASEURL);
   });
 
   it('[GET] /api/infos/server', async () => {
     const { data: serverDetails, status } = await wolkRest.info().serverDetails();
 
-    expect(serverDetails).to.deep.include(serverInfo);
+    expect(serverDetails).to.deep.include(fromResources.server);
     expect(status).to.be.equal(200);
   });
 

@@ -1,7 +1,7 @@
 /**
  * Defines all possible role types.
  */
-enum RoleType {
+export enum RoleType {
   /**
    * Role defined by system that can not be modified.
    */
@@ -12,5 +12,3 @@ enum RoleType {
    */
   USER = 'USER'
 }
-
-export default RoleType;

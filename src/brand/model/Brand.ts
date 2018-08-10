@@ -1,7 +1,7 @@
-import Images from './Images';
-import Theme from './Theme';
+import { Images } from './Images';
+import { Theme } from './Theme';
 
-export default interface Brand {
+export interface Brand {
   id?: number;
   contextId?: string;
   images: Images;

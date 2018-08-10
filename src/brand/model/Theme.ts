@@ -1,4 +1,4 @@
-export default interface Theme {
+export interface Theme {
   accentColor?: string;
   alarmColor?: string;
   alarmWidgetTextColor?: string;

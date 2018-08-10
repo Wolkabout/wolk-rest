@@ -1,30 +1,30 @@
 import { expect } from 'chai';
 import WolkREST from '../../src';
-import environment from '../resources/environment';
-import user from './resources/user';
+import * as fromResources from './resources/user';
+import * as fromConfig from '../../src/utils/config';
 
 describe('Authentication API', () => {
   let wolkRest: WolkREST;
 
   before(() => {
-    wolkRest = new WolkREST(environment.baseURL);
+    wolkRest = new WolkREST(fromConfig.WA_TEST_BASEURL);
   });
 
   it('[POST] /api/emailSignIn', async () => {
     const { data, status } = await wolkRest.auth().emailSignIn({
-      username: user.valid.email,
-      password: user.valid.password
+      username: fromConfig.WA_TEST_USER,
+      password: fromConfig.WA_TEST_PASS
     });
 
     expect(status).to.equal(200);
-    expect(data.user.email).to.equal(user.valid.email);
+    expect(data.user.email).to.equal(fromConfig.WA_TEST_USER);
   });
 
   it('[POST] /api/emailSignIn - Invalid credentials', async () => {
     try {
       await wolkRest.auth().emailSignIn({
-        username: user.invalid.email,
-        password: user.invalid.password
+        username: fromResources.invalidUser.email,
+        password: fromResources.invalidUser.password
       });
     } catch ({ code }) {
       expect(code).to.equal(401);
