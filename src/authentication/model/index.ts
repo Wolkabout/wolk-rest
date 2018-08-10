@@ -6,3 +6,4 @@ export * from './SignInResponse';
 export * from './User';
 export * from './enumeration/RoleType';
 export * from './enumeration/SystemRole';
+export * from './enumeration/Permission';

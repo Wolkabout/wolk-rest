@@ -32,7 +32,11 @@ export default class Client {
         ...requestConfig
       })
         .then((response: fromRoot.WolkResponse<any>) => resolve(response))
-        .catch((error: AxiosError) => rejects(new WolkError(error)));
+        .catch((error: AxiosError) => {
+          console.log(error);
+          // rejects(new WolkError(error))
+          rejects(error);
+        });
     });
   }
 

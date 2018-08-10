@@ -7,6 +7,7 @@ import DeviceApi from './device/DeviceApi';
 import DeviceManifestApi from './device/template/DeviceManifestApi';
 import InfoApi from './info/InfoApi';
 import MessageApi from './message/MessageApi';
+import ProfileApi from './profile/ProfileApi';
 import ReadingTypeApi from './readingType/ReadingTypeApi';
 import TemplateApi from './semantics/template/TemplateApi';
 
@@ -26,6 +27,7 @@ export default class WolkREST {
   private readonly readingTypeApi: ReadingTypeApi;
   private readonly templateApi: TemplateApi;
   private readonly widgetApi: WidgetApi;
+  private readonly profileApi: ProfileApi;
 
   constructor(baseURL: string) {
     this.client = new Client(baseURL);
@@ -39,6 +41,7 @@ export default class WolkREST {
     this.readingTypeApi = new ReadingTypeApi(this.client);
     this.templateApi = new TemplateApi(this.client);
     this.widgetApi = new WidgetApi(this.client);
+    this.profileApi = new ProfileApi(this.client);
   }
 
   auth(): AuthenticationApi {
@@ -73,5 +76,9 @@ export default class WolkREST {
 
   message(): MessageApi {
     return this.messageApi;
+  }
+
+  profile(): ProfileApi {
+    return this.profileApi;
   }
 }
