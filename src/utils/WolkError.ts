@@ -1,7 +1,7 @@
-import { getKeyByValue } from './helpers';
 import { AxiosError } from 'axios';
-import HTTP_ERRORS from './HTTPErrorsEnum';
 import * as fromRoot from '../model';
+import { getKeyByValue } from './helpers';
+import HTTP_ERRORS from './HTTPErrorsEnum';
 
 export class WolkError extends Error {
   private code: number;

@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import Client from '../Client';
-import * as fromModels from './model';
 import * as fromRoot from '../model';
+import * as fromModels from './model';
 
 export default class AuthenticationApi {
   constructor(private readonly client: Client) { }

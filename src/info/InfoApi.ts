@@ -1,5 +1,5 @@
-import { WolkResponse } from '../model/WolkResponse';
 import Client from '../Client';
+import { WolkResponse } from '../model/WolkResponse';
 import ServerDetails from './model/ServerDetails';
 
 export default class InfoApi {

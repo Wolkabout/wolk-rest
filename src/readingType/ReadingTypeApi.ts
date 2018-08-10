@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
-import * as fromModels from './model';
-import * as fromRoot from '../model';
 import Client from '../Client';
+import * as fromRoot from '../model';
+import * as fromModels from './model';
 
 export default class ReadingTypeApi {
   constructor(private readonly client: Client) { }
