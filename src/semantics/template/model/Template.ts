@@ -1,9 +1,9 @@
-import ActuatorTemplate from './ActuatorTemplate';
-import AlarmTemplate from './AlarmTemplate';
-import FeedTemplate from './FeedTemplate';
-import TemplateAttribute from './TemplateAttribute';
+import { ActuatorTemplate } from './ActuatorTemplate';
+import { AlarmTemplate } from './AlarmTemplate';
+import { FeedTemplate } from './FeedTemplate';
+import { TemplateAttribute } from './TemplateAttribute';
 
-interface Template {
+export interface Template {
   actuators?: ActuatorTemplate[];
   alarms?: AlarmTemplate[];
   name: string;
@@ -12,5 +12,3 @@ interface Template {
   attributes?: TemplateAttribute[];
   id?: number;
 }
-
-export default Template;

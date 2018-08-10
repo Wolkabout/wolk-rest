@@ -1,4 +1,4 @@
-import * as fromRoot from './../model';
+import * as fromRoot from '../model';
 import * as fromModels from './model';
 import Client from '../Client';
 

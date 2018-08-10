@@ -1,13 +1,13 @@
 export interface Config {
-  reference: string;
-  size: number;
-  defaultValue: string;
-  dataType: string;
-  name: string;
-  maximum: number;
-  description: string;
   id: number;
-  minimum: number;
-  nullValue: string;
-  labels: string;
+  name: string;
+  reference: string;
+  defaultValue: string;
+  nullValue?: string;
+  description?: string;
+  minimum?: number;
+  maximum?: number;
+  dataType: string;
+  size: number;
+  labels: string[];
 }

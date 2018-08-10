@@ -1,7 +1,7 @@
-import ReadingType from '../../readingType/model/ReadingType';
-import Unit from '../../unit/model/Unit';
+import { Unit } from './../../../unit/model';
+import { ReadingType } from './../../../readingType/model';
 
-export interface Feed {
+export interface FeedManifest {
   reference: string;
   unit: Unit;
   name: string;

@@ -1,11 +1,9 @@
-import Unit from '../../../unit/model/Unit';
-import ReadingType from '../../../readingType/model/ReadingType';
+import { ReadingType } from './../../../readingType/model';
+import { Unit } from './../../../unit/model';
 
-interface FeedTemplate {
+export interface FeedTemplate {
   unit?: Unit;
   name: string;
   id?: number;
   readingType?: ReadingType;
 }
-
-export default FeedTemplate;

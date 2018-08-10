@@ -1,19 +1,19 @@
 import { AxiosRequestConfig } from 'axios';
+import * as fromModels from './model';
+import * as fromRoot from '../model';
 import Client from '../Client';
-import DataType from './model/enumeration/DataType';
-import ReadingType from './model/ReadingType';
 
 export default class ReadingTypeApi {
-  constructor(private readonly client: Client) {}
+  constructor(private readonly client: Client) { }
 
   public async getList(
     query?: string,
     queryExclude?: boolean,
     image?: boolean,
     color?: string,
-    dataType?: DataType,
+    dataType?: fromModels.DataType,
     dataSize?: number
-  ): Promise<ReadingType[]|any> {
+  ): Promise<fromRoot.WolkResponse<fromModels.ReadingType[]>> {
     const requestConfig: AxiosRequestConfig = {
       data: {
       },
@@ -21,13 +21,15 @@ export default class ReadingTypeApi {
         Accept: 'application/json'
       }
     };
-
-    const readingTypes: ReadingType[] = await this.client.request(
-      'GET',
-      '/api/readingTypes',
-      requestConfig
-    );
-
-    return readingTypes;
+    try {
+      const readingTypes = await this.client.request(
+        'GET',
+        '/api/readingTypes',
+        requestConfig
+      );
+      return readingTypes;
+    } catch (error) {
+      throw error;
+    }
   }
 }
