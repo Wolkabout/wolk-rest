@@ -3,5 +3,4 @@
 --require dotenv/config
 --recursive
 --full-trace
---bail
 --timeout 10000
