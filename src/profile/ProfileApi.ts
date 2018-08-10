@@ -102,26 +102,26 @@ export default class ProfileApi {
   }
 
   // TODO
-  // public async getAccessKey(expirationDate: number): Promise<fromRoot.WolkResponse<fromModels.StringDto>> {
-  //   const requestConfig: AxiosRequestConfig = {
-  //     data: expirationDate,
-  //     headers: {
-  //       Accept: 'application/json'
-  //     }
-  //   };
+  public async getAccessKey(expirationDate: number): Promise<fromRoot.WolkResponse<fromModels.StringDto>> {
+    const requestConfig: AxiosRequestConfig = {
+      data: expirationDate,
+      headers: {
+        Accept: 'application/json'
+      }
+    };
 
-  //   try {
-  //     const response = await this.client.request(
-  //       'POST',
-  //       '/api/users/me/httpPublishingKey',
-  //       requestConfig
-  //     );
+    try {
+      const response = await this.client.request(
+        'POST',
+        '/api/users/me/httpPublishingKey',
+        requestConfig
+      );
 
-  //     return response;
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // }
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 
   public async passwordChange(data: fromModels.ChangePasswordRequest): Promise<fromRoot.WolkResponse<any>> {
     const requestConfig: AxiosRequestConfig = {

@@ -54,7 +54,7 @@ describe('Profile API', () => {
     });
   });
 
-  // TODO
+  // TODO: Error: Data after transformation must be a string, an ArrayBuffer, a Buffer, or a Stream
   // context('[POST] /api/users/me/httpPublishingKey', async () => {
   //   it('Should get Access Key', async () => {
   //     const { status } = await wolkRest.profile().getAccessKey(Date.now());
@@ -71,14 +71,9 @@ describe('Profile API', () => {
         username: WA_TEST_USER
       };
 
-      try {
-        const { status } = await wolkRest.profile().passwordChange(passwordChangeDto);
+      const { status } = await wolkRest.profile().passwordChange(passwordChangeDto);
 
-        expect(status).to.equal(200);
-      } catch (error) {
-        console.log(error);
-      }
-
+      expect(status).to.equal(200);
     });
   });
 
