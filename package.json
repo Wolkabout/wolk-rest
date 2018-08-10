@@ -8,10 +8,29 @@
   "scripts": {
     "compile": "tsc && tsc -p tsconfig.spec.json",
     "build": "rollup -c",
-    "unit-test": "mocha --opts ./test/mocha.opts test/**/*.spec.*",
+    "unit-test": "nyc mocha --opts ./test/mocha.opts test/**/*.spec.*",
     "test": "npm run unit-test",
     "pretest": "npm run compile && npm run lint",
     "lint": "tslint --project ./tsconfig.spec.json && tslint --project ./tsconfig.app.json"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
   },
   "repository": {
     "type": "git",
@@ -44,8 +63,10 @@
     "coffeescript": "^2.3.1",
     "mocha": "^5.2.0",
     "mocha-typescript": "^1.1.17",
+    "nyc": "^12.0.2",
     "rollup": "^0.63.5",
     "rollup-plugin-typescript2": "^0.16.1",
+    "source-map-support": "^0.5.8",
     "ts-node": "^7.0.0",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
