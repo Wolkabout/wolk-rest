@@ -15,4 +15,5 @@ export interface DeviceManifest {
   firmwareUpdateProtocol: string;
   name: string;
   feeds: FeedManifest[];
+  id?: number;
 }

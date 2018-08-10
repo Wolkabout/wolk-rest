@@ -28,4 +28,12 @@ describe('DeviceTemplate/Manifest API', () => {
 
   });
 
+  it('[GET] /api/deviceManifests - Short object', async () => {
+    const { data: deviceManifests, status } =
+      await wolkRest.deviceManifest().listDeviceManifestsShort();
+
+    expect(deviceManifests).to.be.an('array');
+    expect(status).to.equals(200);
+  });
+
 });

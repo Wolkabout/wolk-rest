@@ -18,6 +18,12 @@ export class WolkError extends Error {
 
     this.code = status;
     this.type = getKeyByValue(HTTP_ERRORS, status);
-    this.messages = data.messages;
+    this.message = data.messages ? data.messages.toString() : '';
+    this.stack = `
+    Type:${this.type}
+    Code:${this.code},
+    Message: ${this.message}
+    ${this.stack}
+    `;
   }
 }
