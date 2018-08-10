@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import WolkREST from '../../src';
-import * as fromResources from './resources/serverInfo';
+import * as fromResources from './resources';
 import * as fromConfig from '../../src/utils/config';
 import { isTypeofBoolean } from '../utils';
 
