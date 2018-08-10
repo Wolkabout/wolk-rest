@@ -1,13 +1,16 @@
 import { expect } from 'chai';
 import WolkREST from '../../../src';
-import { getAuthenticatedWolkRestInstance } from '../../utils';
+
 import { HTTP_ERRORS } from '../../../src/utils';
-import * as fromResources from './resources';
+import { getAuthenticatedWolkRestInstance } from '../../utils';
+
 import * as fromModels from '../../../src/device/template/model';
+import * as fromResources from './resources';
 
 describe('DeviceTemplate/Manifest API', () => {
   let wolkRest: WolkREST;
   let newManifestId: number;
+  let createdDevice: fromModels.DeviceDTO;
 
   before(async () => {
     wolkRest = await getAuthenticatedWolkRestInstance();
@@ -100,6 +103,34 @@ describe('DeviceTemplate/Manifest API', () => {
       const { status } = await wolkRest.deviceManifest().deleteManifest(newManifestId);
 
       expect(status).to.be.equal(200);
+    });
+  });
+
+  context('[POST] /api/deviceManifests/{manifestId}/devices', async () => {
+    it('Should create device from manifest', async () => {
+      const { status, data: devices } = await wolkRest.deviceManifest()
+        .registerDevice(fromResources.deviceManifest.id!, fromResources.createDeviceFromManifest);
+
+      [createdDevice] = devices;
+      expect(status).to.be.equal(201);
+    });
+  });
+
+  context('[POST] /api/deviceManifests/devicesEmail', async () => {
+    it('Should send email with device credentials', async () => {
+      const sendCredentials: fromModels.SendCredentialsDTO[] = [{
+        deviceKey: createdDevice.deviceKey,
+        name: createdDevice.name,
+        password: createdDevice.password
+      }];
+
+      const { status } = await wolkRest.deviceManifest()
+        .sendCredentialsEmail(sendCredentials);
+
+      expect(status).to.be.equal(200);
+    });
+    after(async () => {
+      await wolkRest.device().deleteBulk([createdDevice.id]);
     });
   });
 

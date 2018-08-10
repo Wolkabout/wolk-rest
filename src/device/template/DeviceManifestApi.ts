@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import Client from '../../Client';
-import * as fromModels from './model';
 import * as fromRoot from '../../model';
+import * as fromModels from './model';
 
 export default class DeviceManifestApi {
   constructor(private readonly client: Client) { }
@@ -127,6 +127,48 @@ export default class DeviceManifestApi {
     } catch (error) {
       throw error;
     }
+  }
+
+  public async registerDevice(manifestId: number, data: fromModels.CreateDeviceDTO[]):
+    Promise<fromRoot.WolkResponse<fromModels.DeviceDTO[]>> {
+    const requestConfig: AxiosRequestConfig = {
+      data,
+      headers: {
+        Accept: 'application/vnd.devices+json'
+      }
+    };
+    try {
+      const response = await this.client.request(
+        'POST',
+        `/api/deviceManifests/${manifestId}/devices`,
+        requestConfig
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+
+  }
+
+  public async sendCredentialsEmail(data: fromModels.SendCredentialsDTO[]):
+    Promise<fromRoot.WolkResponse<any>> {
+    const requestConfig: AxiosRequestConfig = {
+      data,
+      headers: {
+        Accept: 'application/json'
+      }
+    };
+    try {
+      const response = await this.client.request(
+        'POST',
+        `/api/deviceManifests/devicesEmail`,
+        requestConfig
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+
   }
 
 }
