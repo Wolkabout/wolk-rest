@@ -1,4 +1,4 @@
-enum HTTP_ERRORS {
+export enum HTTP_ERRORS {
   /**
       * The server cannot or will not process the request due to an apparent client error
       * (e.g., malformed request syntax, too large size, invalid request message framing, or deceptive request routing).

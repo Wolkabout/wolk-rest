@@ -1,4 +1,5 @@
-export const deviceManifest = {
+import { DeviceManifest } from '../../../../src/device/template/model';
+export const deviceManifest: DeviceManifest = {
   id: 84,
   name: 'QA device simulator',
   protocol: 'JsonSingleReferenceProtocol',
@@ -289,3 +290,27 @@ export const deviceManifest = {
 };
 
 export const deviceManifestFailName = 'Python Simulator 88';
+
+export const deviceManifestFail: DeviceManifest = {
+  id: 2000,
+  name: 'Dummy Manifest for Failing',
+  protocol: 'JsonSingleReferenceProtocol',
+  firmwareUpdateProtocol: 'DFUProtocol',
+  description: 'Manifest with non supported features',
+  published: false,
+  feeds: [],
+  actuators: [],
+  alarms: [],
+  configs: [],
+  inUse: false,
+  generallyAvailable: true
+};
+
+export const updateDto = {
+  feeds: [],
+  actuators: [],
+  alarms: [],
+  configs: [],
+  name: 'WRT - Manifest to delete',
+  description: `You shouldn't see this manifest. Test failed`
+};

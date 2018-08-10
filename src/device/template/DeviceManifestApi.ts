@@ -31,6 +31,28 @@ export default class DeviceManifestApi {
 
   }
 
+  public async getDeviceManifest(manifestId: number):
+    Promise<fromRoot.WolkResponse<fromModels.DeviceManifest>> {
+
+    const requestConfig: AxiosRequestConfig = {
+      params: {
+        manifestId
+      }
+    };
+
+    try {
+      const deviceManifest = await this.client.request(
+        'GET',
+        `/api/deviceManifests/${manifestId}`,
+        requestConfig
+      );
+      return deviceManifest;
+    } catch (error) {
+      throw error;
+    }
+
+  }
+
   public async listDeviceManifestsShort():
     Promise<fromRoot.WolkResponse<{name: string, id: number}[]>> {
 

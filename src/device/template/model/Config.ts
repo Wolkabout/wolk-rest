@@ -3,11 +3,11 @@ export interface Config {
   name: string;
   reference: string;
   defaultValue: string;
-  nullValue?: string;
-  description?: string;
-  minimum?: number;
-  maximum?: number;
+  nullValue?: string | null;
+  description?: string | null;
+  minimum?: number | null;
+  maximum?: number | null;
   dataType: string;
   size: number;
-  labels: string[];
+  labels: string[] | null;
 }

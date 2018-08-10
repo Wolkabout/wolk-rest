@@ -5,9 +5,9 @@ export interface FeedManifest {
   reference: string;
   unit: Unit;
   name: string;
-  maximum: number;
+  maximum?: number | null;
   description: string;
   id: number;
-  minimum: number;
+  minimum?: number;
   readingType: ReadingType;
 }
