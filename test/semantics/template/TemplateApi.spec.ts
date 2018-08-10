@@ -61,7 +61,6 @@ describe('Data Semantics - Template API', () => {
 
   context('[POST] /api/templates - FAIL', async () => {
     it('Should fail to create template with same name', async () => {
-
       try {
         const templateDto: fromModel.Template = {
           name: `Template 1`,
@@ -73,9 +72,9 @@ describe('Data Semantics - Template API', () => {
         };
         // Create new Template using Temperature Reading type and its default unit
         await wolkRest.template().createTemplate(templateDto);
-
       } catch ({ code, type, messages }) {
         const message = [...messages].join();
+
         expect(code).to.equals(HTTP_ERRORS.CONFLICT);
         expect(message).to.equals('EXISTING_TEMPLATE_NAME');
       }
@@ -84,7 +83,6 @@ describe('Data Semantics - Template API', () => {
 
   context('[PUT] /api/templates', async () => {
     it('Should update template with attribute, feed, actuator and alarm', async () => {
-
       const templateDto: fromModel.Template = {
         name: `Template ${templateId}`,
         description: 'Template 1 Description IS UPDATED',
@@ -96,15 +94,16 @@ describe('Data Semantics - Template API', () => {
 
       // Create new Template using Temperature Reading type and its default unit
       const { status } = await wolkRest.template().updateTemplate(templateDto);
+
       expect(status).to.equals(200);
     });
   });
 
   context('[DELETE] /api/templates', async () => {
     it('Should delete template', async () => {
-
       // Create new Template using Temperature Reading type and its default unit
       const { status } = await wolkRest.template().deleteTemplate(templateId);
+
       expect(status).to.equals(200);
     });
   });

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import WolkREST from '../../src';
-import brandMock from './resources/brand';
+import * as fromResources from './resources';
 import { getAuthenticatedWolkRestInstance } from '../utils';
 
 describe('Brand API', () => {
@@ -20,7 +20,7 @@ describe('Brand API', () => {
       }
 
       try {
-        await wolkRest.brand().create(brandMock.BRANDING_1);
+        await wolkRest.brand().create(fromResources.brand1);
       } catch (error) {
       }
     });
@@ -29,7 +29,7 @@ describe('Brand API', () => {
       const { data: brandDetails, status } = await wolkRest.brand().read();
 
       expect(status).to.equal(200);
-      expect(brandDetails).to.deep.include(brandMock.BRANDING_1);
+      expect(brandDetails).to.deep.include(fromResources.brand1);
     });
   });
 
@@ -44,7 +44,7 @@ describe('Brand API', () => {
     });
 
     it('Should create new brand', async () => {
-      const { status } = await wolkRest.brand().create(brandMock.BRANDING_1);
+      const { status } = await wolkRest.brand().create(fromResources.brand1);
 
       expect(status).to.equal(201);
     });
@@ -60,13 +60,13 @@ describe('Brand API', () => {
       }
 
       try {
-        await wolkRest.brand().create(brandMock.BRANDING_1);
+        await wolkRest.brand().create(fromResources.brand1);
       } catch (error) {
       }
     });
 
     it('Should update existing brand', async () => {
-      const { status } = await wolkRest.brand().update(brandMock.BRANDING_2);
+      const { status } = await wolkRest.brand().update(fromResources.brand2);
 
       expect(status).to.equal(200);
     });
@@ -82,7 +82,7 @@ describe('Brand API', () => {
       }
 
       try {
-        await wolkRest.brand().create(brandMock.BRANDING_1);
+        await wolkRest.brand().create(fromResources.brand1);
       } catch (error) {
       }
     });
