@@ -1,4 +1,4 @@
-import Brand from '../../brand/model/Brand';
+import { Brand } from '../../brand/model/Brand';
 
 interface ServerDetails {
   maxRulesPerContext: number;

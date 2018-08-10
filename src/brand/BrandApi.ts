@@ -1,12 +1,12 @@
 import { AxiosRequestConfig } from 'axios';
 import Client from '../Client';
-import Brand from './model/Brand';
-import WolkResponse from '../model/WolkResponse';
+import * as fromModels from './model';
+import * as fromRoot from '../model';
 
 export default class BrandApi {
   constructor(private readonly client: Client) {}
 
-  public async create(data: Brand): Promise<WolkResponse<string>> {
+  public async create(data: fromModels.Brand): Promise<fromRoot.WolkResponse<string>> {
     const requestConfig: AxiosRequestConfig = {
       data,
       headers: {
@@ -27,7 +27,7 @@ export default class BrandApi {
     }
   }
 
-  public async read(): Promise<WolkResponse<Brand>> {
+  public async read(): Promise<fromRoot.WolkResponse<fromModels.Brand>> {
     try {
       const brand = await this.client.request(
         'GET',
@@ -40,7 +40,7 @@ export default class BrandApi {
     }
   }
 
-  public async update(data: Brand): Promise<WolkResponse<string>> {
+  public async update(data: fromModels.Brand): Promise<fromRoot.WolkResponse<string>> {
     const requestConfig: AxiosRequestConfig = {
       data,
       headers: {
@@ -61,7 +61,7 @@ export default class BrandApi {
     }
   }
 
-  public async deleteBrand(): Promise<WolkResponse<string>> {
+  public async deleteBrand(): Promise<fromRoot.WolkResponse<string>> {
     try {
       const response = await this.client.request(
         'DELETE',

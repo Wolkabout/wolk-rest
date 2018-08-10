@@ -33,12 +33,14 @@ enum HTTP_ERRORS {
 
   /**
    * A request method is not supported for the requested resource;
-   * for example, a GET request on a form that requires data to be presented via POST, or a PUT request on a read-only resource.
+   * for example, a GET request on a form that requires data to be presented via POST,
+   * or a PUT request on a read-only resource.
    */
   METHOD_NOT_ALLOWED = 405,
 
   /**
-   * The requested resource is capable of generating only content not acceptable according to the Accept headers sent in the request.
+   * The requested resource is capable of generating only content not acceptable according to the
+   * Accept headers sent in the request.
    */
   NOT_ACCEPTABLE = 406,
 
@@ -50,7 +52,8 @@ enum HTTP_ERRORS {
   /**
    * The server timed out waiting for the request.
    * According to HTTP specifications:
-   * "The client did not produce a request within the time that the server was prepared to wait. The client MAY repeat the request without modifications at any later time."
+   * "The client did not produce a request within the time that the server was prepared to wait.
+   * The client MAY repeat the request without modifications at any later time."
    */
   REQUEST_TIMEOUT = 408,
 
@@ -65,7 +68,8 @@ enum HTTP_ERRORS {
    * This should be used when a resource has been intentionally removed and the resource should be purged.
    * Upon receiving a 410 status code, the client should not request the resource in the future.
    * Clients such as search engines should remove the resource from their indices.
-   * Most use cases do not require clients and search engines to purge the resource, and a "404 Not Found" may be used instead.
+   * Most use cases do not require clients and search engines to purge the resource,
+   * and a "404 Not Found" may be used instead.
    */
   GONE = 410,
 
@@ -85,15 +89,16 @@ enum HTTP_ERRORS {
   PAYLOAD_TOO_LARGE = 413,
 
   /**
-   * The URI provided was too long for the server to process. Often the result of too much data being encoded as a query-string of a GET request,
-   * in which case it should be converted to a POST request.
+   * The URI provided was too long for the server to process. Often the result of too much data being encoded
+   * as a query-string of a GET request, in which case it should be converted to a POST request.
    * Called "Request-URI Too Long" previously.
    */
   URI_TOO_LONG = 414,
 
   /**
    * The request entity has a media type which the server or resource does not support.
-   * For example, the client uploads an image as image/svg+xml, but the server requires that images use a different format.
+   * For example, the client uploads an image as image/svg+xml, but the server requires that images
+   * use a different format.
    */
   UNSUPPORTED_MEDIA_TYPE = 415,
 
@@ -110,14 +115,16 @@ enum HTTP_ERRORS {
   EXPECTATION_FAILED = 417,
 
   /**
-   * This code was defined in 1998 as one of the traditional IETF April Fools' jokes, in RFC 2324, Hyper Text Coffee Pot Control Protocol,
-   * and is not expected to be implemented by actual HTTP servers. The RFC specifies this code should be returned by
-   * teapots requested to brew coffee. This HTTP status is used as an Easter egg in some websites, including Google.com.
+   * This code was defined in 1998 as one of the traditional IETF April Fools' jokes, in RFC 2324,
+   * Hyper Text Coffee Pot Control Protocol, and is not expected to be implemented by actual HTTP servers.
+   * The RFC specifies this code should be returned by teapots requested to brew coffee. This HTTP status is
+   * used as an Easter egg in some websites, including Google.com.
    */
   I_AM_A_TEAPOT = 418,
 
   /**
-   * The request was directed at a server that is not able to produce a response (for example because a connection reuse).
+   * The request was directed at a server that is not able to produce a response
+   * (for example because a connection reuse).
    */
   MISDIRECTED_REQUEST = 421,
 
@@ -167,7 +174,8 @@ enum HTTP_ERRORS {
   UNAVAILABLE_FOR_LEGAL_REASONS = 451,
 
   /**
-   * A generic error message, given when an unexpected condition was encountered and no more specific message is suitable.
+   * A generic error message, given when an unexpected condition was encountered
+   * and no more specific message is suitable.
    */
   INTERNAL_SERVER_ERROR = 500,
 
