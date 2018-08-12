@@ -14,6 +14,13 @@
     "no-trailing-whitespace": true,
     "no-debugger": true,
     "no-console": true,
-    "import-name": false
-  }
+    "import-name": false,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "case-insensitive"
+      }
+  ]
+}
 }

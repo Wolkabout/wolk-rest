@@ -1,5 +1,5 @@
-import { Role } from './Role';
 import { Context } from './Context';
+import { Role } from './Role';
 
 export interface ResourceAccess {
   accessToken: string;

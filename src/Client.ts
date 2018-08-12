@@ -1,6 +1,6 @@
-import * as fromRoot from './model';
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosError } from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
 import * as qs from 'qs';
+import * as fromRoot from './model';
 import { WolkError } from './utils';
 
 export default class Client {

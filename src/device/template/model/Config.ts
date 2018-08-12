@@ -11,3 +11,19 @@ export interface Config {
   size: number;
   labels: string[] | null;
 }
+
+export interface DeviceConfig {
+  dataType: string;
+  deviceName: string;
+  labels: string;
+  reference: string;
+  connected: boolean;
+  path: string;
+  size: number;
+  name: string;
+  maximum: number;
+  id: number;
+  minimum: number;
+  value: string;
+  status: string;
+}

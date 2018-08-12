@@ -1,7 +1,7 @@
-import { ActuatorManifest } from './ActuatorManifest';
+import { ActuatorManifest } from './Actuator';
+import { AlarmManifest } from './Alarm';
 import { Config } from './Config';
-import { AlarmManifest } from './AlarmManifest';
-import { FeedManifest } from './FeedManifest';
+import { FeedManifest } from './Feed';
 
 export interface DeviceManifest {
   generallyAvailable: boolean;

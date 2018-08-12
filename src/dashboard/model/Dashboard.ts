@@ -1,7 +1,7 @@
 import { User } from '../../authentication/model/User';
-import { Widget } from './Widget';
 import Permission from './enumeration/Permission';
 import WidgetType from './enumeration/WidgetType';
+import { Widget } from './Widget';
 
 export interface Dashboard {
   creator: User;

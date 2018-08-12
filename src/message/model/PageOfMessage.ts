@@ -1,6 +1,6 @@
 import { Pageable } from '../../model/Pageable';
-import Message from './Message';
 import { Sort } from '../../model/Sort';
+import Message from './Message';
 
 export default interface PageOfMessage {
   number: number;

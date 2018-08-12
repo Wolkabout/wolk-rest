@@ -1,5 +1,5 @@
-import { User } from './User';
 import { ResourceAccess } from './ResourceAccess';
+import { User } from './User';
 
 export interface SignInResponse {
   accessList: ResourceAccess[];

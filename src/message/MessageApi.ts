@@ -1,8 +1,8 @@
 import { AxiosRequestConfig } from 'axios';
 import Client from '../Client';
 import { WolkResponse } from '../model/WolkResponse';
-import PageOfMessage from './model/PageOfMessage';
 import Message from './model/Message';
+import PageOfMessage from './model/PageOfMessage';
 
 export default class MessageApi {
   constructor(private readonly client: Client) { }
