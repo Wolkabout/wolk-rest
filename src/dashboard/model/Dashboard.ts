@@ -14,3 +14,9 @@ export interface Dashboard {
   widgets: Widget[];
   type: WidgetType;
 }
+
+export interface DashboardLight {
+  name: string;
+  id: number;
+  type: string;
+}

@@ -33,3 +33,5 @@ export const readingWidgetDataNoId = {
 };
 
 export const dashboardId = 173;
+
+export const dashboardName = { name: 'WRT Dashboard' };
