@@ -10,24 +10,26 @@ import MessageApi from './message/MessageApi';
 import ProfileApi from './profile/ProfileApi';
 import ReadingTypeApi from './readingType/ReadingTypeApi';
 import TemplateApi from './semantics/template/TemplateApi';
+import UnitApi from './unit/UnitApi';
 
 /**
  * Default constructor.
  * @param baseURL Your WolkAbout IoT Tool host.
  */
 export default class WolkREST {
-  private readonly client: Client;
   private readonly authenticationApi: AuthenticationApi;
   private readonly brandApi: BrandApi;
+  private readonly client: Client;
   private readonly dashboardApi: DashboardApi;
   private readonly deviceApi: DeviceApi;
   private readonly deviceManifestApi: DeviceManifestApi;
   private readonly infoApi: InfoApi;
   private readonly messageApi: MessageApi;
+  private readonly profileApi: ProfileApi;
   private readonly readingTypeApi: ReadingTypeApi;
   private readonly templateApi: TemplateApi;
   private readonly widgetApi: WidgetApi;
-  private readonly profileApi: ProfileApi;
+  private readonly unitApi: UnitApi;
 
   constructor(baseURL: string) {
     this.client = new Client(baseURL);
@@ -38,10 +40,11 @@ export default class WolkREST {
     this.deviceManifestApi = new DeviceManifestApi(this.client);
     this.infoApi = new InfoApi(this.client);
     this.messageApi = new MessageApi(this.client);
+    this.profileApi = new ProfileApi(this.client);
     this.readingTypeApi = new ReadingTypeApi(this.client);
     this.templateApi = new TemplateApi(this.client);
     this.widgetApi = new WidgetApi(this.client);
-    this.profileApi = new ProfileApi(this.client);
+    this.unitApi = new UnitApi(this.client);
   }
 
   auth(): AuthenticationApi {
@@ -62,6 +65,14 @@ export default class WolkREST {
   info(): InfoApi {
     return this.infoApi;
   }
+  message(): MessageApi {
+    return this.messageApi;
+  }
+
+  profile(): ProfileApi {
+    return this.profileApi;
+  }
+
   readingType(): ReadingTypeApi {
     return this.readingTypeApi;
   }
@@ -70,15 +81,12 @@ export default class WolkREST {
     return this.templateApi;
   }
 
+  unit(): UnitApi {
+    return this.unitApi;
+  }
+
   widget(): WidgetApi {
     return this.widgetApi;
   }
 
-  message(): MessageApi {
-    return this.messageApi;
-  }
-
-  profile(): ProfileApi {
-    return this.profileApi;
-  }
 }

@@ -15,3 +15,5 @@ export interface ReadingType {
   name: string;
   id?: number;
 }
+
+export * from '../../unit/model';

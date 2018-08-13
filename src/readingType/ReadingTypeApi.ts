@@ -32,4 +32,23 @@ export default class ReadingTypeApi {
       throw error;
     }
   }
+
+  public async createUnit(data: fromModels.Unit): Promise<fromRoot.WolkResponse<number>> {
+    const requestConfig: AxiosRequestConfig = {
+      data
+    };
+
+    try {
+      const response = await this.client.request(
+        'POST',
+        `/api/readingTypes/${data.readingTypeId}/units`,
+        requestConfig
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+
+  }
+
 }
