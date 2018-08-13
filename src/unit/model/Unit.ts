@@ -9,3 +9,9 @@ export interface Unit {
   name: string;
   context?: number | null;
 }
+
+export interface UnitQuery {
+  page?: number;
+  sort?: string;
+  size?: number;
+}
