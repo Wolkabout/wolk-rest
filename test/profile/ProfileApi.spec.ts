@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import WolkREST from '../../src';
-import { getAuthenticatedWolkRestInstance, isTypeofBoolean, getRandomString } from '../utils';
-import { WA_TEST_USER, WA_TEST_PASS } from '../../src/utils/config';
+import { WA_TEST_PASS, WA_TEST_USER } from '../../src/utils/config';
+import { getAuthenticatedWolkRestInstance, getRandomString, isTypeofBoolean } from '../utils';
 
 describe('Profile API', () => {
   let wolkRest: WolkREST;
@@ -54,14 +54,15 @@ describe('Profile API', () => {
     });
   });
 
-  // TODO: Error: Data after transformation must be a string, an ArrayBuffer, a Buffer, or a Stream
-  // context('[POST] /api/users/me/httpPublishingKey', async () => {
-  //   it('Should get Access Key', async () => {
-  //     const { status } = await wolkRest.profile().getAccessKey(Date.now());
+  context('[POST] /api/users/me/httpPublishingKey', async () => {
+    it('Should get Access Key', async () => {
+      const futureDate = new Date();
+      futureDate.setDate(futureDate.getDate() + 1);
+      const { status } = await wolkRest.profile().getAccessKey(futureDate.getTime());
 
-  //     expect(status).to.equal(200);
-  //   });
-  // });
+      expect(status).to.equal(200);
+    });
+  });
 
   context('[PUT] /api/users/me/passwordChange', async () => {
     it('Should change current user password', async () => {
@@ -70,7 +71,6 @@ describe('Profile API', () => {
         newPassword: WA_TEST_PASS,
         username: WA_TEST_USER
       };
-
       const { status } = await wolkRest.profile().passwordChange(passwordChangeDto);
 
       expect(status).to.equal(200);

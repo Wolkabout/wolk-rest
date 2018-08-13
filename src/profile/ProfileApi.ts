@@ -1,8 +1,8 @@
+import { AxiosRequestConfig } from 'axios';
+import { Permission, User } from '../authentication/model';
 import Client from '../Client';
 import * as fromRoot from '../model';
 import * as fromModels from './model';
-import { Permission, User } from '../authentication/model';
-import { AxiosRequestConfig } from 'axios';
 
 export default class ProfileApi {
   constructor(private readonly client: Client) {}
@@ -101,12 +101,11 @@ export default class ProfileApi {
     }
   }
 
-  // TODO
   public async getAccessKey(expirationDate: number): Promise<fromRoot.WolkResponse<fromModels.StringDto>> {
     const requestConfig: AxiosRequestConfig = {
-      data: expirationDate,
+      data: JSON.stringify(expirationDate),
       headers: {
-        Accept: 'application/json'
+        'Content-Type': 'application/json'
       }
     };
 
