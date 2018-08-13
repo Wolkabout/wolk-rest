@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import WolkREST from '../../../src';
 import * as fromModel from '../../../src/semantics/template/model';
-import HTTP_ERRORS from '../../../src/utils/HTTPErrorsEnum';
 import { getAuthenticatedWolkRestInstance } from '../../utils';
+import { HTTP_ERRORS } from './../../../src/utils/HTTPErrorsEnum';
 
 describe('Data Semantics - Template API', () => {
   let wolkRest: WolkREST;
@@ -57,9 +57,7 @@ describe('Data Semantics - Template API', () => {
       expect(newTemplateId).to.be.a('number');
       expect(status).to.equals(201);
     });
-  });
 
-  context('[POST] /api/templates - FAIL', async () => {
     it('Should fail to create template with same name', async () => {
       try {
         const templateDto: fromModel.Template = {
@@ -73,12 +71,10 @@ describe('Data Semantics - Template API', () => {
         // Create new Template using Temperature Reading type and its default unit
         await wolkRest.template().createTemplate(templateDto);
       } catch ({ code, type, messages }) {
-        const message = [...messages].join();
-
         expect(code).to.equals(HTTP_ERRORS.CONFLICT);
-        expect(message).to.equals('EXISTING_TEMPLATE_NAME');
       }
     });
+
   });
 
   context('[PUT] /api/templates', async () => {
@@ -91,20 +87,44 @@ describe('Data Semantics - Template API', () => {
         alarms: [],
         id: templateId
       };
-
       // Create new Template using Temperature Reading type and its default unit
       const { status } = await wolkRest.template().updateTemplate(templateDto);
 
       expect(status).to.equals(200);
     });
+
+    it('Should fail to update template', async () => {
+      const templateDto: fromModel.Template = {
+        name: `Template ${templateId}`,
+        description: 'Template 1 Description IS UPDATED',
+        feeds: [],
+        actuators: [],
+        alarms: [],
+        id: templateId
+      };
+      const failingDto = Object.assign({}, templateDto, { id: 20000 });
+      try {
+        await wolkRest.template().updateTemplate(templateDto);
+      } catch ({ code }) {
+        expect(code).to.equals(HTTP_ERRORS.NOT_FOUND);
+      }
+    });
+
   });
 
   context('[DELETE] /api/templates', async () => {
     it('Should delete template', async () => {
-      // Create new Template using Temperature Reading type and its default unit
       const { status } = await wolkRest.template().deleteTemplate(templateId);
 
       expect(status).to.equals(200);
+    });
+
+    it('Should fail to delete template', async () => {
+      try {
+        await wolkRest.template().deleteTemplate(templateId);
+      } catch ({ code }) {
+        expect(code).to.equals(HTTP_ERRORS.NOT_FOUND);
+      }
     });
   });
 
