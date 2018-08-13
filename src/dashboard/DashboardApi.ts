@@ -67,7 +67,7 @@ export default class DashboardApi {
 
   public async read(dashboardId: number): Promise<fromRoot.WolkResponse<fromModels.Dashboard>> {
     try {
-      const response: fromRoot.WolkResponse<fromModels.Dashboard> = await this.client.request(
+      const response = await this.client.request(
         'GET',
         `/api/dashboards/${dashboardId}`,
       );
