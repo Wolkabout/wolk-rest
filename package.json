@@ -11,6 +11,7 @@
     "unit-test": "nyc --reporter=istanbul-reporter-badges --reporter=html mocha --opts ./test/mocha.opts test/**/*.spec.*",
     "check-coverage": "nyc check-coverage",
     "test": "npm run unit-test",
+    "prepush": "npm test",
     "pretest": "npm run compile && npm run lint",
     "lint": "tslint --project ./tsconfig.spec.json && tslint --project ./tsconfig.app.json"
   },
@@ -62,6 +63,7 @@
     "@types/qs": "^6.5.1",
     "chai": "^4.1.2",
     "coffeescript": "^2.3.1",
+    "husky": "^0.14.3",
     "istanbul-reporter-badges": "^1.0.2",
     "mocha": "^5.2.0",
     "mocha-typescript": "^1.1.17",
