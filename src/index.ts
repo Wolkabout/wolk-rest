@@ -9,6 +9,7 @@ import InfoApi from './info/InfoApi';
 import MessageApi from './message/MessageApi';
 import ProfileApi from './profile/ProfileApi';
 import ReadingTypeApi from './readingType/ReadingTypeApi';
+import ReportApi from './report/ReportApi';
 import TemplateApi from './semantics/template/TemplateApi';
 import UnitApi from './unit/UnitApi';
 
@@ -27,6 +28,7 @@ export default class WolkREST {
   private readonly messageApi: MessageApi;
   private readonly profileApi: ProfileApi;
   private readonly readingTypeApi: ReadingTypeApi;
+  private readonly reportApi: ReportApi;
   private readonly templateApi: TemplateApi;
   private readonly widgetApi: WidgetApi;
   private readonly unitApi: UnitApi;
@@ -42,6 +44,7 @@ export default class WolkREST {
     this.messageApi = new MessageApi(this.client);
     this.profileApi = new ProfileApi(this.client);
     this.readingTypeApi = new ReadingTypeApi(this.client);
+    this.reportApi = new ReportApi(this.client);
     this.templateApi = new TemplateApi(this.client);
     this.widgetApi = new WidgetApi(this.client);
     this.unitApi = new UnitApi(this.client);
@@ -75,6 +78,10 @@ export default class WolkREST {
 
   readingType(): ReadingTypeApi {
     return this.readingTypeApi;
+  }
+
+  report(): ReportApi {
+    return this.reportApi;
   }
 
   template(): TemplateApi {
