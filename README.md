@@ -51,3 +51,7 @@ This library provides generated [Reference API documentation](https://wolkabout.
 ## Contributing
 
 Contributions are always welcome! Before submitting a Pull Request, it's always good to start with a new issue first. To learn more, see **CONTRIBUTING**.
+
+## License
+
+This library is licensed under [Apache 2.0](LICENSE.md).
