@@ -8,7 +8,9 @@ export default class AuthenticationApi {
 
   public async emailSignIn(data: fromModels.SignInRequest): Promise<fromRoot.WolkResponse<fromModels.SignInResponse>> {
     // Clear client access token
-    this.client.token = '';
+    if (this.client.autoSaveEnabled()) {
+      this.client.clearToken();
+    }
 
     const requestConfig: AxiosRequestConfig = {
       data,
@@ -21,11 +23,14 @@ export default class AuthenticationApi {
       const authResponse = await this.client.request(
         'POST',
         '/api/emailSignIn',
-        requestConfig
+        requestConfig,
+        true // Disable Authorization header
       );
 
       // Save new access token inside client instance
-      this.client.token = authResponse.data.accessList[0].accessToken;
+      if (this.client.autoSaveEnabled()) {
+        this.client.setToken(authResponse.data.accessList[0].accessToken);
+      }
 
       return authResponse;
     } catch (error) {
