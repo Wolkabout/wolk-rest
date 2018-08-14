@@ -7,10 +7,12 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "compile": "tsc && tsc -p tsconfig.spec.json",
+    "generate-doc": "typedoc --out ./docs/ ./src/**/*.ts --target ES6 --module commonjs",
     "build": "rollup -c",
     "unit-test": "nyc --reporter=istanbul-reporter-badges --reporter=html mocha --opts ./test/mocha.opts test/**/*.spec.*",
     "check-coverage": "nyc check-coverage",
     "test": "npm run unit-test",
+    "precommit": "npm run generate-doc",
     "prepush": "npm test",
     "pretest": "npm run compile && npm run lint",
     "lint": "tslint --project ./tsconfig.spec.json && tslint --project ./tsconfig.app.json"
@@ -74,6 +76,7 @@
     "ts-node": "^7.0.0",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
+    "typedoc": "^0.11.1",
     "typescript": "^3.0.1"
   },
   "dependencies": {
