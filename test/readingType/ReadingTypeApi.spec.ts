@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import WolkREST from '../../src';
 import { getAuthenticatedWolkRestInstance } from '../utils';
 import { HTTP_ERRORS } from './../../src/utils/HTTPErrorsEnum';
-import * as fromResources from './resources/index';
+import * as fromResources from './resources';
 
 describe('ReadingType API', () => {
   let wolkRest: WolkREST;
