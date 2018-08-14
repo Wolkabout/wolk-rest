@@ -16,37 +16,50 @@ describe('DeviceTemplate/Manifest API', () => {
     wolkRest = await getAuthenticatedWolkRestInstance();
   });
 
-  it('[GET] /api/deviceManifests', async () => {
-    const { data: deviceManifest, status } =
+  context('[GET] /api/deviceManifests', async () => {
+
+    it('Should get device manifest by name', async () => {
+      const { data: deviceManifest, status } =
       await wolkRest.deviceManifest().getPublicDeviceManifest(fromResources.deviceManifest.name);
 
-    expect(deviceManifest).to.deep.include(fromResources.deviceManifest);
-    expect(status).to.equals(200);
-  });
+      expect(deviceManifest).to.deep.include(fromResources.deviceManifest);
+      expect(status).to.equals(200);
+    });
 
-  it('[GET] /api/deviceManifests/{manifestId}', async () => {
-    const { data: deviceManifest, status } =
+    it('Should fail to find device manifest by name', async () => {
+      try {
+        await wolkRest.deviceManifest().getPublicDeviceManifest(fromResources.deviceManifestFailName);
+      } catch ({ code, type }) {
+        expect(code).to.equals(HTTP_ERRORS.NOT_FOUND);
+      }
+
+    });
+
+    it('Should get manifest details by Id', async () => {
+      const { data: deviceManifest, status } =
       await wolkRest.deviceManifest().getDeviceManifest(fromResources.deviceManifest.id!);
 
-    expect(deviceManifest).to.deep.include(fromResources.deviceManifest);
-    expect(status).to.equals(200);
-  });
+      expect(deviceManifest).to.deep.include(fromResources.deviceManifest);
+      expect(status).to.equals(200);
+    });
 
-  it('[GET] /api/deviceManifests - Fail', async () => {
-    try {
-      await wolkRest.deviceManifest().getPublicDeviceManifest(fromResources.deviceManifestFailName);
-    } catch ({ code, type }) {
-      expect(code).to.equals(HTTP_ERRORS.NOT_FOUND);
-    }
+    it('Should fail to get manifest details by Id', async () => {
+      try {
+        await wolkRest.deviceManifest().getDeviceManifest(2000);
+      } catch ({ code }) {
+        expect(code).to.equals(HTTP_ERRORS.NOT_FOUND);
+      }
 
-  });
+    });
 
-  it('[GET] /api/deviceManifests - Short object', async () => {
-    const { data: deviceManifests, status } =
+    it('Should get device manifest list - short object', async () => {
+      const { data: deviceManifests, status } =
       await wolkRest.deviceManifest().listDeviceManifestsShort();
 
-    expect(deviceManifests).to.be.an('array');
-    expect(status).to.equals(200);
+      expect(deviceManifests).to.be.an('array');
+      expect(status).to.equals(200);
+    });
+
   });
 
   context('[POST] /api/deviceManifests', async () => {
@@ -104,6 +117,16 @@ describe('DeviceTemplate/Manifest API', () => {
 
       expect(status).to.be.equal(200);
     });
+
+    it('Should fail to delete device manifest', async () => {
+      try {
+        await wolkRest.deviceManifest().deleteManifest(newManifestId);
+      } catch ({ code }) {
+        expect(code).to.be.equal(HTTP_ERRORS.NOT_FOUND);
+      }
+
+    });
+
   });
 
   context('[POST] /api/deviceManifests/{manifestId}/devices', async () => {
