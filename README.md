@@ -6,25 +6,51 @@
 
 # WolkAbout SDK
 
-TypeScript and JavaScript SDK for the [WolkAbout REST API](https://restapi.wolkabout.com/).
+Node.js/Web client library for using [WolkAbout REST APIs](https://restapi.wolkabout.com/).
 
 ## Getting Started
 
-The WolkAbout SDK is asynchronous and all functions return promises.
+### Installation
 
-### Creating a client
+This library is distributed on `npm`. In order to add it as a dependency, run the following command:
 
-Create a new instance of the WolkREST with your baseURL.
+`$ npm install wolk-rest`
+
+### First example
+
+Create a new instance of the WolkREST with your baseURL and [SessionStorageConfig](src/model/SessionStorageConfig.ts) [optional].
 
 ```typescript
 const wolkREST = new WolkREST({
   baseURL: 'https://api-verification3.wolksense.com'
 });
+
+// Or use Browser's local storage for saving sessions
+const wolkRESTBrowser = new WolkREST(
+  baseURL: 'https://api-verification3.wolksense.com',
+  {
+    type: 'LOCAL_STORAGE'
+  }
+);
+
+// continue by signing in
+async () => {
+  const user = await wolkRest.auth().emailSignIn({
+    username: 'YOUR_EMAIL',
+    password: 'YOUR_PASSWORD'
+  });
+};
 ```
 
-### Reference API
+### Samples
+There are several **samples**. If you're trying to figure out how to use an API ... look there first! If there's a sample you need missing, feel free to file an **issue**.
 
+### Reference API
 This library provides generated [Reference API documentation](https://wolkabout.github.io/wolk-rest).
+
+## Contributing
+
+Contributions are always welcome! Before submitting a Pull Request, it's always good to start with a new issue first. To learn more, see **CONTRIBUTING**.
 
 ## License
 
