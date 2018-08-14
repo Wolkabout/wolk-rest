@@ -6,7 +6,7 @@ import * as fromModels from './model';
 export default class DeviceManifestApi {
   constructor(private readonly client: Client) { }
 
-  public async getPublicDeviceManifest(manifestName: string):
+  public async getPublicDeviceManifest(manifestName?: string):
     Promise<fromRoot.WolkResponse<fromModels.DeviceManifest>> {
 
     const requestConfig: AxiosRequestConfig = {

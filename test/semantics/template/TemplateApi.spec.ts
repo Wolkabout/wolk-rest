@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import WolkREST from '../../../src';
+import { ReadingType } from '../../../src/readingType/model';
 import * as fromModel from '../../../src/semantics/template/model';
 import { getAuthenticatedWolkRestInstance } from '../../utils';
 import { HTTP_ERRORS } from './../../../src/utils/HTTPErrorsEnum';
@@ -13,11 +14,19 @@ describe('Data Semantics - Template API', () => {
   });
 
   context('[POST] /api/templates', async () => {
-    it('Should create new template with attribute, feed, actuator and alarm', async () => {
+
+    let temperatureReadingType: ReadingType;
+    let switchReadingType: ReadingType;
+    let randomTemplateNumber: number;
+
+    before(async () => {
       const { data: readingTypes } = await wolkRest.readingType().getList();
-      const temperatureReadingType = readingTypes.find(readingType => readingType.name === 'TEMPERATURE');
-      const switchReadingType = readingTypes.find(readingType => readingType.name === 'SWITCH(ACTUATOR)');
-      const randomTemplateNumber = Math.floor(Math.random() * 100); // to avoid creating same name template
+      temperatureReadingType = readingTypes.find(readingType => readingType.name === 'TEMPERATURE') as ReadingType;
+      switchReadingType = readingTypes.find(readingType => readingType.name === 'SWITCH(ACTUATOR)') as ReadingType;
+      randomTemplateNumber = Math.floor(Math.random() * 100); // to avoid creating same name template
+    });
+
+    it('Should create new template with attribute, feed, actuator and alarm', async () => {
 
       const templateDto: fromModel.Template = {
         name: `Template ${randomTemplateNumber}`,
@@ -33,14 +42,14 @@ describe('Data Semantics - Template API', () => {
           {
             name: 'Temperature',
             readingType: temperatureReadingType,
-            unit: temperatureReadingType!.defaultUnit
+            unit: temperatureReadingType.defaultUnit
           }
         ],
         actuators: [
           {
             name: 'Switch',
             readingType: switchReadingType,
-            unit: switchReadingType!.defaultUnit
+            unit: switchReadingType.defaultUnit
           }
         ],
         alarms: [

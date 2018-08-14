@@ -9,6 +9,7 @@
     "compile": "tsc && tsc -p tsconfig.spec.json",
     "build": "rollup -c",
     "unit-test": "nyc --reporter=istanbul-reporter-badges --reporter=html mocha --opts ./test/mocha.opts test/**/*.spec.*",
+    "check-coverage": "nyc check-coverage",
     "test": "npm run unit-test",
     "pretest": "npm run compile && npm run lint",
     "lint": "tslint --project ./tsconfig.spec.json && tslint --project ./tsconfig.app.json"
