@@ -21,3 +21,7 @@ const wolkREST = new WolkREST({
   baseURL: 'https://api-verification3.wolksense.com'
 });
 ```
+
+### Reference API
+
+This library provides generated [Reference API documentation](https://wolkabout.github.io/wolk-rest).
