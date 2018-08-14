@@ -25,3 +25,7 @@ const wolkREST = new WolkREST({
 ### Reference API
 
 This library provides generated [Reference API documentation](https://wolkabout.github.io/wolk-rest).
+
+## License
+
+This library is licensed under [Apache 2.0](LICENSE.md).
