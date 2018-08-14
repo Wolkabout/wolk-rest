@@ -2,8 +2,8 @@ import { expect } from 'chai';
 import WolkREST from '../../../src';
 import { ReadingType } from '../../../src/readingType/model';
 import * as fromModel from '../../../src/semantics/template/model';
+import { HTTP_ERRORS } from '../../../src/utils/HTTPErrorsEnum';
 import { getAuthenticatedWolkRestInstance } from '../../utils';
-import { HTTP_ERRORS } from './../../../src/utils/HTTPErrorsEnum';
 
 describe('Data Semantics - Template API', () => {
   let wolkRest: WolkREST;

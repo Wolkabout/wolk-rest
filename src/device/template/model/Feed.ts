@@ -35,5 +35,5 @@ export interface DeviceSensor {
   reference: string;
   trend: string;
   Unit: Unit;
-  value: null;
+  value: number | null;
 }
