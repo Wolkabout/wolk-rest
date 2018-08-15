@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AccessPermission | WolkREST client library</title>
+	<title>FeedReport | WolkREST client library</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,49 +59,79 @@
 					<a href="../modules/_report_model_index_.html">&quot;report/model/index&quot;</a>
 				</li>
 				<li>
-					<a href="_report_model_index_.accesspermission.html">AccessPermission</a>
+					<a href="_report_model_index_.feedreport.html">FeedReport</a>
 				</li>
 			</ul>
-			<h1>Enumeration AccessPermission</h1>
+			<h1>Interface FeedReport</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">FeedReport</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_report_model_index_.accesspermission.html#read_only" class="tsd-kind-icon">READ_<wbr>ONLY</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_report_model_index_.accesspermission.html#read_write" class="tsd-kind-icon">READ_<wbr>WRITE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_report_model_index_.feedreport.html#feedid" class="tsd-kind-icon">feed<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_report_model_index_.feedreport.html#labels" class="tsd-kind-icon">labels</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_report_model_index_.feedreport.html#path" class="tsd-kind-icon">path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_report_model_index_.feedreport.html#readings" class="tsd-kind-icon">readings</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="read_only" class="tsd-anchor"></a>
-					<h3>READ_<wbr>ONLY</h3>
-					<div class="tsd-signature tsd-kind-icon">READ_<wbr>ONLY<span class="tsd-signature-symbol">:</span> </div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="feedid" class="tsd-anchor"></a>
+					<h3>feed<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">feed<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in report/model/index.ts:47</li>
+							<li>Defined in report/model/index.ts:31</li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="read_write" class="tsd-anchor"></a>
-					<h3>READ_<wbr>WRITE</h3>
-					<div class="tsd-signature tsd-kind-icon">READ_<wbr>WRITE<span class="tsd-signature-symbol">:</span> </div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="labels" class="tsd-anchor"></a>
+					<h3>labels</h3>
+					<div class="tsd-signature tsd-kind-icon">labels<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in report/model/index.ts:48</li>
+							<li>Defined in report/model/index.ts:32</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="path" class="tsd-anchor"></a>
+					<h3>path</h3>
+					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in report/model/index.ts:33</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="readings" class="tsd-anchor"></a>
+					<h3>readings</h3>
+					<div class="tsd-signature tsd-kind-icon">readings<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in report/model/index.ts:34</li>
 						</ul>
 					</aside>
 				</section>
@@ -120,32 +150,38 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="../enums/_report_model_index_.accesspermission.html" class="tsd-kind-icon">Access<wbr>Permission</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="../enums/_report_model_index_.reportrange.html" class="tsd-kind-icon">Report<wbr>Range</a>
+					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="_report_model_index_.accesspermission.html" class="tsd-kind-icon">Access<wbr>Permission</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_report_model_index_.feedreport.html" class="tsd-kind-icon">Feed<wbr>Report</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_report_model_index_.accesspermission.html#read_only" class="tsd-kind-icon">READ_<wbr>ONLY</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_report_model_index_.feedreport.html#feedid" class="tsd-kind-icon">feed<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_report_model_index_.accesspermission.html#read_write" class="tsd-kind-icon">READ_<wbr>WRITE</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_report_model_index_.feedreport.html#labels" class="tsd-kind-icon">labels</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_report_model_index_.feedreport.html#path" class="tsd-kind-icon">path</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_report_model_index_.feedreport.html#readings" class="tsd-kind-icon">readings</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="_report_model_index_.reportrange.html" class="tsd-kind-icon">Report<wbr>Range</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_report_model_index_.reportdto.html" class="tsd-kind-icon">Report<wbr>Dto</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_report_model_index_.feedreport.html" class="tsd-kind-icon">Feed<wbr>Report</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_report_model_index_.reportdto.html" class="tsd-kind-icon">Report<wbr>Dto</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_report_model_index_.reportshortdto.html" class="tsd-kind-icon">Report<wbr>Short<wbr>Dto</a>
+						<a href="_report_model_index_.reportshortdto.html" class="tsd-kind-icon">Report<wbr>Short<wbr>Dto</a>
 					</li>
 				</ul>
 			</nav>
