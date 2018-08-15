@@ -56,4 +56,31 @@ export default class ReportApi {
     }
   }
 
+  public async getReportByFeed(params: { feedIds?: number[], from?: number, to?: number } = {}):
+    Promise<fromRoot.WolkResponse<fromModels.FeedReport[]>> {
+    const { from, to, feedIds = [] } = params;
+
+    const requestConfig: AxiosRequestConfig = {
+      params: {
+        from,
+        to,
+        feedIds: feedIds.join(','),
+      },
+      headers: {
+        Accept: 'APPLICATION/VND.FEEDREPORT+JSON'
+      }
+    };
+
+    try {
+      const reportList = await this.client.request(
+        'GET',
+        '/api/reports',
+        requestConfig
+      );
+      return reportList;
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }
