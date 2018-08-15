@@ -1,7 +1,7 @@
-![coverage-lines-badge](https://img.shields.io/badge/Lines-79.25%25%20%28378%2F477%29-yellow.svg)
-![coverage-statements-badge](https://img.shields.io/badge/Statements-79.23%25%20%28435%2F549%29-yellow.svg)
-![coverage-functions-badge](https://img.shields.io/badge/Functions-82.79%25%20%28101%2F122%29-yellow.svg)
-![coverage-branches-badge](https://img.shields.io/badge/Branches-52.94%25%20%2827%2F51%29-yellow.svg)
+![coverage-lines-badge](https://img.shields.io/badge/Lines-79.59%25%20%28386%2F485%29-yellow.svg)
+![coverage-statements-badge](https://img.shields.io/badge/Statements-79.61%25%20%28445%2F559%29-yellow.svg)
+![coverage-functions-badge](https://img.shields.io/badge/Functions-82.93%25%20%28102%2F123%29-yellow.svg)
+![coverage-branches-badge](https://img.shields.io/badge/Branches-56.36%25%20%2831%2F55%29-yellow.svg)
 ![Local Coverage-shield-badge-1](https://img.shields.io/badge/Local%20Coverage-100%25-brightgreen.svg)
 
 # WolkAbout SDK

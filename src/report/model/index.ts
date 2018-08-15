@@ -27,6 +27,13 @@ export interface ReportShortDto {
   };
 }
 
+export interface FeedReport {
+  feedId: number;
+  labels: string[];
+  path: string;
+  readings: object[];
+}
+
 export enum ReportRange {
   TODAY,
   YESTERDAY,
