@@ -35,6 +35,15 @@ describe('Report API', () => {
       expect(feedReports[0].path).to.equals('QA Device/Temperature');
     });
 
+    it('Should fail to get reports by feed Ids', async () => {
+      try {
+        await wolkRest.report().getReportByFeed();
+      } catch ({ code }) {
+        expect(code).to.equal(400);
+      }
+
+    });
+
   });
 
   context('[POST] /api/report', async () => {
