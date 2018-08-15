@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from 'axios';
 import Client from '../Client';
 import * as fromRoot from '../model';
 
-export default class DeviceManifestApi {
+export default class DeviceApi {
   constructor(private readonly client: Client) { }
 
   public async deleteBulk(deviceIds: number[]): Promise <fromRoot.WolkResponse<any>> {

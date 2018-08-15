@@ -31,3 +31,18 @@ export async function getAuthenticatedWolkRestInstance(): Promise<WolkREST> {
 
   return wolkRest;
 }
+
+/**
+ * Helper function to be used for test preparation
+ * @returns {Promise<WolkREST>} Authenticated user with no rights on platform
+ */
+export async function getUserWithNoRights(): Promise<WolkREST> {
+  const wolkRest = new WolkREST(fromConfig.WA_TEST_BASEURL);
+
+  await wolkRest.auth().emailSignIn({
+    username: fromConfig.WA_TEST_USER_NO_ACCESS,
+    password: fromConfig.WA_TEST_PASS_NO_ACCESS
+  });
+
+  return wolkRest;
+}
