@@ -44,4 +44,16 @@ export default class ReportApi {
     }
   }
 
+  public async listReports(): Promise<fromRoot.WolkResponse<fromModels.ReportShortDto[]>> {
+    try {
+      const reportList = await this.client.request(
+        'GET',
+        '/api/reports'
+      );
+      return reportList;
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }

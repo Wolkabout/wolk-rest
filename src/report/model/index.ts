@@ -16,6 +16,17 @@ export interface ReportDto {
   id?: number;
 }
 
+export interface ReportShortDto {
+  reportRange: ReportRange;
+  name: string;
+  contextId: number;
+  id: number;
+  readingType: {
+    name: string,
+    id: number
+  };
+}
+
 export enum ReportRange {
   TODAY,
   YESTERDAY,
