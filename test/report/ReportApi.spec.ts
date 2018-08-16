@@ -46,6 +46,18 @@ describe('Report API', () => {
 
   });
 
+  context('[GET] /api/reports/snapshotForFeeds', async () => {
+    it('Should get snapshot reports by feed Ids', async () => {
+      const { data: snapshot, status } =
+        await wolkRest.report().getDataSnapshot(fromResources.reportByFeeds);
+
+      const { reports } = snapshot;
+
+      expect(status).to.equal(200);
+      expect(reports[0].path).to.equals('QA Device/Temperature');
+    });
+  });
+
   context('[POST] /api/report', async () => {
     let createdReportId: number;
     it('Should create new Report from DTO', async () => {
