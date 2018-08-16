@@ -6,7 +6,7 @@ import { WolkError } from './utils';
 
 export default class Client {
   private readonly _axios: AxiosInstance;
-  private readonly _storage!: SessionStorage;
+  private readonly _storage: SessionStorage;
 
   constructor(baseURL: string, storage: SessionStorage) {
     this._axios = axios.create({
