@@ -12,7 +12,6 @@
     "unit-test": "nyc --reporter=istanbul-reporter-badges --reporter=html mocha --opts ./test/mocha.opts test/**/*.spec.*",
     "check-coverage": "nyc check-coverage",
     "test": "npm run unit-test",
-    "precommit": "npm run docs",
     "prepush": "npm test",
     "pretest": "npm run compile && npm run lint",
     "lint": "tslint --project ./tsconfig.spec.json && tslint --project ./tsconfig.app.json"
