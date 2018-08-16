@@ -83,4 +83,31 @@ export default class ReportApi {
     }
   }
 
+  public async getDataSnapshot(params: { feedIds: number[], from?: number, to?: number }):
+    Promise<fromRoot.WolkResponse<fromModels.DataSnapshot>> {
+    const { from, to, feedIds = [] } = params;
+
+    const requestConfig: AxiosRequestConfig = {
+      params: {
+        from,
+        to,
+        feedIds: feedIds.join(','),
+      },
+      headers: {
+        Accept: 'APPLICATION/VND.SNAPSHOT.WITH.INTERVAL.V2+JSON'
+      }
+    };
+
+    try {
+      const reportList = await this.client.request(
+        'GET',
+        '/api/reports/snapshotForFeeds',
+        requestConfig
+      );
+      return reportList;
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }
