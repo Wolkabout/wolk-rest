@@ -7,11 +7,14 @@ import DeviceApi from './device/DeviceApi';
 import DeviceManifestApi from './device/template/DeviceManifestApi';
 import InfoApi from './info/InfoApi';
 import MessageApi from './message/MessageApi';
+import { SessionStorage } from './model/SessionStorage';
 import ProfileApi from './profile/ProfileApi';
 import ReadingTypeApi from './readingType/ReadingTypeApi';
 import ReportApi from './report/ReportApi';
 import TemplateApi from './semantics/template/TemplateApi';
 import UnitApi from './unit/UnitApi';
+import BrowserLocalStorage from './utils/BrowserLocalStorage';
+import InMemoryStorage from './utils/InMemoryStorage';
 
 /**
  * Default constructor.
@@ -33,8 +36,10 @@ export default class WolkREST {
   private readonly widgetApi: WidgetApi;
   private readonly unitApi: UnitApi;
 
-  constructor(baseURL: string) {
-    this.client = new Client(baseURL);
+  constructor(baseURL: string, storage: SessionStorage = new InMemoryStorage()) {
+    this.client = new Client(baseURL, storage);
+
+    // APIs
     this.authenticationApi = new AuthenticationApi(this.client);
     this.brandApi = new BrandApi(this.client);
     this.dashboardApi = new DashboardApi(this.client);
@@ -97,3 +102,8 @@ export default class WolkREST {
   }
 
 }
+
+export {
+  BrowserLocalStorage,
+  InMemoryStorage
+};

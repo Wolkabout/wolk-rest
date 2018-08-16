@@ -1,10 +1,15 @@
 import { SessionStorage } from '../model/SessionStorage';
+import { supportsLocalStorage } from './helpers';
 
 export default class BrowserLocalStorage implements SessionStorage {
   private readonly _tokenKey: string;
 
   constructor() {
     this._tokenKey = 'wa-token';
+
+    if (!supportsLocalStorage()) {
+      throw new Error('BrowserLocalStorage can only be initialized in browser with Local Storage support.');
+    }
   }
 
   /**
