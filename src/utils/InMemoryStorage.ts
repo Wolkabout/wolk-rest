@@ -1,33 +1,32 @@
-import { AxiosInstance } from 'axios';
 import { SessionStorage } from '../model/SessionStorage';
 
 export default class InMemoryStorage implements SessionStorage {
-  private readonly _axios: AxiosInstance;
+  private _token: string;
 
-  constructor(axios: AxiosInstance) {
-    this._axios = axios;
+  constructor() {
+    this._token = '';
   }
 
   /**
-   * Get Axios Authorization header
+   * Return token
    * @returns {String} Token
    */
   public getToken(): string {
-    return this._axios.defaults.headers.common.Authorization || '';
+    return this._token;
   }
 
   /**
-   * Set token on Axios Authorization header
+   * Set token
    * @param {String} token Retrieved by register or login
    */
   public setToken(token: string): void {
-    this._axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    this._token = `Bearer ${token}`;
   }
 
   /**
-   * Delete token from Axios Authorization header
+   * Delete token
    */
   public clearToken(): void {
-    delete this._axios.defaults.headers.common.Authorization;
+    this._token = '';
   }
 }
