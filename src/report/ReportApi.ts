@@ -122,4 +122,21 @@ export default class ReportApi {
     }
   }
 
+  public async updateReport(reportDto: fromModels.ReportDto): Promise<fromRoot.WolkResponse<any>> {
+    const requestConfig: AxiosRequestConfig = {
+      data: reportDto
+    };
+
+    try {
+      const response = await this.client.request(
+        'PUT',
+        `/api/reports/${reportDto.id}`,
+        requestConfig
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }
