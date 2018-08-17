@@ -12,6 +12,7 @@ export const humidityReportFail = {
   feedIds: [3727],
   name: 'WRT Humidity Report FAIL',
   reportRange: ReportRange.TODAY,
+  id:0
 };
 
 export const reportByFeeds = {
@@ -19,3 +20,5 @@ export const reportByFeeds = {
   to:1534370399000,
   feedIds: [3725],
 };
+
+export const feedIdForReport = 4345;
