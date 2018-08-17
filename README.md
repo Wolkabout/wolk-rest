@@ -18,20 +18,10 @@ This library is distributed on `npm`. In order to add it as a dependency, run th
 
 ### First example
 
-Create a new instance of the WolkREST with your baseURL and [SessionStorageConfig](src/model/SessionStorageConfig.ts) [optional].
+Create a new instance of the WolkREST with your baseURL and [SessionStorage](src/model/SessionStorage.ts) [optional].
 
 ```typescript
-const wolkREST = new WolkREST({
-  baseURL: 'https://api-verification3.wolksense.com'
-});
-
-// Or use Browser's local storage for saving sessions
-const wolkRESTBrowser = new WolkREST(
-  baseURL: 'https://api-verification3.wolksense.com',
-  {
-    type: 'LOCAL_STORAGE'
-  }
-);
+const wolkREST = new WolkREST('https://api-verification3.wolksense.com');
 
 // continue by signing in
 async () => {
@@ -43,14 +33,17 @@ async () => {
 ```
 
 ### Samples
-There are several **samples**. If you're trying to figure out how to use an API ... look there first! If there's a sample you need missing, feel free to file an **issue**.
+There are several **samples**. If you're trying to figure out how to use an API ... look there first!
+If there's a sample you need missing, feel free to file an [issue](https://github.com/Wolkabout/wolk-rest/issues/new).
 
 ### Reference API
 This library provides generated [Reference API documentation](https://wolkabout.github.io/wolk-rest).
 
 ## Contributing
 
-Contributions are always welcome! Before submitting a Pull Request, it's always good to start with a new issue first. To learn more, see **CONTRIBUTING**.
+Contributions are always welcome! Please read the contribution guidelines first.
+- [Contributing guide](.github/CONTRIBUTING.md)
+- [Code of Conduct](.github/CODE_OF_CONDUCT.md)
 
 ## License
 
