@@ -6,8 +6,7 @@ export const humidityReport: ReportDto = {
   reportRange: ReportRange.TODAY,
   readingType: {
     id: 4
-  },
-  id: 84
+  }
 };
 export const humidityReportFail = {
   feedIds: [3727],

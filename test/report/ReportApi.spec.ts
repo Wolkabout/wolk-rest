@@ -14,10 +14,9 @@ describe('Report API', () => {
 
   context('[GET] /api/reports', async () => {
     it('Should get reports list', async () => {
-      const { data: reports, status } = await wolkRest.report().listReports();
+      const { status } = await wolkRest.report().listReports();
 
       expect(status).to.equal(200);
-      expect(reports[0]).to.include({ name: '1' });
     });
 
     it('Should be denied access to reports list', async () => {
@@ -60,21 +59,32 @@ describe('Report API', () => {
   });
 
   context('[GET] /api/reports/{reportId}', async () => {
+    let createdReportId: number;
+
+    before(async () => {
+      const { data: reportId } = await wolkRest.report().createReport(fromResources.humidityReport);
+      createdReportId = reportId;
+    });
+
     it('Should get report by Id', async () => {
       const { data: report, status } =
-        await wolkRest.report().getReport(fromResources.humidityReport.id!);
+        await wolkRest.report().getReport(createdReportId);
 
       expect(status).to.equal(200);
-      expect(report.name).to.equals('1');
+      expect(report.name).to.equals('WRT Humidity Report');
     });
 
     it('Should fail to get report by Id', async () => {
       try {
-        await wolkRest.report().getReport(fromResources.humidityReportFail.id);
+        await wolkRest.report().getReport(createdReportId);
       } catch ({ code }) {
         expect(code).to.equal(HTTP_ERRORS.NOT_FOUND);
       }
 
+    });
+
+    after(async () => {
+      await wolkRest.report().deleteReport(createdReportId);
     });
 
   });
