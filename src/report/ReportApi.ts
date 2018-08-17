@@ -174,7 +174,7 @@ export default class ReportApi {
     try {
       const response = await this.client.request(
         'DELETE',
-        `/api/reports/${reportId}/${feedId}`,
+        `/api/reports/${reportId}/feeds/${feedId}`,
       );
       return response;
     } catch (error) {
@@ -182,7 +182,7 @@ export default class ReportApi {
     }
   }
 
-  public async getDataSnapshotForFeeds(params: { feedIds: number[], from?: number, to?: number }):
+  public async getDataSnapshotForFeeds(reportId:number, params: { feedIds: number[], from?: number, to?: number }):
     Promise<fromRoot.WolkResponse<fromModels.DataSnapshot>> {
     const { from, to, feedIds = [] } = params;
 
@@ -200,7 +200,7 @@ export default class ReportApi {
     try {
       const reportList = await this.client.request(
         'GET',
-        '/api/reports/snapshotForFeeds',
+        `/api/reports/${reportId}/snapshotFromTo`,
         requestConfig
       );
       return reportList;
