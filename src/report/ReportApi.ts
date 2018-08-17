@@ -110,4 +110,16 @@ export default class ReportApi {
     }
   }
 
+  public async getReport(reportId: number): Promise<fromRoot.WolkResponse<fromModels.ReportDto>> {
+    try {
+      const reportList = await this.client.request(
+        'GET',
+        `/api/reports/${reportId}`,
+      );
+      return reportList;
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }
