@@ -1,6 +1,7 @@
 import { User } from '../../authentication/model';
 import { DeviceSensor } from '../../device/template/model/Feed';
 import { ReadingType } from '../../readingType/model';
+import { FeedTemplate } from '../../semantics/template/model';
 import { Unit } from './../../unit/model/Unit';
 
 export interface ReportDto {
@@ -14,7 +15,7 @@ export interface ReportDto {
   roleName?: string;
   name: string;
   feeds?: DeviceSensor[];
-  readingType?: {id: number};
+  readingType?: { id: number };
   id?: number;
 }
 
@@ -62,16 +63,16 @@ export interface DataSnapshot {
 
 export interface ReportMessage {
   severity: string;
-  sourceId : number;
-  path : string;
-  read : boolean;
-  data : string;
-  sourceType : string;
-  description : string;
-  contextId : number;
-  type : string;
-  userId : number;
-  timestamp : number;
+  sourceId: number;
+  path: string;
+  read: boolean;
+  data: string;
+  sourceType: string;
+  description: string;
+  contextId: number;
+  type: string;
+  userId: number;
+  timestamp: number;
 }
 
 export enum ReportRange {
@@ -86,4 +87,19 @@ export enum ReportRange {
 export enum AccessPermission {
   READ_ONLY,
   READ_WRITE
+}
+
+export interface FeedReport extends FeedTemplate {
+  trend: string;
+  connectionState: string;
+  alarmMessage: string;
+  deviceName: string;
+  reference: string;
+  connected: boolean;
+  path: string;
+  alarmState: string;
+  alarmLimitsPresent: boolean;
+  maximum: number;
+  minimum: number;
+  value: string;
 }

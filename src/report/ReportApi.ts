@@ -139,4 +139,74 @@ export default class ReportApi {
     }
   }
 
+  public async createReportFeed(reportId:number, feedIds:number[]): Promise<fromRoot.WolkResponse<number>> {
+    const requestConfig: AxiosRequestConfig = {
+      data: feedIds
+    };
+
+    try {
+      const response = await this.client.request(
+        'POST',
+        `/api/reports/${reportId}/feeds`,
+        requestConfig
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async listReportFeeds(reportId: number):
+    Promise<fromRoot.WolkResponse<fromModels.FeedReport[]>> {
+    try {
+      const reportList = await this.client.request(
+        'GET',
+        `/api/reports/${reportId}/feeds`
+      );
+      return reportList;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async deleteReportFeed(reportId: number, feedId: number): Promise<fromRoot.WolkResponse<any>> {
+
+    try {
+      const response = await this.client.request(
+        'DELETE',
+        `/api/reports/${reportId}/${feedId}`,
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async getDataSnapshotForFeeds(params: { feedIds: number[], from?: number, to?: number }):
+    Promise<fromRoot.WolkResponse<fromModels.DataSnapshot>> {
+    const { from, to, feedIds = [] } = params;
+
+    const requestConfig: AxiosRequestConfig = {
+      params: {
+        from,
+        to,
+        feedIds: feedIds.join(','),
+      },
+      headers: {
+        Accept: 'APPLICATION/VND.SNAPSHOT.WITH.INTERVAL.V2+JSON'
+      }
+    };
+
+    try {
+      const reportList = await this.client.request(
+        'GET',
+        '/api/reports/snapshotForFeeds',
+        requestConfig
+      );
+      return reportList;
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }
