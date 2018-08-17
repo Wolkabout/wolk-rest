@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import WolkREST from '../../src';
-import { getAuthenticatedWolkRestInstance, getUserWithNoRights } from '../utils';
+import { getAuthenticatedWolkRestInstance } from '../utils';
+import * as fromModel from './../../src/report/model/';
 import { HTTP_ERRORS } from './../../src/utils/HTTPErrorsEnum';
 import * as fromResources from './resources';
 
@@ -29,7 +30,7 @@ describe('Report API', () => {
 
     it('Should get reports by feed Ids', async () => {
       const { data: feedReports, status } =
-      await wolkRest.report().getReportByFeed(fromResources.reportByFeeds);
+        await wolkRest.report().getReportByFeed(fromResources.reportByFeeds);
 
       expect(status).to.equal(200);
       expect(feedReports[0].path).to.equals('QA Device/Temperature');
@@ -122,4 +123,31 @@ describe('Report API', () => {
       }
     });
   });
+
+  context('[PUT] /api/report/{reportId}', async () => {
+    let reportToUpdate: fromModel.ReportDto;
+
+    before(async () => {
+      const { data: reportId } = await wolkRest.report().createReport(fromResources.humidityReport);
+      reportToUpdate = Object.assign({}, fromResources.humidityReport, { id: reportId });
+    });
+
+    it('Should fail to UPDATE report with given ID', async () => {
+      try {
+        await wolkRest.report().updateReport(fromResources.humidityReportFail);
+      } catch ({ code }) {
+        expect(code).to.equal(HTTP_ERRORS.BAD_REQUEST);
+      }
+    });
+
+    it('Should UPDATE report with given ID', async () => {
+      const { status } = await wolkRest.report().updateReport(reportToUpdate);
+      expect(status).to.equal(200);
+    });
+
+    after(async () => {
+      await wolkRest.report().deleteReport(reportToUpdate.id!);
+    });
+  });
+
 });
