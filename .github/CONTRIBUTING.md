@@ -1,4 +1,4 @@
-# Contributing to Get Headlines
+# Contributing to WolkAbout client library
 
 First off, thanks for taking the time to contribute! We would love for you to contribute to WolkAbout client library
 and help make it better!
