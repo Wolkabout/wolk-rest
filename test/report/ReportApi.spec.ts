@@ -160,4 +160,104 @@ describe('Report API', () => {
     });
   });
 
+  context('[GET] /api/report/{reportId}/feeds', async () => {
+    let createdReportId: number;
+    before(async () => {
+      const { data: reportId } = await wolkRest.report().createReport(fromResources.humidityReport);
+      createdReportId = reportId;
+    });
+
+    it('Should GET report feeds with given ID', async () => {
+      const { status } = await wolkRest.report().listReportFeeds(createdReportId);
+      expect(status).to.equal(200);
+    });
+
+    after(async () => {
+      await wolkRest.report().deleteReport(createdReportId);
+    });
+
+    it('Should fail to GET report feeds with given ID', async () => {
+      try {
+        await wolkRest.report().listReportFeeds(createdReportId);
+      } catch ({ code }) {
+        expect(code).to.equal(HTTP_ERRORS.NOT_FOUND);
+      }
+    });
+
+  });
+
+  context('[POST] /api/report/{reportId}/feeds', async () => {
+    let createdReportId: number;
+    before(async () => {
+      const { data: reportId } = await wolkRest.report().createReport(fromResources.humidityReport);
+      createdReportId = reportId;
+    });
+
+    it('Should CREATE report feed with given ID', async () => {
+      const { status } = await wolkRest.report().createReportFeed(createdReportId, [fromResources.feedIdForReport]);
+      expect(status).to.equal(201);
+    });
+
+    after(async () => {
+      await wolkRest.report().deleteReport(createdReportId);
+    });
+
+  });
+
+  context('[DELETE] /api/report/{reportId}/feeds', async () => {
+    let createdReportId: number;
+    before(async () => {
+      const { data: reportId } = await wolkRest.report().createReport(fromResources.humidityReport);
+      createdReportId = reportId;
+      await wolkRest.report().createReportFeed(createdReportId, [fromResources.feedIdForReport]);
+    });
+
+    it('Should DELETE report feed with given ID', async () => {
+      const { status } = await wolkRest.report().deleteReportFeed(createdReportId, fromResources.feedIdForReport);
+      expect(status).to.equal(200);
+    });
+
+    after(async () => {
+      await wolkRest.report().deleteReport(createdReportId);
+    });
+
+    it('Should fail to DELETE report feed with given ID', async () => {
+      try {
+        await wolkRest.report().deleteReportFeed(createdReportId, fromResources.feedIdForReport);
+      } catch ({ code }) {
+        expect(code).to.equal(HTTP_ERRORS.NOT_FOUND);
+      }
+    });
+
+  });
+
+  context('[GET] /api/reports/{reportId}/snapshotFromTo', async () => {
+    let createdReportId: number;
+    before(async () => {
+      const { data: reportId } = await wolkRest.report().createReport(fromResources.humidityReport);
+      createdReportId = reportId;
+    });
+
+    it('Should get feed snapshot by feed Ids', async () => {
+      const { status } =
+        await wolkRest.report().getDataSnapshotForFeeds(createdReportId, fromResources.reportByFeeds);
+
+      expect(status).to.equal(200);
+    });
+
+    after(async () => {
+      await wolkRest.report().deleteReport(createdReportId);
+    });
+
+    it('Should get fail to get snapshot by feed Ids', async () => {
+      try {
+        await wolkRest.report().getDataSnapshotForFeeds(createdReportId, fromResources.reportByFeeds);
+      } catch ({ code }) {
+        expect(code).to.equal(HTTP_ERRORS.NOT_FOUND);
+      }
+
+    });
+
+  });
+
 });
