@@ -58,6 +58,26 @@ describe('Report API', () => {
     });
   });
 
+  context('[GET] /api/reports/{reportId}', async () => {
+    it('Should get report by Id', async () => {
+      const { data: report, status } =
+        await wolkRest.report().getReport(fromResources.humidityReport.id!);
+
+      expect(status).to.equal(200);
+      expect(report.name).to.equals('1');
+    });
+
+    it('Should fail to get report by Id', async () => {
+      try {
+        await wolkRest.report().getReport(fromResources.humidityReportFail.id);
+      } catch ({ code }) {
+        expect(code).to.equal(HTTP_ERRORS.NOT_FOUND);
+      }
+
+    });
+
+  });
+
   context('[POST] /api/report', async () => {
     let createdReportId: number;
     it('Should create new Report from DTO', async () => {
