@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import WolkREST from '../../src';
+import { WolkREST } from '../../src';
 import { getAuthenticatedWolkRestInstance } from '../utils';
 import * as fromResources from './resources';
 

@@ -1,5 +1,8 @@
-import typescript from 'rollup-plugin-typescript2'
-import pkg from './package.json'
+import typescript from 'rollup-plugin-typescript2';
+import pkg from './package.json';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+
 
 export default {
   /**
@@ -31,18 +34,26 @@ export default {
     // pkg.dependencies will get installed by the module consumer’s Yarn/Npm
     ...Object.keys(pkg.dependencies || {}),
     // pkg.peerDependencies are expected to be installed by the consumer
-    ...Object.keys(pkg.peerDependencies || {}),
+    // ...Object.keys(pkg.peerDependencies || {})
   ],
-plugins: [
-  /**
-   * https://github.com/ezolenko/rollup-plugin-typescript2
-   * When typescript version installed by the plugin (latest 2.x) is unacceptable,
-   * you can import your own typescript module and pass it in as typescript: require("typescript").
-   * Must be 2.0+
-   */
+  plugins: [
+
+    /**
+     * https://github.com/ezolenko/rollup-plugin-typescript2
+     * When typescript version installed by the plugin (latest 2.x) is unacceptable,
+     * you can import your own typescript module and pass it in as typescript: require("typescript").
+     * Must be 2.0+
+     */
     typescript({
       tsconfig: "tsconfig.app.json",
+      rollupCommonJSResolveHack: true,
       typescript: require('typescript'),
     }),
+    resolve({
+      preferBuiltins: false,
+      jsnext: true,
+      main: true,
+      browser: true}),
+    commonjs()
   ],
 }

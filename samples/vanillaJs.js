@@ -10,12 +10,13 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License
-const WolkREST, { InMemoryStorage } = require('../dist');
-const wolkRest = new WolkREST('https://api-demo.wolkabout.com/');
+const { WolkREST, BrowserLocalStorage, InMemoryStorage } = require('../dist');
+const wolkRest = new WolkREST('https://api-demo.wolkabout.com/', new InMemoryStorage());
 
 const signIn = () => {
+
   wolkRest.auth().emailSignIn(
-    { username: 'radoslav.mirkov@wolkabout.com', password: 'Test1234' }
+    { username: 'username', password: 'password' }
   )
     .then(({ data: userDetails }) => console.log(userDetails))
     .catch(errorData => console.error(errorData))

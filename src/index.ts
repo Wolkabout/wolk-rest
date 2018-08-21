@@ -13,14 +13,13 @@ import ReadingTypeApi from './readingType/ReadingTypeApi';
 import ReportApi from './report/ReportApi';
 import TemplateApi from './semantics/template/TemplateApi';
 import UnitApi from './unit/UnitApi';
-import BrowserLocalStorage from './utils/BrowserLocalStorage';
-import InMemoryStorage from './utils/InMemoryStorage';
+import { InMemoryStorage } from './utils/';
 
 /**
  * Default constructor.
  * @param baseURL Your WolkAbout IoT Tool host.
  */
-export default class WolkREST {
+export class WolkREST {
   private readonly authenticationApi: AuthenticationApi;
   private readonly brandApi: BrandApi;
   private readonly client: Client;
@@ -103,7 +102,4 @@ export default class WolkREST {
 
 }
 
-export {
-  BrowserLocalStorage,
-  InMemoryStorage
-};
+export * from './utils';

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import WolkREST from '../../src';
+import { WolkREST } from '../../src';
 import { WA_TEST_PASS, WA_TEST_USER } from '../../src/utils/config';
 import { getAuthenticatedWolkRestInstance, getRandomString, isTypeofBoolean } from '../utils';
 

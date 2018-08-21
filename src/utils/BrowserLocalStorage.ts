@@ -1,7 +1,7 @@
 import { SessionStorage } from '../model/SessionStorage';
 import { supportsLocalStorage } from './helpers';
 
-export default class BrowserLocalStorage implements SessionStorage {
+export class BrowserLocalStorage implements SessionStorage {
   private readonly _tokenKey: string;
 
   constructor() {
