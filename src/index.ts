@@ -13,7 +13,7 @@ import ReadingTypeApi from './readingType/ReadingTypeApi';
 import ReportApi from './report/ReportApi';
 import TemplateApi from './semantics/template/TemplateApi';
 import UnitApi from './unit/UnitApi';
-import { InMemoryStorage } from './utils/';
+import { InMemoryStorage } from './utils/InMemoryStorage';
 
 /**
  * Default constructor.
@@ -101,5 +101,3 @@ export class WolkREST {
   }
 
 }
-
-export * from './utils';
