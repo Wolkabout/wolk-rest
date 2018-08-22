@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "es6", /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
-      "declaration": false, /* Generates corresponding '.d.ts' file. */
+      "declaration": true, /* Generates corresponding '.d.ts' file. */
       "declarationDir": "./dist", /* Redirect typings output to the directory. */
   },
   "include": [
