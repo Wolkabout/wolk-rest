@@ -1,10 +1,10 @@
-![coverage-lines-badge](https://img.shields.io/badge/Lines-81.45%25%20%28417%2F512%29-yellow.svg)
-![coverage-statements-badge](https://img.shields.io/badge/Statements-81.76%25%20%28484%2F592%29-yellow.svg)
-![coverage-functions-badge](https://img.shields.io/badge/Functions-85.5%25%20%28112%2F131%29-brightgreen.svg)
+![coverage-lines-badge](https://img.shields.io/badge/Lines-76.91%25%20%28393%2F511%29-yellow.svg)
+![coverage-statements-badge](https://img.shields.io/badge/Statements-76.56%25%20%28454%2F593%29-yellow.svg)
+![coverage-functions-badge](https://img.shields.io/badge/Functions-78.63%25%20%28103%2F131%29-yellow.svg)
 ![coverage-branches-badge](https://img.shields.io/badge/Branches-63.83%25%20%2830%2F47%29-yellow.svg)
 ![Local Coverage-shield-badge-1](https://img.shields.io/badge/Local%20Coverage-100%25-brightgreen.svg)
 
-# WolkAbout SDK
+# WolkAbout client library
 
 Node.js/Web client library for using [WolkAbout REST APIs](https://restapi.wolkabout.com/).
 
@@ -33,7 +33,7 @@ async () => {
 ```
 
 ### Samples
-There are several **samples**. If you're trying to figure out how to use an API ... look there first!
+There are several [samples](samples/). If you're trying to figure out how to use an API ... look there first!
 If there's a sample you need missing, feel free to file an [issue](https://github.com/Wolkabout/wolk-rest/issues/new).
 
 ### Reference API
