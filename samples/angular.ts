@@ -12,7 +12,9 @@
 // limitations under the License
 import { Injectable } from '@angular/core';
 import { from, of  } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { BrowserLocalStorage, WolkREST } from 'wolk-rest';
+
 @Injectable({
   providedIn: 'root'
 })

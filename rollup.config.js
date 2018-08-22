@@ -1,7 +1,5 @@
 import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
 
 
 export default {
@@ -46,14 +44,16 @@ export default {
      */
     typescript({
       tsconfig: "tsconfig.app.json",
-      rollupCommonJSResolveHack: true,
       typescript: require('typescript'),
-    }),
-    resolve({
-      preferBuiltins: false,
-      jsnext: true,
-      main: true,
-      browser: true}),
-    commonjs()
-  ],
+    })
+    /** If problems occure with resolving modules in builded app, use this.
+     import resolve from 'rollup-plugin-node-resolve';
+     import commonjs from 'rollup-plugin-commonjs';
+     resolve({
+       preferBuiltins: false,
+       jsnext: true,
+       main: true,
+       browser: true}),
+     commonjs()*/
+  ]
 }
