@@ -6,9 +6,9 @@
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prebuild": "tsc --project tsconfig.json",
-    "build": "npm run clean && rollup -c rollup.config.js",
-    "pretest": "npm run lint && tsc --project ./tsconfig.test.json",
+    "prebuild": "npm run clean && npm run lint:src && tsc --project tsconfig.json",
+    "build": "rollup -c rollup.config.js",
+    "pretest": "npm run lint:test && tsc --project ./tsconfig.test.json",
     "test": "nyc --reporter=istanbul-reporter-badges --reporter=html --opts test/mocha.opts mocha test/**/*.spec.*",
     "check-coverage": "nyc check-coverage",
     "prepush": "npm test",

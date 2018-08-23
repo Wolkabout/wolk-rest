@@ -3,8 +3,13 @@
   "compilerOptions": {
     "module": "commonjs",
     "noEmit": true,
+    "sourceMap": true
   },
   "include": [
     "./test/**/*"
+  ],
+  "exclude": [
+    "dist/",
+    "samples/"
   ]
 }

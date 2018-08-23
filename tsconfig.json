@@ -8,14 +8,14 @@
       "dom"
     ],
     "outDir": "./dist",
-    "sourceMap": true,
+    "sourceMap": false,
     "strict": true,
     "noImplicitAny": true,
     "removeComments": true
   },
   "exclude": [
-    "**/*.spec.ts",
+    "test/",
     "dist/",
-    "samples/angular.ts"
+    "samples/"
   ]
 }
