@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import WolkREST from '../../src';
 import * as fromConfig from '../../src/utils/config';
+import { WolkREST } from './../../src/index';
 import * as fromResources from './resources/user';
 
 describe('Authentication API', () => {

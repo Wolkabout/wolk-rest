@@ -1,6 +1,6 @@
 import { SessionStorage } from '../model/SessionStorage';
 
-export default class InMemoryStorage implements SessionStorage {
+export class InMemoryStorage implements SessionStorage {
   private _token: string;
 
   constructor() {

@@ -6,15 +6,17 @@
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "compile": "tsc && tsc -p tsconfig.spec.json",
-    "docs": "typedoc --name 'WolkREST client library' --out ./docs/ ./src/ --target ES6 --module commonjs --hideGenerator",
-    "build": "rollup -c",
-    "unit-test": "nyc --reporter=istanbul-reporter-badges --reporter=html mocha --opts ./test/mocha.opts test/**/*.spec.*",
+    "prebuild": "npm run clean && npm run lint:src",
+    "build": "rollup -c rollup.config.js",
+    "pretest": "npm run lint:test && tsc --project ./tsconfig.test.json",
+    "test": "nyc --reporter=istanbul-reporter-badges --reporter=html --opts test/mocha.opts mocha test/**/*.spec.*",
     "check-coverage": "nyc check-coverage",
-    "test": "npm run unit-test",
     "prepush": "npm test",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "tslint --project ./tsconfig.spec.json && tslint --project ./tsconfig.app.json"
+    "docs": "typedoc --name 'WolkREST client library' --out ./docs/ ./src/ --target ES6 --module commonjs --hideGenerator",
+    "clean": "rimraf ./dist",
+    "lint": "npm run lint:src & npm run lint:test",
+    "lint:src": "tslint --project ./tsconfig.json",
+    "lint:test": "tslint --project ./tsconfig.test.json"
   },
   "nyc": {
     "include": [
@@ -40,7 +42,8 @@
     "url": "https://github.com/Wolkabout/wolk-rest"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "README.md"
   ],
   "author": "WolkAbout",
   "contributors": [
@@ -64,11 +67,13 @@
     "@types/qs": "^6.5.1",
     "chai": "^4.1.2",
     "coffeescript": "^2.3.1",
+    "dotenv": "^6.0.0",
     "husky": "^0.14.3",
     "istanbul-reporter-badges": "^1.0.2",
     "mocha": "^5.2.0",
     "mocha-typescript": "^1.1.17",
     "nyc": "^12.0.2",
+    "rimraf": "^2.6.2",
     "rollup": "^0.63.5",
     "rollup-plugin-typescript2": "^0.16.1",
     "source-map-support": "^0.5.8",
@@ -80,7 +85,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "dotenv": "^6.0.0",
     "qs": "^6.5.2"
   },
   "engines": {

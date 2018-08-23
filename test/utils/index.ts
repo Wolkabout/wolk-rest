@@ -1,4 +1,4 @@
-import WolkREST from '../../src';
+import { WolkREST } from '../../src';
 import * as fromConfig from '../../src/utils/config';
 
 /**

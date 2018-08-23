@@ -1,6 +1,7 @@
 import { expect } from 'chai';
-import WolkREST, { BrowserLocalStorage, InMemoryStorage } from '../src';
+import { WolkREST } from '../src';
 import { SessionStorage } from '../src/model/SessionStorage';
+import { BrowserLocalStorage, InMemoryStorage } from '../src/utils/';
 
 describe('Index', () => {
   it('Should export WolkREST Client', () => {

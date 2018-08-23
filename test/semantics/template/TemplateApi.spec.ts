@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import WolkREST from '../../../src';
+import { WolkREST } from '../../../src';
 import { ReadingType } from '../../../src/readingType/model';
 import * as fromModel from '../../../src/semantics/template/model';
 import { HTTP_ERRORS } from '../../../src/utils/HTTPErrorsEnum';
