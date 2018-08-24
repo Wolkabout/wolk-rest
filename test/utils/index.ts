@@ -1,5 +1,5 @@
-import WolkREST from '../../src';
 import * as fromConfig from '../../src/utils/config';
+import { WolkREST } from '../../src/wolk-rest';
 
 /**
  * Check if provided parameter is typeof 'boolean'

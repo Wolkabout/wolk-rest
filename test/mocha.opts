@@ -3,4 +3,6 @@
 --require dotenv/config
 --recursive
 --full-trace
---timeout 10000
+--timeout 5000
+
+test/**/*.spec.ts
