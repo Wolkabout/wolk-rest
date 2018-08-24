@@ -2,19 +2,24 @@
   "name": "wolk-rest",
   "version": "0.0.1",
   "description": "A client for interacting with WolkAbout IoT Platform's API",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/wolk-rest.umd.js",
+  "module": "dist/wolk-rest.es5.js",
+  "typings": "dist/types/wolk-rest.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "compile": "tsc && tsc -p tsconfig.spec.json",
-    "docs": "typedoc --name 'WolkREST client library' --out ./docs/ ./src/ --target ES6 --module commonjs --hideGenerator",
+    "compile": "tsc --module commonjs",
+    "prebuild": "npm run clean && npm run compile",
     "build": "rollup -c",
+    "docs": "typedoc --name 'WolkREST client library' --out ./docs/ ./src/ --target ES6 --module commonjs --hideGenerator",
     "unit-test": "nyc --reporter=istanbul-reporter-badges --reporter=html mocha --opts ./test/mocha.opts test/**/*.spec.*",
     "check-coverage": "nyc check-coverage",
-    "test": "npm run unit-test",
+    "test": "mocha --opts ./test/mocha.opts",
     "prepush": "npm test",
     "pretest": "npm run compile && npm run lint",
-    "lint": "tslint --project ./tsconfig.spec.json && tslint --project ./tsconfig.app.json"
+    "lint": "tslint --project ./tsconfig.json",
+    "clean": "rimraf dist"
   },
   "nyc": {
     "include": [
@@ -39,9 +44,6 @@
     "type": "git",
     "url": "https://github.com/Wolkabout/wolk-rest"
   },
-  "files": [
-    "dist/"
-  ],
   "author": "WolkAbout",
   "contributors": [
     {
@@ -64,12 +66,21 @@
     "@types/qs": "^6.5.1",
     "chai": "^4.1.2",
     "coffeescript": "^2.3.1",
+    "dotenv": "^6.0.0",
     "husky": "^0.14.3",
     "istanbul-reporter-badges": "^1.0.2",
+    "lodash.camelcase": "^4.3.0",
     "mocha": "^5.2.0",
     "mocha-typescript": "^1.1.17",
     "nyc": "^12.0.2",
+    "rimraf": "^2.6.2",
     "rollup": "^0.63.5",
+    "rollup-plugin-commonjs": "^9.1.5",
+    "rollup-plugin-json": "^3.0.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.2.1",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.16.1",
     "source-map-support": "^0.5.8",
     "ts-node": "^7.0.0",
@@ -80,7 +91,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "dotenv": "^6.0.0",
     "qs": "^6.5.2"
   },
   "engines": {

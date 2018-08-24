@@ -20,7 +20,7 @@ import InMemoryStorage from './utils/InMemoryStorage';
  * Default constructor.
  * @param baseURL Your WolkAbout IoT Tool host.
  */
-export default class WolkREST {
+export class WolkREST {
   private readonly authenticationApi: AuthenticationApi;
   private readonly brandApi: BrandApi;
   private readonly client: Client;
