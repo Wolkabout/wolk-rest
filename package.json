@@ -13,32 +13,11 @@
     "prebuild": "npm run clean && npm run compile",
     "build": "rollup -c",
     "docs": "typedoc --name 'WolkREST client library' --out ./docs/ ./src/ --target ES6 --module commonjs --hideGenerator",
-    "unit-test": "nyc --reporter=istanbul-reporter-badges --reporter=html mocha --opts ./test/mocha.opts test/**/*.spec.*",
-    "check-coverage": "nyc check-coverage",
-    "test": "mocha --opts ./test/mocha.opts",
+    "test": "jest",
     "prepush": "npm test",
     "pretest": "npm run compile && npm run lint",
     "lint": "tslint --project ./tsconfig.json",
     "clean": "rimraf dist"
-  },
-  "nyc": {
-    "include": [
-      "src/**/*.ts",
-      "src/**/*.tsx"
-    ],
-    "extension": [
-      ".ts",
-      ".tsx"
-    ],
-    "require": [
-      "ts-node/register"
-    ],
-    "reporter": [
-      "text-summary",
-      "html"
-    ],
-    "sourceMap": true,
-    "instrument": true
   },
   "repository": {
     "type": "git",
@@ -59,19 +38,16 @@
   ],
   "license": "Apache-2.0",
   "devDependencies": {
-    "@types/chai": "^4.1.4",
     "@types/dotenv": "^4.0.3",
-    "@types/mocha": "^5.2.5",
+    "@types/jest": "^23.3.1",
     "@types/node": "^10.5.5",
     "@types/qs": "^6.5.1",
-    "chai": "^4.1.2",
     "coffeescript": "^2.3.1",
     "dotenv": "^6.0.0",
     "husky": "^0.14.3",
     "istanbul-reporter-badges": "^1.0.2",
+    "jest": "^23.5.0",
     "lodash.camelcase": "^4.3.0",
-    "mocha": "^5.2.0",
-    "mocha-typescript": "^1.1.17",
     "nyc": "^12.0.2",
     "rimraf": "^2.6.2",
     "rollup": "^0.63.5",
@@ -83,6 +59,7 @@
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.16.1",
     "source-map-support": "^0.5.8",
+    "ts-jest": "^23.1.4",
     "ts-node": "^7.0.0",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
