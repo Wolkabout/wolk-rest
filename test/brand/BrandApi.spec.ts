@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { WolkREST } from '../../src/wolk-rest';
 import { getAuthenticatedWolkRestInstance } from '../utils';
 import * as fromResources from './resources';
@@ -6,13 +5,13 @@ import * as fromResources from './resources';
 describe('Brand API', () => {
   let wolkRest: WolkREST;
 
-  before(async () => {
+  beforeAll(async () => {
     wolkRest = await getAuthenticatedWolkRestInstance();
   });
 
-  context('[GET] /api/brands', async () => {
+  describe('[GET] /api/brands', async () => {
     // Create brand
-    before(async () => {
+    beforeAll(async () => {
       try {
         await wolkRest.brand().deleteBrand();
       } catch (error) {
@@ -25,17 +24,19 @@ describe('Brand API', () => {
       }
     });
 
-    it('Should get existing brand', async () => {
+    test('Should get existing brand', async () => {
       const { data: brandDetails, status } = await wolkRest.brand().read();
 
-      expect(status).to.equal(200);
-      expect(brandDetails).to.deep.include(fromResources.brand1);
+      expect(status).toEqual(200);
+      for (const key of Object.keys(fromResources.brand1)) {
+        expect(Object.keys(brandDetails)).toContain(key);
+      }
     });
   });
 
-  context('[POST] /api/brands', async () => {
+  describe('[POST] /api/brands', async () => {
     // Delete brand if exist
-    before(async () => {
+    beforeAll(async () => {
       try {
         await wolkRest.brand().deleteBrand();
       } catch (error) {
@@ -43,16 +44,16 @@ describe('Brand API', () => {
       }
     });
 
-    it('Should create new brand', async () => {
+    test('Should create new brand', async () => {
       const { status } = await wolkRest.brand().create(fromResources.brand1);
 
-      expect(status).to.equal(201);
+      expect(status).toEqual(201);
     });
   });
 
-  context('[PUT] /api/brands', async () => {
+  describe('[PUT] /api/brands', async () => {
     // Create brand to be updated
-    before(async () => {
+    beforeAll(async () => {
       try {
         await wolkRest.brand().deleteBrand();
       } catch (error) {
@@ -65,16 +66,16 @@ describe('Brand API', () => {
       }
     });
 
-    it('Should update existing brand', async () => {
+    test('Should update existing brand', async () => {
       const { status } = await wolkRest.brand().update(fromResources.brand2);
 
-      expect(status).to.equal(200);
+      expect(status).toEqual(200);
     });
   });
 
-  context('[DELETE] /api/brands', async () => {
+  describe('[DELETE] /api/brands', async () => {
     // Create brand
-    before(async () => {
+    beforeAll(async () => {
       try {
         await wolkRest.brand().deleteBrand();
       } catch (error) {
@@ -87,10 +88,10 @@ describe('Brand API', () => {
       }
     });
 
-    it('Should delete existing brand', async () => {
+    test('Should delete existing brand', async () => {
       const { status } = await wolkRest.brand().deleteBrand();
 
-      expect(status).to.equal(200);
+      expect(status).toEqual(200);
     });
   });
 
