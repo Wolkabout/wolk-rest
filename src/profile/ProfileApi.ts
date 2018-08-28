@@ -41,6 +41,7 @@ export default class ProfileApi {
     }
   }
 
+  /* istanbul ignore next */
   public async deleteMe(newCreatorId: number): Promise<fromRoot.WolkResponse<User>> {
     const requestConfig: AxiosRequestConfig = {
       params: {
