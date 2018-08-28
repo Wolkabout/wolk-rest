@@ -41,6 +41,7 @@ describe('Dashboard API', () => {
 
   describe('[GET] /api/dashboards/{dashboardId}', async () => {
     test('Should get dashboard details', async () => {
+      jest.setTimeout(10000);
       const { data: dashboard, status } = await wolkRest.dashboard().read(newDashboardId);
       expect(dashboard.name).toEqual(fromResources.dashboardName);
       expect(status).toEqual(200);
