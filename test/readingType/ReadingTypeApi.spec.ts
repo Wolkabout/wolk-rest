@@ -1,50 +1,63 @@
-import { expect } from 'chai';
-import { HTTP_ERRORS } from '../../src/utils/HTTPErrorsEnum';
 import { WolkREST } from '../../src/wolk-rest';
+
+import { HTTP_ERRORS } from '../../src/utils/HTTPErrorsEnum';
 import { getAuthenticatedWolkRestInstance } from '../utils';
+
 import * as fromResources from './resources';
 
 describe('ReadingType API', () => {
   let wolkRest: WolkREST;
 
-  before(async () => {
+  beforeAll(async () => {
     wolkRest = await getAuthenticatedWolkRestInstance();
   });
 
-  context('[GET] /api/readingTypes', async () => {
-    it('Should get system reading types', async () => {
+  describe('[GET] /api/readingTypes', async () => {
+    test('Should get system reading types', async () => {
       const { status } = await wolkRest.readingType().getList();
 
-      expect(status).to.equal(200);
+      expect(status).toEqual(200);
     });
 
-    it('Should fail to get system reading types', async () => {
+    test('Should fail to get system reading types', async () => {
       try {
         await wolkRest.readingType().getList();
       } catch ({ code }) {
-        expect(code).to.equal(HTTP_ERRORS.INTERNAL_SERVER_ERROR);
+        expect(code).toEqual(HTTP_ERRORS.INTERNAL_SERVER_ERROR);
       }
-
     });
   });
 
-  context('[POST] /api/readingTypes/{id}/units', async () => {
+  describe('[POST] /api/readingTypes/{id}/units', async () => {
     let customUnitId: number;
-    it('Should create custom unit', async () => {
-      const { status, data: unitId } = await wolkRest.readingType().createUnit(fromResources.unitDto);
-      customUnitId = unitId;
-      expect(status).to.equal(201);
-    });
 
-    it('Should fail to create custom unit', async () => {
+    // Delete test unit if exist
+    beforeAll(async () => {
       try {
-        await wolkRest.readingType().createUnit(fromResources.unitDto);
-      } catch ({ code }) {
-        expect(code).to.equal(HTTP_ERRORS.CONFLICT);
+        const units = await wolkRest.unit().getList('', fromResources.unitDto.readingTypeId);
+        const testUnit = units.data.find(unit => unit.name === fromResources.unitDto.name);
+        testUnit && await wolkRest.unit().deleteUnit(testUnit.id);
+      } catch (error) {
+        //
       }
     });
 
-    after(async () => {
+    test('Should create custom unit', async () => {
+      const { status, data: unitId } = await wolkRest.readingType().createUnit(fromResources.unitDto);
+      customUnitId = unitId;
+
+      expect(status).toEqual(201);
+    });
+
+    test('Should fail to create custom unit', async () => {
+      try {
+        await wolkRest.readingType().createUnit(fromResources.unitDto);
+      } catch ({ code }) {
+        expect(code).toEqual(HTTP_ERRORS.CONFLICT);
+      }
+    });
+
+    afterAll(async () => {
       await wolkRest.unit().deleteUnit(customUnitId);
     });
   });

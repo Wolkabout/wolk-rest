@@ -1,7 +1,9 @@
-import * as fromModels from '../../src/device/template/model';
-import { HTTP_ERRORS } from '../../src/utils';
 import { WolkREST } from '../../src/wolk-rest';
+
+import { HTTP_ERRORS } from '../../src/utils';
 import { getAuthenticatedWolkRestInstance } from '../utils';
+
+import * as fromModels from '../../src/device/template/model';
 import * as fromResources from './template/resources';
 
 describe('Device API', () => {
@@ -32,8 +34,6 @@ describe('Device API', () => {
       } catch ({ code }) {
         expect(code).toEqual(HTTP_ERRORS.NOT_FOUND);
       }
-
     });
-
   });
 });
