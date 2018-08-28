@@ -16,10 +16,6 @@ module.exports = {
     "json",
     "node"
   ],
-
-  // Coverage Report
-  // https://github.com/facebook/jest/blob/master/docs/Configuration.md#coveragereporters-array
-  // "collectCoverage": true,
-  // "coverageDirectory": "<rootDir>/coverage",
-  // "coverageReporters": ["html"]
+  "verbose": true,
+  "collectCoverage": true
 }
