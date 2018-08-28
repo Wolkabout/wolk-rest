@@ -1,28 +1,29 @@
-import { expect } from 'chai';
-import WolkREST, { BrowserLocalStorage, InMemoryStorage } from '../src';
 import { SessionStorage } from '../src/model/SessionStorage';
+import { BrowserLocalStorage, InMemoryStorage, WolkREST } from '../src/wolk-rest';
 
 describe('Index', () => {
-  it('Should export WolkREST Client', () => {
-    expect(WolkREST).to.equal(WolkREST);
+  test('Should export WolkREST Client', () => {
+    expect(WolkREST).toEqual(WolkREST);
   });
 
-  it('Should export InMemoryStorage', () => {
-    expect(InMemoryStorage).to.be.a('function');
+  test('Should export InMemoryStorage', () => {
+    expect(InMemoryStorage).toBeInstanceOf(Function);
   });
 
-  it('Should export BrowserLocalStorage', () => {
-    expect(BrowserLocalStorage).to.be.a('function');
+  test('Should export BrowserLocalStorage', () => {
+    expect(BrowserLocalStorage).toBeInstanceOf(Function);
   });
 
-  it('Should initialize WolkREST Client with default storage', () => {
+  test('Should initialize WolkREST Client with default storage', () => {
     const instance = new WolkREST('https://example.com');
 
-    expect(instance).to.be.an('object');
-    expect(instance.auth()).to.not.throw;
+    expect(instance).toBeInstanceOf(Object);
+    expect(() => {
+      instance.auth();
+    }).not.toThrow();
   });
 
-  it('Should initialize WolkREST Client with custom storage', () => {
+  test('Should initialize WolkREST Client with custom storage', () => {
     const customStorage: SessionStorage = {
       getToken(): string {
         return '';
@@ -34,16 +35,18 @@ describe('Index', () => {
     };
     const instance = new WolkREST('https://example.com', customStorage);
 
-    expect(instance).to.be.an('object');
-    expect(instance.auth()).to.not.throw;
+    expect(instance).toBeInstanceOf(Object);
+    expect(() => {
+      instance.auth();
+    }).not.toThrow();
   });
 
-  it('Should fail to initialize WolkREST Client with BrowserLocalStorage storage', () => {
+  test('Should fail to initialize WolkREST Client with BrowserLocalStorage storage', () => {
     try {
       const localStorage = new BrowserLocalStorage();
       new WolkREST('https://example.com', localStorage);
     } catch (error) {
-      expect(error.message).to.be.equal(
+      expect(error.message).toEqual(
         'BrowserLocalStorage can only be initialized in browser with Local Storage support.'
       );
 

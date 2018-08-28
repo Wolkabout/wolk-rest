@@ -1,25 +1,24 @@
-import { expect } from 'chai';
-import WolkREST from '../../src';
 import { HTTP_ERRORS } from '../../src/utils';
+import { WolkREST } from '../../src/wolk-rest';
 import { getAuthenticatedWolkRestInstance } from '../utils';
 import * as fromResources from './resources';
 
 describe('Unit API', () => {
   let wolkRest: WolkREST;
 
-  before(async () => {
+  beforeAll(async () => {
     wolkRest = await getAuthenticatedWolkRestInstance();
   });
 
-  context('[GET] /api/units', async () => {
-    it('Should get paged units, without any params', async () => {
+  describe('[GET] /api/units', async () => {
+    test('Should get paged units, without any params', async () => {
       const { data: pagedUnits, status } = await wolkRest.unit().getPage();
 
-      expect(status).to.equal(200);
-      expect(pagedUnits.content).to.be.an.instanceof(Array);
+      expect(status).toEqual(200);
+      expect(pagedUnits.content).toBeInstanceOf(Array);
     });
 
-    it('Should get paged units with params', async () => {
+    test('Should get paged units with params', async () => {
       const params = {
         sort: 'name,desc',
         page: 0,
@@ -27,50 +26,47 @@ describe('Unit API', () => {
       };
       const { data: pagedUnits, status } = await wolkRest.unit().getPage(params);
 
-      expect(status).to.equal(200);
-      expect(pagedUnits.size).to.be.equal(params.size);
-      expect(pagedUnits.sort.sorted).to.be.true;
+      expect(status).toEqual(200);
+      expect(pagedUnits.size).toEqual(params.size);
+      expect(pagedUnits.sort.sorted).toBe(true);
     });
-
   });
 
-  context('[DELETE] /api/units', async () => {
+  describe('[DELETE] /api/units', async () => {
     let customUnitId: number;
 
-    before(async () => {
+    beforeAll(async () => {
       const { data: unitId } = await wolkRest.readingType().createUnit(fromResources.unitDto);
       customUnitId = unitId;
     });
 
-    it('Should delete single unit', async () => {
+    test('Should delete single unit', async () => {
       const { status } = await wolkRest.unit().deleteUnit(customUnitId);
 
-      expect(status).to.equal(200);
+      expect(status).toEqual(200);
     });
   });
 
-  context('[DELETE] /api/units - BULK', async () => {
+  describe('[DELETE] /api/units - BULK', async () => {
     let customUnitId: number;
 
-    before(async () => {
+    beforeAll(async () => {
       const { data: unitId } = await wolkRest.readingType().createUnit(fromResources.unitDto);
       customUnitId = unitId;
     });
 
-    it('Should delete bulk units by ids', async () => {
+    test('Should delete bulk units by ids', async () => {
       const { status } = await wolkRest.unit().deleteBulk([customUnitId]);
 
-      expect(status).to.equal(200);
+      expect(status).toEqual(200);
     });
 
-    it('Should fail to delete', async () => {
+    test('Should fail to delete', async () => {
       try {
         await wolkRest.unit().deleteBulk([customUnitId]);
       } catch ({ code }) {
-        expect(code).to.equal(HTTP_ERRORS.NOT_FOUND);
+        expect(code).toEqual(HTTP_ERRORS.NOT_FOUND);
       }
     });
-
   });
-
 });

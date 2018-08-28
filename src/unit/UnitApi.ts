@@ -37,16 +37,23 @@ export default class UnitApi {
     }
   }
 
-  public async getList(): Promise<fromRoot.WolkResponse<fromModels.Unit[]>> {
+  public async getList(query?: String, readingTypeId?: Number): Promise<fromRoot.WolkResponse<fromModels.Unit[]>> {
+    const requestConfig: AxiosRequestConfig = {
+      params: {
+        query,
+        readingTypeId
+      }
+    };
     const unitList = await this.client.request(
       'GET',
-      '/api/units'
+      '/api/units',
+      requestConfig
     );
+
     return unitList;
   }
 
-  public async getPage({ page, size, sort }: fromModels.UnitQuery = {}):
-    Promise<fromRoot.WolkResponse<any>> {
+  public async getPage({ page, size, sort }: fromModels.UnitQuery = {}): Promise<fromRoot.WolkResponse<any>> {
 
     const requestConfig: AxiosRequestConfig = {
       headers: {
@@ -56,14 +63,14 @@ export default class UnitApi {
         page,
         size,
         sort
-      },
+      }
     };
     const unitList = await this.client.request(
       'GET',
       '/api/units',
       requestConfig
     );
+
     return unitList;
   }
-
 }

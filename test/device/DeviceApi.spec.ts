@@ -1,5 +1,4 @@
-import { expect } from 'chai';
-import WolkREST from '../../src';
+import { WolkREST } from '../../src/wolk-rest';
 
 import { HTTP_ERRORS } from '../../src/utils';
 import { getAuthenticatedWolkRestInstance } from '../utils';
@@ -11,32 +10,30 @@ describe('Device API', () => {
   let wolkRest: WolkREST;
   let deviceToDelete: fromModels.DeviceDTO;
 
-  before(async () => {
+  beforeAll(async () => {
     wolkRest = await getAuthenticatedWolkRestInstance();
   });
 
-  context('[DELETE] /api/device', async () => {
-    before(async () => {
+  describe('[DELETE] /api/device', async () => {
+    beforeAll(async () => {
       const { data: devices } = await wolkRest.deviceManifest()
         .registerDevice(fromResources.deviceManifest.id!, fromResources.createDeviceFromManifest);
 
       [deviceToDelete] = devices;
     });
 
-    it('Should delete device', async () => {
+    test('Should delete device', async () => {
       const { status } = await wolkRest.device().deleteBulk([deviceToDelete.id]);
 
-      expect(status).to.be.equal(200);
+      expect(status).toEqual(200);
     });
 
-    it('Should fail to delete the device', async () => {
+    test('Should fail to delete the device', async () => {
       try {
         await wolkRest.device().deleteBulk([deviceToDelete.id]);
       } catch ({ code }) {
-        expect(code).to.be.equal(HTTP_ERRORS.NOT_FOUND);
+        expect(code).toEqual(HTTP_ERRORS.NOT_FOUND);
       }
-
     });
-
   });
 });
