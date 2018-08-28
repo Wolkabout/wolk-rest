@@ -13,7 +13,7 @@
     "prebuild": "npm run clean && npm run compile",
     "build": "rollup -c",
     "docs": "typedoc --name 'WolkREST client library' --out ./docs/ ./src/ --target ES6 --module commonjs --hideGenerator",
-    "test": "jest",
+    "test": "jest --runInBand",
     "prepush": "npm test",
     "pretest": "npm run compile && npm run lint",
     "lint": "tslint --project ./tsconfig.json",
