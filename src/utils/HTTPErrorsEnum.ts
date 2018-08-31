@@ -1,22 +1,22 @@
 export enum HTTP_ERRORS {
   /**
-      * The server cannot or will not process the request due to an apparent client error
-      * (e.g., malformed request syntax, too large size, invalid request message framing, or deceptive request routing).
-      */
+   * The server cannot or will not process the request due to an apparent client error
+   * (e.g., malformed request syntax, too large size, invalid request message framing, or deceptive request routing).
+   */
   BAD_REQUEST = 400,
   /**
-     * Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet
-     * been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the
-     * requested resource. See Basic access authentication and Digest access authentication. 401 semantically means
-     * "unauthenticated",i.e. the user does not have the necessary credentials.
-     */
+   * Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet
+   * been provided. The response must include a WWW-Authenticate header field containing a challenge applicable to the
+   * requested resource. See Basic access authentication and Digest access authentication. 401 semantically means
+   * "unauthenticated",i.e. the user does not have the necessary credentials.
+   */
   UNAUTHORIZED = 401,
 
   /**
-     * Reserved for future use. The original intention was that this code might be used as part of some form of digital
-     * cash or micro payment scheme, but that has not happened, and this code is not usually used.
-     * Google Developers API uses this status if a particular developer has exceeded the daily limit on requests.
-     */
+   * Reserved for future use. The original intention was that this code might be used as part of some form of digital
+   * cash or micro payment scheme, but that has not happened, and this code is not usually used.
+   * Google Developers API uses this status if a particular developer has exceeded the daily limit on requests.
+   */
   PAYMENT_REQUIRED = 402,
 
   /**

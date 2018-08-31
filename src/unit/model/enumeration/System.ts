@@ -1,4 +1,1 @@
-export type System
-  = 'SI'
-  | 'NON_SI'
-  | 'CUSTOM';
+export type System = 'SI' | 'NON_SI' | 'CUSTOM';

@@ -4,7 +4,7 @@ import * as fromRoot from '../model';
 import * as fromModels from './model';
 
 export default class ReadingTypeApi {
-  constructor(private readonly client: Client) { }
+  constructor(private readonly client: Client) {}
 
   public async getList(
     query?: string,
@@ -15,18 +15,13 @@ export default class ReadingTypeApi {
     dataSize?: number
   ): Promise<fromRoot.WolkResponse<fromModels.ReadingType[]>> {
     const requestConfig: AxiosRequestConfig = {
-      data: {
-      },
+      data: {},
       headers: {
         Accept: 'application/json'
       }
     };
     try {
-      const readingTypes = await this.client.request(
-        'GET',
-        '/api/readingTypes',
-        requestConfig
-      );
+      const readingTypes = await this.client.request('GET', '/api/readingTypes', requestConfig);
       return readingTypes;
     } catch (error) {
       throw error;
@@ -48,7 +43,5 @@ export default class ReadingTypeApi {
     } catch (error) {
       throw error;
     }
-
   }
-
 }

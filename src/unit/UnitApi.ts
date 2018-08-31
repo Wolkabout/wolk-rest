@@ -4,14 +4,11 @@ import * as fromRoot from '../model';
 import * as fromModels from './model';
 
 export default class UnitApi {
-  constructor(private readonly client: Client) { }
+  constructor(private readonly client: Client) {}
 
   public async deleteUnit(unitId: number): Promise<fromRoot.WolkResponse<any>> {
     try {
-      const response = await this.client.request(
-        'DELETE',
-        `/api/units/${unitId}`,
-      );
+      const response = await this.client.request('DELETE', `/api/units/${unitId}`);
       return response;
     } catch (error) {
       throw error;
@@ -26,11 +23,7 @@ export default class UnitApi {
     };
 
     try {
-      const response = await this.client.request(
-        'DELETE',
-        `/api/units`,
-        requestConfig
-      );
+      const response = await this.client.request('DELETE', `/api/units`, requestConfig);
       return response;
     } catch (error) {
       throw error;
@@ -44,17 +37,12 @@ export default class UnitApi {
         readingTypeId
       }
     };
-    const unitList = await this.client.request(
-      'GET',
-      '/api/units',
-      requestConfig
-    );
+    const unitList = await this.client.request('GET', '/api/units', requestConfig);
 
     return unitList;
   }
 
   public async getPage({ page, size, sort }: fromModels.UnitQuery = {}): Promise<fromRoot.WolkResponse<any>> {
-
     const requestConfig: AxiosRequestConfig = {
       headers: {
         Accept: 'APPLICATION/VND.PAGE+JSON'
@@ -65,11 +53,7 @@ export default class UnitApi {
         sort
       }
     };
-    const unitList = await this.client.request(
-      'GET',
-      '/api/units',
-      requestConfig
-    );
+    const unitList = await this.client.request('GET', '/api/units', requestConfig);
 
     return unitList;
   }

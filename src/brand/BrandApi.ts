@@ -15,11 +15,7 @@ export default class BrandApi {
     };
 
     try {
-      const response = await this.client.request(
-        'POST',
-        '/api/brands',
-        requestConfig
-      );
+      const response = await this.client.request('POST', '/api/brands', requestConfig);
 
       return response;
     } catch (error) {
@@ -29,10 +25,7 @@ export default class BrandApi {
 
   public async read(): Promise<fromRoot.WolkResponse<fromModels.Brand>> {
     try {
-      const brand = await this.client.request(
-        'GET',
-        '/api/brands'
-      );
+      const brand = await this.client.request('GET', '/api/brands');
 
       return brand;
     } catch (error) {
@@ -49,11 +42,7 @@ export default class BrandApi {
     };
 
     try {
-      const response = await this.client.request(
-        'PUT',
-        '/api/brands',
-        requestConfig
-      );
+      const response = await this.client.request('PUT', '/api/brands', requestConfig);
 
       return response;
     } catch (error) {
@@ -63,10 +52,7 @@ export default class BrandApi {
 
   public async deleteBrand(): Promise<fromRoot.WolkResponse<string>> {
     try {
-      const response = await this.client.request(
-        'DELETE',
-        '/api/brands'
-      );
+      const response = await this.client.request('DELETE', '/api/brands');
 
       return response;
     } catch (error) {

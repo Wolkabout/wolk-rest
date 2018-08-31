@@ -33,7 +33,7 @@ export interface Creator {
 
 export interface DeviceDTO {
   accessListActive: boolean;
-  actuators : DeviceActuator[];
+  actuators: DeviceActuator[];
   activationTimestamp: number;
   alarms: DeviceAlarm[];
   configs: DeviceConfig[];
@@ -57,7 +57,7 @@ export interface DeviceDTO {
   };
   message: string;
   name: string;
-  path : string;
-  password : string;
+  path: string;
+  password: string;
   serviceStatuses: ServiceStatus[];
 }

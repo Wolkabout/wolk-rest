@@ -100,10 +100,6 @@ export class WolkREST {
   widget(): WidgetApi {
     return this.widgetApi;
   }
-
 }
 
-export {
-  BrowserLocalStorage,
-  InMemoryStorage
-};
+export { BrowserLocalStorage, InMemoryStorage };

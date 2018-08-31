@@ -28,10 +28,8 @@ describe('Index', () => {
       getToken(): string {
         return '';
       },
-      setToken(token: string): void {
-      },
-      clearToken(): void {
-      }
+      setToken(token: string): void {},
+      clearToken(): void {}
     };
     const instance = new WolkREST('https://example.com', customStorage);
 
@@ -49,7 +47,6 @@ describe('Index', () => {
       expect(error.message).toEqual(
         'BrowserLocalStorage can only be initialized in browser with Local Storage support.'
       );
-
     }
   });
 });

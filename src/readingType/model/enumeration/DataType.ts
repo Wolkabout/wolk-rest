@@ -1,4 +1,1 @@
-export type DataType
-  = 'STRING'
-  | 'NUMERIC'
-  | 'BOOLEAN';
+export type DataType = 'STRING' | 'NUMERIC' | 'BOOLEAN';

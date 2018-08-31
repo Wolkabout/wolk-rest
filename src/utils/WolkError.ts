@@ -14,7 +14,7 @@ export class WolkError extends Error {
     if (Error.captureStackTrace) {
       Error.captureStackTrace(this, WolkError);
     }
-    const { data = {}, status = 500, statusText = '' } = error.response as fromRoot.WolkErrorResponse || {};
+    const { data = {}, status = 500, statusText = '' } = (error.response as fromRoot.WolkErrorResponse) || {};
 
     this.code = status;
     this.type = getKeyByValue(HTTP_ERRORS, status);
