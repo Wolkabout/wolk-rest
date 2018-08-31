@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "A client for interacting with WolkAbout IoT Platform's API",
   "main": "dist/wolk-rest.umd.js",
-  "module": "dist/wolk-rest.es5.js",
-  "typings": "dist/types/wolk-rest.d.ts",
+  "module": "dist/wolk-rest.es.js",
+  "typings": "dist/wolk-rest.d.ts",
   "files": [
     "dist"
   ],
@@ -14,6 +14,7 @@
     "build": "rollup -c",
     "docs": "typedoc --name 'WolkREST client library' --out ./docs/ ./src/ --target ES6 --module commonjs --hideGenerator",
     "test": "nyc --reporter=istanbul-reporter-badges jest -i",
+    "precommit": "prettier ./src/**/*.ts",
     "prepush": "npm test",
     "pretest": "npm run compile && npm run lint",
     "lint": "tslint --project ./tsconfig.json",
@@ -49,6 +50,7 @@
     "jest": "^23.5.0",
     "lodash.camelcase": "^4.3.0",
     "nyc": "^12.0.2",
+    "prettier": "^1.14.2",
     "rimraf": "^2.6.2",
     "rollup": "^0.63.5",
     "rollup-plugin-commonjs": "^9.1.5",
@@ -63,6 +65,8 @@
     "ts-node": "^7.0.0",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-plugin-prettier": "^1.3.0",
     "typedoc": "^0.11.1",
     "typescript": "^3.0.1"
   },

@@ -1,5 +1,8 @@
 {
   "editor.rulers": [120],
   "tslint.autoFixOnSave": true,
-  "javascript.preferences.quoteStyle": "single"
+  "javascript.preferences.quoteStyle": "single",
+  "prettier.tslintIntegration": true,
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true
 }

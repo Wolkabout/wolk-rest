@@ -4,7 +4,7 @@ import * as fromRoot from '../model';
 import * as fromModels from './model';
 
 export default class AuthenticationApi {
-  constructor(private readonly client: Client) { }
+  constructor(private readonly client: Client) {}
 
   public async emailSignIn(data: fromModels.SignInRequest): Promise<fromRoot.WolkResponse<fromModels.SignInResponse>> {
     // Clear client access token
@@ -18,12 +18,7 @@ export default class AuthenticationApi {
     };
 
     try {
-      const authResponse = await this.client.request(
-        'POST',
-        '/api/emailSignIn',
-        requestConfig,
-        true
-      );
+      const authResponse = await this.client.request('POST', '/api/emailSignIn', requestConfig, true);
 
       // Save new access token inside client instance
       this.client.setToken(authResponse.data.accessList[0].accessToken);

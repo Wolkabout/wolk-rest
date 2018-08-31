@@ -29,5 +29,4 @@ describe('Authentication API', () => {
       expect(code).toEqual(401);
     }
   });
-
 });

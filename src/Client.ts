@@ -29,15 +29,15 @@ export default class Client {
     requestConfig?: AxiosRequestConfig,
     disableAuthHeader: boolean = false
   ): Promise<any> {
-
     disableAuthHeader ? this.removeAuthHeader() : this.setAuthHeader();
 
     return new Promise((resolve, rejects) => {
-      this._axios.request({
-        method,
-        url,
-        ...requestConfig
-      })
+      this._axios
+        .request({
+          method,
+          url,
+          ...requestConfig
+        })
         .then((response: fromRoot.WolkResponse<any>) => resolve(response))
         .catch((error: AxiosError) => rejects(new WolkError(error)));
     });
