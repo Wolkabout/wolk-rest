@@ -6,7 +6,8 @@
   "module": "dist/wolk-rest.es.js",
   "typings": "dist/wolk-rest.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "compile": "tsc --module commonjs",
