@@ -4,7 +4,7 @@
 ![coverage-branches-badge](https://img.shields.io/badge/Branches-75.51%25%20%2837%2F49%29-yellow.svg)
 ![Local Coverage-shield-badge-1](https://img.shields.io/badge/Local%20Coverage-100%25-brightgreen.svg)
 
-# WolkAbout SDK
+# WolkAbout client library
 
 Node.js/Web client library for using [WolkAbout REST APIs](https://restapi.wolkabout.com/).
 
@@ -33,7 +33,7 @@ async () => {
 ```
 
 ### Samples
-There are several **samples**. If you're trying to figure out how to use an API ... look there first!
+There are several [samples](/samples). If you're trying to figure out how to use an API ... look there first!
 If there's a sample you need missing, feel free to file an [issue](https://github.com/Wolkabout/wolk-rest/issues/new).
 
 ### Reference API
