@@ -3,7 +3,7 @@ import { Brand } from '../../brand/model/Brand';
 interface ServerDetails {
   maxRulesPerContext: number;
   addOns: {
-    supportNewsletter?: boolean
+    supportNewsletter?: boolean;
   };
   minSupportedVersion: string;
   userManagementEnabled: boolean;

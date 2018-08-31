@@ -3,9 +3,9 @@ import Client from '../Client';
 import * as fromRoot from '../model';
 
 export default class DeviceApi {
-  constructor(private readonly client: Client) { }
+  constructor(private readonly client: Client) {}
 
-  public async deleteBulk(deviceIds: number[]): Promise <fromRoot.WolkResponse<any>> {
+  public async deleteBulk(deviceIds: number[]): Promise<fromRoot.WolkResponse<any>> {
     const requestConfig: AxiosRequestConfig = {
       params: {
         ids: deviceIds.join(',')
@@ -13,11 +13,7 @@ export default class DeviceApi {
     };
 
     try {
-      const response = await this.client.request(
-        'DELETE',
-        `/api/devices`,
-        requestConfig
-      );
+      const response = await this.client.request('DELETE', `/api/devices`, requestConfig);
       return response;
     } catch (error) {
       throw error;

@@ -4,7 +4,7 @@ import * as fromRoot from '../../model';
 import * as fromModels from './model';
 
 export default class TemplateApi {
-  constructor(private readonly client: Client) { }
+  constructor(private readonly client: Client) {}
 
   public async createTemplate(data: fromModels.Template): Promise<fromRoot.WolkResponse<number>> {
     const requestConfig: AxiosRequestConfig = {
@@ -14,14 +14,10 @@ export default class TemplateApi {
       }
     };
     try {
-      const response = await this.client.request(
-        'POST',
-        '/api/templates',
-        requestConfig
-      );
+      const response = await this.client.request('POST', '/api/templates', requestConfig);
       return response;
     } catch (error) {
-      throw (error);
+      throw error;
     }
   }
 
@@ -33,30 +29,21 @@ export default class TemplateApi {
       }
     };
     try {
-      const response = await this.client.request(
-        'PUT',
-        `/api/templates/${data.id}`,
-        requestConfig
-      );
+      const response = await this.client.request('PUT', `/api/templates/${data.id}`, requestConfig);
 
       return response;
     } catch (error) {
-      throw (error);
+      throw error;
     }
   }
 
   public async deleteTemplate(templateId: number): Promise<fromRoot.WolkResponse<any>> {
     try {
-      const response = await this.client.request(
-        'DELETE',
-        `/api/templates/${templateId}`
-      );
+      const response = await this.client.request('DELETE', `/api/templates/${templateId}`);
 
       return response;
-
     } catch (error) {
-      throw (error);
+      throw error;
     }
   }
-
 }

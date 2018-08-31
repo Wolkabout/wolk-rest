@@ -25,8 +25,8 @@ export interface ReportShortDto {
   contextId: number;
   id: number;
   readingType: {
-    name: string,
-    id: number
+    name: string;
+    id: number;
   };
 }
 
@@ -39,24 +39,24 @@ export interface FeedReport {
 
 export interface DataSnapshot {
   reports: {
-    name: string,
-    feedId: number,
-    path: string,
+    name: string;
+    feedId: number;
+    path: string;
     readings: {
-      values: number[],
-      time: number
-    },
+      values: number[];
+      time: number;
+    };
     min: {
-      values: number[],
-      time: number
-    },
+      values: number[];
+      time: number;
+    };
     max: {
-      values: number,
-      time: number
-    },
-    messages: ReportMessage[],
-    readingType: ReadingType,
-    unit: Unit,
+      values: number;
+      time: number;
+    };
+    messages: ReportMessage[];
+    readingType: ReadingType;
+    unit: Unit;
   }[];
   interval: number;
 }

@@ -4,7 +4,7 @@ import * as fromRoot from '../model';
 import * as fromModels from './model';
 
 export default class ReportApi {
-  constructor(private readonly client: Client) { }
+  constructor(private readonly client: Client) {}
 
   /**
    * Function that should create report and return it's newly created Id.
@@ -16,11 +16,7 @@ export default class ReportApi {
     };
 
     try {
-      const response = await this.client.request(
-        'POST',
-        '/api/reports',
-        requestConfig
-      );
+      const response = await this.client.request('POST', '/api/reports', requestConfig);
       return response;
     } catch (error) {
       throw error;
@@ -32,12 +28,8 @@ export default class ReportApi {
    * @param {number} reportId
    */
   public async deleteReport(reportId: number): Promise<fromRoot.WolkResponse<any>> {
-
     try {
-      const response = await this.client.request(
-        'DELETE',
-        `/api/reports/${reportId}`,
-      );
+      const response = await this.client.request('DELETE', `/api/reports/${reportId}`);
       return response;
     } catch (error) {
       throw error;
@@ -46,25 +38,23 @@ export default class ReportApi {
 
   public async listReports(): Promise<fromRoot.WolkResponse<fromModels.ReportShortDto[]>> {
     try {
-      const reportList = await this.client.request(
-        'GET',
-        '/api/reports'
-      );
+      const reportList = await this.client.request('GET', '/api/reports');
       return reportList;
     } catch (error) {
       throw error;
     }
   }
 
-  public async getReportByFeed(params: { feedIds?: number[], from?: number, to?: number } = {}):
-    Promise<fromRoot.WolkResponse<fromModels.FeedReport[]>> {
+  public async getReportByFeed(
+    params: { feedIds?: number[]; from?: number; to?: number } = {}
+  ): Promise<fromRoot.WolkResponse<fromModels.FeedReport[]>> {
     const { from, to, feedIds = [] } = params;
 
     const requestConfig: AxiosRequestConfig = {
       params: {
         from,
         to,
-        feedIds: feedIds.join(','),
+        feedIds: feedIds.join(',')
       },
       headers: {
         Accept: 'APPLICATION/VND.FEEDREPORT+JSON'
@@ -72,26 +62,25 @@ export default class ReportApi {
     };
 
     try {
-      const reportList = await this.client.request(
-        'GET',
-        '/api/reports',
-        requestConfig
-      );
+      const reportList = await this.client.request('GET', '/api/reports', requestConfig);
       return reportList;
     } catch (error) {
       throw error;
     }
   }
 
-  public async getDataSnapshot(params: { feedIds: number[], from?: number, to?: number }):
-    Promise<fromRoot.WolkResponse<fromModels.DataSnapshot>> {
+  public async getDataSnapshot(params: {
+    feedIds: number[];
+    from?: number;
+    to?: number;
+  }): Promise<fromRoot.WolkResponse<fromModels.DataSnapshot>> {
     const { from, to, feedIds = [] } = params;
 
     const requestConfig: AxiosRequestConfig = {
       params: {
         from,
         to,
-        feedIds: feedIds.join(','),
+        feedIds: feedIds.join(',')
       },
       headers: {
         Accept: 'APPLICATION/VND.SNAPSHOT.WITH.INTERVAL.V2+JSON'
@@ -99,11 +88,7 @@ export default class ReportApi {
     };
 
     try {
-      const reportList = await this.client.request(
-        'GET',
-        '/api/reports/snapshotForFeeds',
-        requestConfig
-      );
+      const reportList = await this.client.request('GET', '/api/reports/snapshotForFeeds', requestConfig);
       return reportList;
     } catch (error) {
       throw error;
@@ -112,10 +97,7 @@ export default class ReportApi {
 
   public async getReport(reportId: number): Promise<fromRoot.WolkResponse<fromModels.ReportDto>> {
     try {
-      const reportList = await this.client.request(
-        'GET',
-        `/api/reports/${reportId}`,
-      );
+      const reportList = await this.client.request('GET', `/api/reports/${reportId}`);
       return reportList;
     } catch (error) {
       throw error;
@@ -128,41 +110,29 @@ export default class ReportApi {
     };
 
     try {
-      const response = await this.client.request(
-        'PUT',
-        `/api/reports/${reportDto.id}`,
-        requestConfig
-      );
+      const response = await this.client.request('PUT', `/api/reports/${reportDto.id}`, requestConfig);
       return response;
     } catch (error) {
       throw error;
     }
   }
 
-  public async createReportFeed(reportId:number, feedIds:number[]): Promise<fromRoot.WolkResponse<number>> {
+  public async createReportFeed(reportId: number, feedIds: number[]): Promise<fromRoot.WolkResponse<number>> {
     const requestConfig: AxiosRequestConfig = {
       data: feedIds
     };
 
     try {
-      const response = await this.client.request(
-        'POST',
-        `/api/reports/${reportId}/feeds`,
-        requestConfig
-      );
+      const response = await this.client.request('POST', `/api/reports/${reportId}/feeds`, requestConfig);
       return response;
     } catch (error) {
       throw error;
     }
   }
 
-  public async listReportFeeds(reportId: number):
-    Promise<fromRoot.WolkResponse<fromModels.FeedReport[]>> {
+  public async listReportFeeds(reportId: number): Promise<fromRoot.WolkResponse<fromModels.FeedReport[]>> {
     try {
-      const reportList = await this.client.request(
-        'GET',
-        `/api/reports/${reportId}/feeds`
-      );
+      const reportList = await this.client.request('GET', `/api/reports/${reportId}/feeds`);
       return reportList;
     } catch (error) {
       throw error;
@@ -170,27 +140,25 @@ export default class ReportApi {
   }
 
   public async deleteReportFeed(reportId: number, feedId: number): Promise<fromRoot.WolkResponse<any>> {
-
     try {
-      const response = await this.client.request(
-        'DELETE',
-        `/api/reports/${reportId}/feeds/${feedId}`,
-      );
+      const response = await this.client.request('DELETE', `/api/reports/${reportId}/feeds/${feedId}`);
       return response;
     } catch (error) {
       throw error;
     }
   }
 
-  public async getDataSnapshotForFeeds(reportId:number, params: { feedIds: number[], from?: number, to?: number }):
-    Promise<fromRoot.WolkResponse<fromModels.DataSnapshot>> {
+  public async getDataSnapshotForFeeds(
+    reportId: number,
+    params: { feedIds: number[]; from?: number; to?: number }
+  ): Promise<fromRoot.WolkResponse<fromModels.DataSnapshot>> {
     const { from, to, feedIds = [] } = params;
 
     const requestConfig: AxiosRequestConfig = {
       params: {
         from,
         to,
-        feedIds: feedIds.join(','),
+        feedIds: feedIds.join(',')
       },
       headers: {
         Accept: 'APPLICATION/VND.SNAPSHOT.WITH.INTERVAL.V2+JSON'
@@ -198,15 +166,10 @@ export default class ReportApi {
     };
 
     try {
-      const reportList = await this.client.request(
-        'GET',
-        `/api/reports/${reportId}/snapshotFromTo`,
-        requestConfig
-      );
+      const reportList = await this.client.request('GET', `/api/reports/${reportId}/snapshotFromTo`, requestConfig);
       return reportList;
     } catch (error) {
       throw error;
     }
   }
-
 }

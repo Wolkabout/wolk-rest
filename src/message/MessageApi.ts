@@ -5,17 +5,21 @@ import Message from './model/Message';
 import PageOfMessage from './model/PageOfMessage';
 
 export default class MessageApi {
-  constructor(private readonly client: Client) { }
+  constructor(private readonly client: Client) {}
 
-  public async pageMessages({ since, to, type,  query,  read }:
-    {
-      since?: number,
-      to?: number,
-      type?: string,
-      query?: string,
-      read?: boolean
-    } = {}): Promise<WolkResponse<PageOfMessage>> {
-
+  public async pageMessages({
+    since,
+    to,
+    type,
+    query,
+    read
+  }: {
+    since?: number;
+    to?: number;
+    type?: string;
+    query?: string;
+    read?: boolean;
+  } = {}): Promise<WolkResponse<PageOfMessage>> {
     const requestConfig: AxiosRequestConfig = {
       params: {
         since,
@@ -30,11 +34,7 @@ export default class MessageApi {
     };
 
     try {
-      const response = await this.client.request(
-        'GET',
-        '/api/messages',
-        requestConfig
-      );
+      const response = await this.client.request('GET', '/api/messages', requestConfig);
 
       return response;
     } catch (error) {
@@ -50,11 +50,7 @@ export default class MessageApi {
     };
 
     try {
-      const messages = await this.client.request(
-        'GET',
-        '/api/messages',
-        requestConfig
-      );
+      const messages = await this.client.request('GET', '/api/messages', requestConfig);
 
       return messages;
     } catch (error) {
@@ -70,11 +66,7 @@ export default class MessageApi {
     };
 
     try {
-      const unreadAlarmsCount = await this.client.request(
-        'GET',
-        '/api/messages/unreadCount',
-        requestConfig
-      );
+      const unreadAlarmsCount = await this.client.request('GET', '/api/messages/unreadCount', requestConfig);
 
       return unreadAlarmsCount;
     } catch (error) {
@@ -88,11 +80,7 @@ export default class MessageApi {
     };
 
     try {
-      const response = await this.client.request(
-        'PUT',
-        '/api/messages/markAsRead',
-        requestConfig
-      );
+      const response = await this.client.request('PUT', '/api/messages/markAsRead', requestConfig);
 
       return response;
     } catch (error) {
@@ -102,10 +90,7 @@ export default class MessageApi {
 
   public async markAsReadAll(): Promise<WolkResponse<any>> {
     try {
-      const response = await this.client.request(
-        'PUT',
-        '/api/messages/markAsReadAll'
-      );
+      const response = await this.client.request('PUT', '/api/messages/markAsReadAll');
 
       return response;
     } catch (error) {

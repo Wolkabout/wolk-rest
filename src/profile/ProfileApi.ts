@@ -16,11 +16,7 @@ export default class ProfileApi {
     };
 
     try {
-      const response = await this.client.request(
-        'PUT',
-        '/api/users/me',
-        requestConfig
-      );
+      const response = await this.client.request('PUT', '/api/users/me', requestConfig);
 
       return response;
     } catch (error) {
@@ -30,10 +26,7 @@ export default class ProfileApi {
 
   public async getProfile(): Promise<fromRoot.WolkResponse<User>> {
     try {
-      const response = await this.client.request(
-        'GET',
-        '/api/users/me'
-      );
+      const response = await this.client.request('GET', '/api/users/me');
 
       return response;
     } catch (error) {
@@ -50,11 +43,7 @@ export default class ProfileApi {
     };
 
     try {
-      const response = await this.client.request(
-        'DELETE',
-        '/api/users/me',
-        requestConfig
-      );
+      const response = await this.client.request('DELETE', '/api/users/me', requestConfig);
 
       return response;
     } catch (error) {
@@ -68,11 +57,7 @@ export default class ProfileApi {
     };
 
     try {
-      const response = await this.client.request(
-        'PUT',
-        '/api/users/me',
-        requestConfig
-      );
+      const response = await this.client.request('PUT', '/api/users/me', requestConfig);
 
       return response;
     } catch (error) {
@@ -90,11 +75,7 @@ export default class ProfileApi {
     };
 
     try {
-      const response = await this.client.request(
-        'GET',
-        '/api/users/me/endpoints',
-        requestConfig
-      );
+      const response = await this.client.request('GET', '/api/users/me/endpoints', requestConfig);
 
       return response;
     } catch (error) {
@@ -111,11 +92,7 @@ export default class ProfileApi {
     };
 
     try {
-      const response = await this.client.request(
-        'POST',
-        '/api/users/me/httpPublishingKey',
-        requestConfig
-      );
+      const response = await this.client.request('POST', '/api/users/me/httpPublishingKey', requestConfig);
 
       return response;
     } catch (error) {
@@ -129,11 +106,7 @@ export default class ProfileApi {
     };
 
     try {
-      const response = await this.client.request(
-        'PUT',
-        '/api/users/me/passwordChange',
-        requestConfig
-      );
+      const response = await this.client.request('PUT', '/api/users/me/passwordChange', requestConfig);
 
       return response;
     } catch (error) {
@@ -143,10 +116,7 @@ export default class ProfileApi {
 
   public async myPermissions(): Promise<fromRoot.WolkResponse<Permission[]>> {
     try {
-      const response = await this.client.request(
-        'GET',
-        '/api/users/me/permissions'
-      );
+      const response = await this.client.request('GET', '/api/users/me/permissions');
 
       return response;
     } catch (error) {
