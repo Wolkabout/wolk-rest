@@ -76,27 +76,21 @@ export class WolkREST {
   message(): MessageApi {
     return this.messageApi;
   }
-
   profile(): ProfileApi {
     return this.profileApi;
   }
-
   readingType(): ReadingTypeApi {
     return this.readingTypeApi;
   }
-
   report(): ReportApi {
     return this.reportApi;
   }
-
   template(): TemplateApi {
     return this.templateApi;
   }
-
   unit(): UnitApi {
     return this.unitApi;
   }
-
   widget(): WidgetApi {
     return this.widgetApi;
   }

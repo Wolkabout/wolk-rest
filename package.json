@@ -49,7 +49,6 @@
     "husky": "^0.14.3",
     "istanbul-reporter-badges": "^1.0.2",
     "jest": "^23.5.0",
-    "lodash.camelcase": "^4.3.0",
     "nyc": "^12.0.2",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2",

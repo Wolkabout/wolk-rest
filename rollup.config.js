@@ -1,4 +1,3 @@
-import camelCase from 'lodash.camelcase';
 import commonjs from 'rollup-plugin-commonjs';
 import json from 'rollup-plugin-json';
 import resolve from 'rollup-plugin-node-resolve';
@@ -17,7 +16,7 @@ export default [
     external,
     input: `src/${libraryName}.ts`,
     watch: {
-      include: 'src/**',
+      include: 'src/**'
     },
     output: [
       {
@@ -28,7 +27,7 @@ export default [
       },
       {
         format: 'cjs',
-        file: 'dist/wolk-rest.js',
+        file: `dist/${libraryName}.js`,
         sourcemap: true,
         globals: external
       }
@@ -48,12 +47,12 @@ export default [
   {
     input: `src/${libraryName}.ts`,
     watch: {
-      include: 'src/**',
+      include: 'src/**'
     },
     output: {
       format: 'umd',
       file: pkg.main,
-      name: camelCase(libraryName),
+      name: `dist/${libraryName}.umd.js`,
       sourcemap: true
     },
     plugins: [
