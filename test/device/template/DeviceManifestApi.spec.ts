@@ -17,12 +17,11 @@ describe('DeviceTemplate/Manifest API', () => {
 
   describe('[GET] /api/deviceManifests', async () => {
     test('Should get device manifest by name', async () => {
-      const { data: deviceManifest, status } =
-      await wolkRest.deviceManifest().getPublicDeviceManifest(fromResources.deviceManifest.name);
+      const { data: deviceManifest, status } = await wolkRest
+        .deviceManifest()
+        .getPublicDeviceManifest(fromResources.deviceManifest.name);
 
-      expect(deviceManifest).toEqual(
-        expect.objectContaining(fromResources.deviceManifest)
-      );
+      expect(deviceManifest).toEqual(expect.objectContaining(fromResources.deviceManifest));
       expect(status).toEqual(200);
     });
 
@@ -35,12 +34,11 @@ describe('DeviceTemplate/Manifest API', () => {
     });
 
     test('Should get manifest details by Id', async () => {
-      const { data: deviceManifest, status } =
-        await wolkRest.deviceManifest().getDeviceManifest(fromResources.deviceManifest.id!);
+      const { data: deviceManifest, status } = await wolkRest
+        .deviceManifest()
+        .getDeviceManifest(fromResources.deviceManifest.id!);
 
-      expect(deviceManifest).toEqual(
-        expect.objectContaining(fromResources.deviceManifest)
-      );
+      expect(deviceManifest).toEqual(expect.objectContaining(fromResources.deviceManifest));
       expect(status).toEqual(200);
     });
 
@@ -58,14 +56,11 @@ describe('DeviceTemplate/Manifest API', () => {
       expect(deviceManifests).toBeInstanceOf(Array);
       expect(status).toEqual(200);
     });
-
   });
 
   describe('[POST] /api/deviceManifests', async () => {
     test('Should create device manifest', async () => {
-      const { status, data: manifestId } = await wolkRest.deviceManifest().createManifest(
-        fromResources.deviceManifest
-      );
+      const { status, data: manifestId } = await wolkRest.deviceManifest().createManifest(fromResources.deviceManifest);
       expect(status).toEqual(201);
       newManifestId = manifestId;
     });
@@ -78,9 +73,7 @@ describe('DeviceTemplate/Manifest API', () => {
   describe('[PUT] /api/deviceManifests/{manifestId}', async () => {
     test('Should fail to update device manifest', async () => {
       try {
-        await wolkRest.deviceManifest().updateDeviceManifest(
-          fromResources.deviceManifestFail
-        );
+        await wolkRest.deviceManifest().updateDeviceManifest(fromResources.deviceManifestFail);
       } catch ({ code, type }) {
         expect(code).toEqual(404);
         expect(type).toEqual('NOT_FOUND');
@@ -91,10 +84,10 @@ describe('DeviceTemplate/Manifest API', () => {
   describe('[PUT] /api/deviceManifests/{manifestId}', async () => {
     // Create manifest to be updated
     const manifestDto: fromModels.DeviceManifest = Object.assign(
-        {},
-        fromResources.deviceManifest,
-        fromResources.updateDto
-      );
+      {},
+      fromResources.deviceManifest,
+      fromResources.updateDto
+    );
 
     beforeAll(async () => {
       const { data: manifestId } = await wolkRest.deviceManifest().createManifest(manifestDto);
@@ -124,14 +117,13 @@ describe('DeviceTemplate/Manifest API', () => {
       } catch ({ code }) {
         expect(code).toEqual(HTTP_ERRORS.NOT_FOUND);
       }
-
     });
-
   });
 
   describe('[POST] /api/deviceManifests/{manifestId}/devices', async () => {
     test('Should create device from manifest', async () => {
-      const { status, data: devices } = await wolkRest.deviceManifest()
+      const { status, data: devices } = await wolkRest
+        .deviceManifest()
         .registerDevice(fromResources.deviceManifest.id!, fromResources.createDeviceFromManifest);
 
       [createdDevice] = devices;
@@ -141,14 +133,15 @@ describe('DeviceTemplate/Manifest API', () => {
 
   describe('[POST] /api/deviceManifests/devicesEmail', async () => {
     test('Should send email with device credentials', async () => {
-      const sendCredentials: fromModels.SendCredentialsDTO[] = [{
-        deviceKey: createdDevice.deviceKey,
-        name: createdDevice.name,
-        password: createdDevice.password
-      }];
+      const sendCredentials: fromModels.SendCredentialsDTO[] = [
+        {
+          deviceKey: createdDevice.deviceKey,
+          name: createdDevice.name,
+          password: createdDevice.password
+        }
+      ];
 
-      const { status } = await wolkRest.deviceManifest()
-        .sendCredentialsEmail(sendCredentials);
+      const { status } = await wolkRest.deviceManifest().sendCredentialsEmail(sendCredentials);
 
       expect(status).toEqual(200);
     });
@@ -157,5 +150,4 @@ describe('DeviceTemplate/Manifest API', () => {
       await wolkRest.device().deleteBulk([createdDevice.id]);
     });
   });
-
 });
