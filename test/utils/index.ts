@@ -14,7 +14,9 @@ export function isTypeofBoolean(n: any) {
  * @returns Returns string containing exactly 5 random characters
  */
 export function getRandomString() {
-  return Math.random().toString(36).substr(2, 5);
+  return Math.random()
+    .toString(36)
+    .substr(2, 5);
 }
 
 /**

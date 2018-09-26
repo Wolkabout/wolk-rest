@@ -10,5 +10,5 @@ export interface Template {
   feeds?: FeedTemplate[];
   description: string;
   attributes?: TemplateAttribute[];
-  id?: number;
+  id?: Number;
 }
