@@ -12,9 +12,7 @@ describe('Infos API', () => {
   test('[GET] /api/infos/server', async () => {
     const { data: serverDetails, status } = await wolkRest.info().serverDetails();
 
-    expect(serverDetails).toEqual(
-      expect.objectContaining(fromResources.server)
-    );
+    expect(serverDetails).toEqual(expect.objectContaining(fromResources.server));
     expect(status).toEqual(200);
   });
 
