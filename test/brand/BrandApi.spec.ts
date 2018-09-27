@@ -20,8 +20,7 @@ describe('Brand API', () => {
 
       try {
         await wolkRest.brand().create(fromResources.brand1);
-      } catch (error) {
-      }
+      } catch (error) {}
     });
 
     test('Should get existing brand', async () => {
@@ -62,8 +61,7 @@ describe('Brand API', () => {
 
       try {
         await wolkRest.brand().create(fromResources.brand1);
-      } catch (error) {
-      }
+      } catch (error) {}
     });
 
     test('Should update existing brand', async () => {
@@ -84,8 +82,7 @@ describe('Brand API', () => {
 
       try {
         await wolkRest.brand().create(fromResources.brand1);
-      } catch (error) {
-      }
+      } catch (error) {}
     });
 
     test('Should delete existing brand', async () => {
@@ -94,5 +91,4 @@ describe('Brand API', () => {
       expect(status).toEqual(200);
     });
   });
-
 });
