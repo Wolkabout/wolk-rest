@@ -107,7 +107,7 @@ describe('Data Semantics - Template API', () => {
     });
   });
 
-  describe.only('[PUT] /api/templates', async () => {
+  describe('[PUT] /api/templates', async () => {
     let existingTemplateId: Number;
 
     beforeAll(async () => {
@@ -136,19 +136,29 @@ describe('Data Semantics - Template API', () => {
     });
   });
 
-  // describe('[DELETE] /api/templates', async () => {
-  //   test('Should delete template', async () => {
-  //     const { status } = await wolkRest.template().deleteTemplate(templateId);
+  describe('[DELETE] /api/templates', async () => {
+    let templateId: Number;
 
-  //     expect(status).toEqual(200);
-  //   });
+    beforeAll(async () => {
+      try {
+        const { data } = await wolkRest.template().getTemplates(templateDto.name);
+        const [templateExist] = data;
 
-  //   test('Should fail to delete template', async () => {
-  //     try {
-  //       await wolkRest.template().deleteTemplate(templateId);
-  //     } catch ({ code }) {
-  //       expect(code).toEqual(HTTP_ERRORS.NOT_FOUND);
-  //     }
-  //   });
-  // });
+        if (templateExist) {
+          templateId = templateExist.id;
+        } else {
+          const { data } = await wolkRest.template().createTemplate(templateDto);
+          templateId = data;
+        }
+      } catch (error) {
+        // create template test preparation failed
+      }
+    });
+
+    test('Should delete template', async () => {
+      const { status } = await wolkRest.template().deleteTemplate(templateId);
+
+      expect(status).toEqual(200);
+    });
+  });
 });
