@@ -14,6 +14,7 @@ export interface ReadingType {
   inUse?: boolean;
   name: string;
   id?: number;
+  iconName?: string;
 }
 
 export * from '../../unit/model';
