@@ -1,8 +1,7 @@
 export const server = {
-  organization: 'WolkAbout',
-  maxDashboardsPerContext: 0,
-  maxDevicesPerContext: 0,
-  maxReportsPerContext: 0,
-  maxRulesPerContext: 0,
+  maxDashboardsPerContext: 9223372036854776000,
+  maxDevicesPerContext: 9223372036854776000,
+  maxReportsPerContext: 9223372036854776000,
+  maxRulesPerContext: 9223372036854776000,
   userManagementEnabled: true
 };
