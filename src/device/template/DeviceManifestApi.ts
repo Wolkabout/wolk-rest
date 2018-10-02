@@ -103,9 +103,7 @@ export default class DeviceManifestApi {
   ): Promise<fromRoot.WolkResponse<fromModels.DeviceDTO[]>> {
     const requestConfig: AxiosRequestConfig = {
       data,
-      headers: {
-        Accept: 'application/vnd.devices+json'
-      }
+      headers: { 'Content-Type': 'application/vnd.bulk.operation+json' }
     };
     try {
       const response = await this.client.request('POST', `/api/deviceManifests/${manifestId}/devices`, requestConfig);

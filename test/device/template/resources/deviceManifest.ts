@@ -1,292 +1,268 @@
 import { DeviceManifest } from '../../../../src/device/template/model';
+import { ConnectivityType, DeviceType } from './../../../../src/device/template/model/DeviceManifest';
 export const deviceManifest: DeviceManifest = {
-  id: 84,
-  name: 'QA device simulator',
-  protocol: 'JsonSingleReferenceProtocol',
-  firmwareUpdateProtocol: 'DFUProtocol',
-  description: 'Manifest with all supported features',
-  published: true,
-  feeds: [
-    {
-      id: 174,
-      name: 'Temperature',
-      reference: 'T',
-      description: '',
-      unit: {
-        id: 31,
-        name: 'CELSIUS',
-        symbol: '℃',
-        readingTypeId: 2,
-        system: 'SI',
-        context: null,
-        inUse: true
-      },
-      minimum: -40,
-      maximum: 85,
-      readingType: {
-        id: 2,
-        name: 'TEMPERATURE',
-        dataType: 'NUMERIC',
-        size: 1,
-        precision: 1,
-        labels: null
-      }
-    },
-    {
-      id: 175,
-      name: 'Pressure',
-      reference: 'P',
-      description: '',
-      unit: {
-        id: 112,
-        name: 'MILLIBAR',
-        symbol: 'mb',
-        readingTypeId: 3,
-        system: 'NON_SI',
-        context: null,
-        inUse: true
-      },
-      minimum: 300,
-      maximum: 1100,
-      readingType: {
-        id: 3,
-        name: 'PRESSURE',
-        dataType: 'NUMERIC',
-        size: 1,
-        precision: 1,
-        labels: null
-      }
-    },
-    {
-      id: 176,
-      name: 'Humidity',
-      reference: 'H',
-      description: '',
-      unit: {
-        id: 124,
-        name: 'HUMIDITY_PERCENT',
-        symbol: '%',
-        readingTypeId: 4,
-        system: 'NON_SI',
-        context: null,
-        inUse: true
-      },
-      minimum: 0,
-      maximum: 100,
-      readingType: {
-        id: 4,
-        name: 'HUMIDITY',
-        dataType: 'NUMERIC',
-        size: 1,
-        precision: 1,
-        labels: null
-      }
-    },
-    {
-      id: 177,
-      name: 'Accelerometer',
-      reference: 'ACL',
-      description: '',
-      unit: {
-        id: 24,
-        name: 'METRES_PER_SQUARE_SECOND',
-        symbol: 'm/s²',
-        readingTypeId: 8,
-        system: 'SI',
-        context: null,
-        inUse: true
-      },
-      minimum: 0,
-      maximum: 100,
-      readingType: {
-        id: 8,
-        name: 'ACCELEROMETER',
-        dataType: 'NUMERIC',
-        size: 3,
-        precision: 1,
-        labels: [
-          'x',
-          'y',
-          'z'
-        ]
-      }
-    },
-    {
-      id: 178,
-      name: 'Location',
-      reference: 'LOC',
-      description: '',
-      unit: {
-        id: 139,
-        name: 'LOCATION',
-        symbol: null,
-        readingTypeId: 11,
-        system: 'CUSTOM',
-        context: null,
-        inUse: true
-      },
-      minimum: 0,
-      maximum: 1,
-      readingType: {
-        id: 11,
-        name: 'LOCATION',
-        dataType: 'NUMERIC',
-        size: 2,
-        precision: 7,
-        labels: [
-          'lat',
-          'long'
-        ]
-      }
-    }
-  ],
   actuators: [
     {
+      description: '',
       id: 48,
-      name: 'Switch',
-      reference: 'SW',
-      description: '',
-      unit: {
-        id: 145,
-        name: 'BOOLEAN(ACTUATOR)',
-        symbol: null,
-        readingTypeId: 31,
-        system: 'CUSTOM',
-        context: null,
-        inUse: true
-      },
-      minimum: 0,
       maximum: 1,
-      readingType: {
-        id: 31,
-        name: 'SWITCH(ACTUATOR)',
-        dataType: 'BOOLEAN',
-        size: 1,
-        precision: 1,
-        labels: null
-      }
-    },
-    {
-      id: 49,
-      name: 'Slider',
-      reference: 'SL',
-      description: '',
-      unit: {
-        id: 141,
-        name: 'COUNT(ACTUATOR)',
-        symbol: 'count',
-        readingTypeId: 13,
-        system: 'CUSTOM',
-        context: null,
-        inUse: true
-      },
       minimum: 0,
-      maximum: 100,
+      name: 'Switch',
       readingType: {
-        id: 13,
-        name: 'COUNT(ACTUATOR)',
-        dataType: 'NUMERIC',
-        size: 1,
+        dataType: 'BOOLEAN',
+        iconName: 'ico_switcher',
+        id: 31,
+        labels: null,
+        name: 'SWITCH(ACTUATOR)',
         precision: 1,
-        labels: null
+        size: 1
+      },
+      reference: 'SW',
+      unit: {
+        context: null,
+        id: 145,
+        inUse: true,
+        name: 'BOOLEAN(ACTUATOR)',
+        readingTypeId: 31,
+        symbol: null,
+        system: 'CUSTOM'
       }
     },
     {
-      id: 50,
-      name: 'String',
-      reference: 'ST',
       description: '',
-      unit: {
-        id: 144,
-        name: 'TEXT(ACTUATOR)',
-        symbol: null,
-        readingTypeId: 30,
-        system: 'CUSTOM',
-        context: null,
-        inUse: true
-      },
-      minimum: null,
-      maximum: null,
+      id: 49,
+      maximum: 100,
+      minimum: 0,
+      name: 'Slider',
       readingType: {
-        id: 30,
-        name: 'STRING(ACTUATOR)',
-        dataType: 'STRING',
-        size: 1,
+        dataType: 'NUMERIC',
+        iconName: 'ico_slider',
+        id: 13,
+        labels: null,
+        name: 'COUNT(ACTUATOR)',
         precision: 1,
-        labels: null
+        size: 1
+      },
+      reference: 'SL',
+      unit: {
+        context: null,
+        id: 141,
+        inUse: true,
+        name: 'COUNT(ACTUATOR)',
+        readingTypeId: 13,
+        symbol: 'count',
+        system: 'CUSTOM'
+      }
+    },
+    {
+      description: '',
+      id: 50,
+      maximum: null,
+      minimum: null,
+      name: 'String',
+      readingType: {
+        dataType: 'STRING',
+        iconName: 'ico_string',
+        id: 30,
+        labels: null,
+        name: 'STRING(ACTUATOR)',
+        precision: 1,
+        size: 1
+      },
+      reference: 'ST',
+      unit: {
+        context: null,
+        id: 144,
+        inUse: true,
+        name: 'TEXT(ACTUATOR)',
+        readingTypeId: 30,
+        symbol: null,
+        system: 'CUSTOM'
       }
     }
   ],
   alarms: [
     {
-      id: 27,
-      name: 'High Humidity',
       description: 'Sensor has reported a high level of humidity',
+      id: 27,
       message: 'High humidity has been detected',
-      severity: 'ALERT',
-      reference: 'HH'
+      name: 'High Humidity',
+      reference: 'HH',
+      severity: 'ALERT'
     }
   ],
   configs: [
     {
-      id: 32,
-      name: 'configuration_1',
-      reference: 'config_1',
-      defaultValue: '',
-      nullValue: null,
-      description: '',
-      minimum: 0,
-      maximum: 100,
       dataType: 'NUMERIC',
-      size: 1,
-      labels: null
+      defaultValue: '',
+      description: '',
+      id: 32,
+      labels: null,
+      maximum: 100,
+      minimum: 0,
+      name: 'configuration_1',
+      nullValue: null,
+      reference: 'config_1',
+      size: 1
     },
     {
-      id: 33,
-      name: 'configuration_2',
-      reference: 'config_2',
-      defaultValue: '',
-      nullValue: null,
-      description: null,
-      minimum: null,
-      maximum: null,
       dataType: 'BOOLEAN',
-      size: 1,
-      labels: null
+      defaultValue: '',
+      description: null,
+      id: 33,
+      labels: null,
+      maximum: null,
+      minimum: null,
+      name: 'configuration_2',
+      nullValue: null,
+      reference: 'config_2',
+      size: 1
     },
     {
+      dataType: 'STRING',
+      defaultValue: '',
+      description: null,
       id: 34,
-      name: 'configuration_3',
-      reference: 'config_3',
-      defaultValue: '',
-      nullValue: null,
-      description: null,
-      minimum: null,
+      labels: null,
       maximum: null,
-      dataType: 'STRING',
-      size: 1,
-      labels: null
+      minimum: null,
+      name: 'configuration_3',
+      nullValue: null,
+      reference: 'config_3',
+      size: 1
     },
     {
-      id: 35,
-      name: 'configuration_4',
-      reference: 'config_4',
-      defaultValue: '',
-      nullValue: null,
-      description: null,
-      minimum: null,
-      maximum: null,
       dataType: 'STRING',
-      size: 3,
-      labels: [
-        'a',
-        'b',
-        'c'
-      ]
+      defaultValue: '',
+      description: null,
+      id: 35,
+      labels: ['a', 'b', 'c'],
+      maximum: null,
+      minimum: null,
+      name: 'configuration_4',
+      nullValue: null,
+      reference: 'config_4',
+      size: 3
     }
   ],
-  inUse: true,
-  generallyAvailable: true
+  connectivityType: ConnectivityType.MQTT_BROKER,
+  contextId: 17,
+  description: 'Manifest with all supported features',
+  deviceType: DeviceType.STANDARD,
+  feeds: [
+    {
+      description: '',
+      id: 174,
+      maximum: 85,
+      minimum: -40,
+      name: 'Temperature',
+      readingType: {
+        dataType: 'NUMERIC',
+        iconName: 'ico_temperature',
+        id: 2,
+        labels: null,
+        name: 'TEMPERATURE',
+        precision: 1,
+        size: 1
+      },
+      reference: 'T',
+      unit: { context: null, id: 31, inUse: true, name: 'CELSIUS', readingTypeId: 2, symbol: '℃', system: 'SI' }
+    },
+    {
+      description: '',
+      id: 175,
+      maximum: 1100,
+      minimum: 300,
+      name: 'Pressure',
+      readingType: {
+        dataType: 'NUMERIC',
+        iconName: 'ico_pressure',
+        id: 3,
+        labels: null,
+        name: 'PRESSURE',
+        precision: 1,
+        size: 1
+      },
+      reference: 'P',
+      unit: { context: null, id: 112, inUse: true, name: 'MILLIBAR', readingTypeId: 3, symbol: 'mb', system: 'NON_SI' }
+    },
+    {
+      description: '',
+      id: 176,
+      maximum: 100,
+      minimum: 0,
+      name: 'Humidity',
+      readingType: {
+        dataType: 'NUMERIC',
+        iconName: 'ico_humidity',
+        id: 4,
+        labels: null,
+        name: 'HUMIDITY',
+        precision: 1,
+        size: 1
+      },
+      reference: 'H',
+      unit: {
+        context: null,
+        id: 124,
+        inUse: true,
+        name: 'HUMIDITY_PERCENT',
+        readingTypeId: 4,
+        symbol: '%',
+        system: 'NON_SI'
+      }
+    },
+    {
+      description: '',
+      id: 177,
+      maximum: 100,
+      minimum: 0,
+      name: 'Accelerometer',
+      readingType: {
+        dataType: 'NUMERIC',
+        iconName: 'ico_accelerometer',
+        id: 8,
+        labels: ['x', 'y', 'z'],
+        name: 'ACCELEROMETER',
+        precision: 1,
+        size: 3
+      },
+      reference: 'ACL',
+      unit: {
+        context: null,
+        id: 24,
+        inUse: true,
+        name: 'METRES_PER_SQUARE_SECOND',
+        readingTypeId: 8,
+        symbol: 'm/s²',
+        system: 'SI'
+      }
+    },
+    {
+      description: '',
+      id: 178,
+      maximum: 1,
+      minimum: 0,
+      name: 'Location',
+      readingType: {
+        dataType: 'NUMERIC',
+        iconName: 'ico_location',
+        id: 11,
+        labels: ['lat', 'long'],
+        name: 'LOCATION',
+        precision: 7,
+        size: 2
+      },
+      reference: 'LOC',
+      unit: { context: null, id: 139, inUse: true, name: 'LOCATION', readingTypeId: 11, symbol: null, system: 'CUSTOM' }
+    }
+  ],
+  firmwareUpdateType: 'DFU',
+  generallyAvailable: true,
+  id: 84,
+  name: 'QA device simulator',
+  protocol: 'JsonSingleReferenceProtocol',
+  published: true
 };
 
 export const deviceManifestFailName = 'Python Simulator 88';
@@ -295,14 +271,16 @@ export const deviceManifestFail: DeviceManifest = {
   id: 2000,
   name: 'Dummy Manifest for Failing',
   protocol: 'JsonSingleReferenceProtocol',
-  firmwareUpdateProtocol: 'DFUProtocol',
+  connectivityType: ConnectivityType.MQTT_BROKER,
+  contextId: 17,
+  deviceType: DeviceType.STANDARD,
+  firmwareUpdateType: 'DFU',
   description: 'Manifest with non supported features',
   published: false,
   feeds: [],
   actuators: [],
   alarms: [],
   configs: [],
-  inUse: false,
   generallyAvailable: true
 };
 

@@ -2,7 +2,10 @@ export const createDeviceFromManifest = [
   {
     defaultBinding: true,
     name: 'WRT Device to delete',
-    deviceKey: 'WRTDEVICE'
+    deviceKey: 'WRTDEVICE',
+    connectivityType: 'MQTT_BROKER',
+    protocol: 'JsonProtocol',
+    type: 'STANDARD'
   }
 ];
 
