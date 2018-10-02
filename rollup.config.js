@@ -7,7 +7,7 @@ import builtins from 'rollup-plugin-node-builtins';
 import globals from 'rollup-plugin-node-globals';
 
 const pkg = require('./package.json');
-const libraryName = pkg.name;
+const libraryName = pkg.name.split('/')[1];
 const external = Object.keys(pkg.dependencies) || [];
 
 export default [
