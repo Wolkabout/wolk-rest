@@ -13,10 +13,19 @@ describe('Device API', () => {
   beforeAll(async () => {
     wolkRest = await getAuthenticatedWolkRestInstance();
   });
+  describe('[GET] /api/devices - PAGED', async () => {
+    test('Should get devices list paged with basic projection', async () => {
+      const { status, data } = await wolkRest.device().listPaged();
+
+      expect(status).toEqual(200);
+      expect(data).toHaveProperty('size');
+    });
+  });
 
   describe('[DELETE] /api/device', async () => {
     beforeAll(async () => {
-      const { data: devices } = await wolkRest.deviceManifest()
+      const { data: devices } = await wolkRest
+        .deviceManifest()
         .registerDevice(fromResources.deviceManifest.id!, fromResources.createDeviceFromManifest);
 
       [deviceToDelete] = devices;
