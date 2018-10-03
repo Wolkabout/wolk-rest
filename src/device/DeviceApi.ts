@@ -78,4 +78,13 @@ export default class DeviceApi {
       throw error;
     }
   }
+
+  public async numberOfDevicesUntilLimit(): Promise<fromRoot.WolkResponse<any>> {
+    try {
+      const response = await this.client.request('GET', `${this.requestMappingUrl}/devicesUntilLimit`);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
