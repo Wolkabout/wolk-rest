@@ -13,6 +13,15 @@ describe('Device API', () => {
   beforeAll(async () => {
     wolkRest = await getAuthenticatedWolkRestInstance();
   });
+  describe('[GET] /api/devices', async () => {
+    test('Should get devices list with basic projection', async () => {
+      const { status, data } = await wolkRest.device().list();
+
+      expect(status).toEqual(200);
+      expect(data).not.toHaveProperty('size');
+    });
+  });
+
   describe('[GET] /api/devices - PAGED', async () => {
     test('Should get devices list paged with basic projection', async () => {
       const { status, data } = await wolkRest.device().listPaged();

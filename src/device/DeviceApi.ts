@@ -50,4 +50,22 @@ export default class DeviceApi {
       throw error;
     }
   }
+
+  public async list(
+    parameters?: deviceParams,
+    projection = fromProjections.DeviceProjection.DEVICE_BASIC
+  ): Promise<fromRoot.WolkResponse<any>> {
+    const requestConfig: AxiosRequestConfig = {
+      params: {
+        ...parameters,
+        projection
+      }
+    };
+    try {
+      const response = await this.client.request('GET', `/api/devices`, requestConfig);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
