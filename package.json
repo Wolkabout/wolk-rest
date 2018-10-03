@@ -19,7 +19,8 @@
     "prepush": "npm test",
     "pretest": "npm run compile && npm run lint",
     "lint": "tslint --project ./tsconfig.json",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "publish:wolk": "npm version patch && npm publish --access public"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,15 @@
       "email": "radovan.skendzic@wolkabout.com",
       "url": "http://github.com/rskendzic"
     }
+  ],
+  "keywords": [
+    "wolkabout",
+    "api",
+    "wolkabout apis",
+    "client",
+    "client library",
+    "iot rest http service",
+    "iot platform"
   ],
   "license": "Apache-2.0",
   "devDependencies": {
