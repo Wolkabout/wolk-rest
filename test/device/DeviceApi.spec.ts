@@ -40,6 +40,15 @@ describe('Device API', () => {
     });
   });
 
+  describe('[GET] /api/devices/devicesUntilLimit', async () => {
+    test('Should get number of devices left for users to create', async () => {
+      const { status, data } = await wolkRest.device().numberOfDevicesUntilLimit();
+
+      expect(status).toEqual(200);
+      expect.any(data);
+    });
+  });
+
   describe('[DELETE] /api/device', async () => {
     beforeAll(async () => {
       const { data: devices } = await wolkRest
