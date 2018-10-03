@@ -31,6 +31,15 @@ describe('Device API', () => {
     });
   });
 
+  describe('[GET] /api/devices/countByState', async () => {
+    test('Should get object with number of OFFLINE or ONLINE devices', async () => {
+      const { status, data } = await wolkRest.device().countByState();
+
+      expect(status).toEqual(200);
+      expect(data).toHaveProperty('OFFLINE');
+    });
+  });
+
   describe('[DELETE] /api/device', async () => {
     beforeAll(async () => {
       const { data: devices } = await wolkRest
