@@ -14,14 +14,14 @@ Node.js/Web client library for using [WolkAbout REST APIs](https://restapi.wolka
 
 This library is distributed on `npm`. In order to add it as a dependency, run the following command:
 
-`$ npm install wolk-rest`
+`$ npm install @wolkabout/wolk-rest`
 
 ### First example
 
 Create a new instance of the WolkREST with your baseURL and [SessionStorage](src/model/SessionStorage.ts) [optional].
 
 ```typescript
-const wolkREST = new WolkREST('https://api-verification3.wolksense.com');
+const wolkREST = new WolkREST('https://api-demo.wolkabout.com');
 
 // continue by signing in
 async () => {
@@ -33,15 +33,18 @@ async () => {
 ```
 
 ### Samples
+
 There are several [samples](/samples). If you're trying to figure out how to use an API ... look there first!
 If there's a sample you need missing, feel free to file an [issue](https://github.com/Wolkabout/wolk-rest/issues/new).
 
 ### Reference API
+
 This library provides generated [Reference API documentation](https://wolkabout.github.io/wolk-rest).
 
 ## Contributing
 
 Contributions are always welcome! Please read the contribution guidelines first.
+
 - [Contributing guide](.github/CONTRIBUTING.md)
 - [Code of Conduct](.github/CODE_OF_CONDUCT.md)
 
