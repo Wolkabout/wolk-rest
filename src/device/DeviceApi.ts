@@ -11,8 +11,9 @@ interface deviceParams {
   connectivityType?: ConnectivityType;
   firmwareUpdateType?: string;
 }
-
 export default class DeviceApi {
+  private requestMappingUrl = '/api/devices';
+
   constructor(private readonly client: Client) {}
 
   public async deleteBulk(deviceIds: number[]): Promise<fromRoot.WolkResponse<any>> {
@@ -23,7 +24,7 @@ export default class DeviceApi {
     };
 
     try {
-      const response = await this.client.request('DELETE', `/api/devices`, requestConfig);
+      const response = await this.client.request('DELETE', this.requestMappingUrl, requestConfig);
       return response;
     } catch (error) {
       throw error;
@@ -44,7 +45,7 @@ export default class DeviceApi {
       }
     };
     try {
-      const response = await this.client.request('GET', `/api/devices`, requestConfig);
+      const response = await this.client.request('GET', this.requestMappingUrl, requestConfig);
       return response;
     } catch (error) {
       throw error;
@@ -62,7 +63,16 @@ export default class DeviceApi {
       }
     };
     try {
-      const response = await this.client.request('GET', `/api/devices`, requestConfig);
+      const response = await this.client.request('GET', this.requestMappingUrl, requestConfig);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async countByState(): Promise<fromRoot.WolkResponse<any>> {
+    try {
+      const response = await this.client.request('GET', `${this.requestMappingUrl}/countByState`);
       return response;
     } catch (error) {
       throw error;
