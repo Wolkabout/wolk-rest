@@ -100,6 +100,8 @@ describe('Device API', () => {
 
   describe('[POST] /api/devices', async () => {
     let newDeviceId;
+    let newJasperId;
+    let newLoraId;
     test('Should create new standard mqtt_broker device', async () => {
       const {
         status,
@@ -111,6 +113,28 @@ describe('Device API', () => {
       expect.objectContaining(fromResources.deviceCreationDto);
     });
 
+    test('Should create new jasper device', async () => {
+      const {
+        status,
+        data: { id }
+      } = await wolkRest.device().createJasper(fromResources.jasperCreationDto);
+
+      newJasperId = id;
+      expect(status).toBe(201);
+      expect.objectContaining(fromResources.jasperCreationDto);
+    });
+
+    test('Should create new LoRa device', async () => {
+      const {
+        status,
+        data: { id }
+      } = await wolkRest.device().createLoRa(fromResources.loRaCreationDto);
+
+      newLoraId = id;
+      expect(status).toBe(201);
+      expect.objectContaining(fromResources.jasperCreationDto);
+    });
+
     test('Should fail to create new device', async () => {
       try {
         await wolkRest.device().create(fromResources.failCreationDto);
@@ -120,7 +144,7 @@ describe('Device API', () => {
     });
 
     afterAll(async () => {
-      await wolkRest.device().deleteBulk([newDeviceId]);
+      await wolkRest.device().deleteBulk([newDeviceId, newJasperId, newLoraId]);
     });
   });
 
