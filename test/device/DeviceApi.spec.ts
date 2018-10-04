@@ -68,8 +68,8 @@ describe('Device API', () => {
   });
 
   describe('[PUT] /api/devices/{deviceKey}', async () => {
-    let newDeviceId;
-    let newDeviceKey;
+    let newDeviceId: number;
+    let newDeviceKey: string;
 
     beforeAll(async () => {
       const {
@@ -80,6 +80,13 @@ describe('Device API', () => {
     });
     test('Should generate new password for device by key', async () => {
       const { status, data } = await wolkRest.device().generatePassword(newDeviceKey);
+
+      expect(status).toEqual(200);
+      expect.any(data);
+    });
+
+    test('Should change name for device by key', async () => {
+      const { status, data } = await wolkRest.device().renameDevice(newDeviceKey, 'NEW NAME');
 
       expect(status).toEqual(200);
       expect.any(data);
@@ -102,6 +109,7 @@ describe('Device API', () => {
     let newDeviceId;
     let newJasperId;
     let newLoraId;
+
     test('Should create new standard mqtt_broker device', async () => {
       const {
         status,
@@ -149,23 +157,43 @@ describe('Device API', () => {
   });
 
   describe('[DELETE] /api/device', async () => {
+    let singleDeviceId;
     beforeAll(async () => {
       const { data: devices } = await wolkRest
         .deviceManifest()
         .registerDevice(fromTemplateResources.deviceManifest.id!, fromTemplateResources.createDeviceFromManifest);
 
+      const {
+        data: { id }
+      } = await wolkRest.device().create(fromResources.deviceCreationDto);
+
       [deviceToDelete] = devices;
+      singleDeviceId = id;
     });
 
-    test('Should delete device', async () => {
+    test('Should delete devices bulk', async () => {
       const { status } = await wolkRest.device().deleteBulk([deviceToDelete.id]);
 
       expect(status).toEqual(200);
     });
 
-    test('Should fail to delete the device', async () => {
+    test('Should delete devices', async () => {
+      const { status } = await wolkRest.device().delete(singleDeviceId);
+
+      expect(status).toEqual(200);
+    });
+
+    test('Should fail to delete the devices bulk', async () => {
       try {
         await wolkRest.device().deleteBulk([deviceToDelete.id]);
+      } catch ({ code }) {
+        expect(code).toEqual(HTTP_ERRORS.NOT_FOUND);
+      }
+    });
+
+    test('Should fail to delete the device', async () => {
+      try {
+        await wolkRest.device().delete(singleDeviceId);
       } catch ({ code }) {
         expect(code).toEqual(HTTP_ERRORS.NOT_FOUND);
       }
