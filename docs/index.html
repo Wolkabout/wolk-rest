@@ -64,30 +64,20 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<p><img src="https://img.shields.io/badge/Lines-79.25%25%20%28378%2F477%29-yellow.svg" alt="coverage-lines-badge">
-					<img src="https://img.shields.io/badge/Statements-79.23%25%20%28435%2F549%29-yellow.svg" alt="coverage-statements-badge">
-					<img src="https://img.shields.io/badge/Functions-82.79%25%20%28101%2F122%29-yellow.svg" alt="coverage-functions-badge">
-					<img src="https://img.shields.io/badge/Branches-52.94%25%20%2827%2F51%29-yellow.svg" alt="coverage-branches-badge">
+				<p><img src="https://img.shields.io/badge/Lines-89.55%25%20%28557%2F622%29-brightgreen.svg" alt="coverage-lines-badge">
+					<img src="https://img.shields.io/badge/Statements-90.58%25%20%28644%2F711%29-brightgreen.svg" alt="coverage-statements-badge">
+					<img src="https://img.shields.io/badge/Functions-96.67%25%20%28145%2F150%29-brightgreen.svg" alt="coverage-functions-badge">
+					<img src="https://img.shields.io/badge/Branches-77.05%25%20%2847%2F61%29-yellow.svg" alt="coverage-branches-badge">
 				<img src="https://img.shields.io/badge/Local%20Coverage-100%25-brightgreen.svg" alt="Local Coverage-shield-badge-1"></p>
-				<h1 id="wolkabout-sdk">WolkAbout SDK</h1>
+				<h1 id="wolkabout-client-library">WolkAbout client library</h1>
 				<p>Node.js/Web client library for using <a href="https://restapi.wolkabout.com/">WolkAbout REST APIs</a>.</p>
 				<h2 id="getting-started">Getting Started</h2>
 				<h3 id="installation">Installation</h3>
 				<p>This library is distributed on <code>npm</code>. In order to add it as a dependency, run the following command:</p>
 				<p><code>$ npm install wolk-rest</code></p>
 				<h3 id="first-example">First example</h3>
-				<p>Create a new instance of the WolkREST with your baseURL and <a href="src/model/SessionStorageConfig.ts">SessionStorageConfig</a> [optional].</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> wolkREST = <span class="hljs-keyword">new</span> WolkREST({
-  baseURL: <span class="hljs-string">'https://api-verification3.wolksense.com'</span>
-});
-
-<span class="hljs-comment">// Or use Browser's local storage for saving sessions</span>
-<span class="hljs-keyword">const</span> wolkRESTBrowser = <span class="hljs-keyword">new</span> WolkREST(
-  baseURL: <span class="hljs-string">'https://api-verification3.wolksense.com'</span>,
-  {
-    <span class="hljs-keyword">type</span>: <span class="hljs-string">'LOCAL_STORAGE'</span>
-  }
-);
+				<p>Create a new instance of the WolkREST with your baseURL and <a href="src/model/SessionStorage.ts">SessionStorage</a> [optional].</p>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> wolkREST = <span class="hljs-keyword">new</span> WolkREST(<span class="hljs-string">'https://api-verification3.wolksense.com'</span>);
 
 <span class="hljs-comment">// continue by signing in</span>
 <span class="hljs-keyword">async</span> () =&gt; {
@@ -98,11 +88,16 @@
 };
 </code></pre>
 				<h3 id="samples">Samples</h3>
-				<p>There are several <strong>samples</strong>. If you&#39;re trying to figure out how to use an API ... look there first! If there&#39;s a sample you need missing, feel free to file an <strong>issue</strong>.</p>
+				<p>There are several <a href="/samples">samples</a>. If you&#39;re trying to figure out how to use an API ... look there first!
+				If there&#39;s a sample you need missing, feel free to file an <a href="https://github.com/Wolkabout/wolk-rest/issues/new">issue</a>.</p>
 				<h3 id="reference-api">Reference API</h3>
 				<p>This library provides generated <a href="https://wolkabout.github.io/wolk-rest">Reference API documentation</a>.</p>
 				<h2 id="contributing">Contributing</h2>
-				<p>Contributions are always welcome! Before submitting a Pull Request, it&#39;s always good to start with a new issue first. To learn more, see <strong>CONTRIBUTING</strong>.</p>
+				<p>Contributions are always welcome! Please read the contribution guidelines first.</p>
+				<ul>
+					<li><a href=".github/CONTRIBUTING.md">Contributing guide</a></li>
+					<li><a href=".github/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+				</ul>
 				<h2 id="license">License</h2>
 				<p>This library is licensed under <a href="LICENSE.md">Apache 2.0</a>.</p>
 			</div>
@@ -165,6 +160,9 @@
 						<a href="modules/_brand_model_index_.html">"brand/model/index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="modules/_common_projection_.html">"common/<wbr>Projection"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="modules/_dashboard_dashboardapi_.html">"dashboard/<wbr>Dashboard<wbr>Api"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -192,6 +190,12 @@
 						<a href="modules/_device_deviceapi_.html">"device/<wbr>Device<wbr>Api"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="modules/_device_model_devicecreation_.html">"device/model/<wbr>Device<wbr>Creation"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_device_model_index_.html">"device/model/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="modules/_device_template_devicemanifestapi_.html">"device/template/<wbr>Device<wbr>Manifest<wbr>Api"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -214,9 +218,6 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_device_template_model_index_.html">"device/template/model/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_info_infoapi_.html">"info/<wbr>Info<wbr>Api"</a>
@@ -244,9 +245,6 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_model_sessionstorage_.html">"model/<wbr>Session<wbr>Storage"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_model_sessionstorageconfig_.html">"model/<wbr>Session<wbr>Storage<wbr>Config"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_model_sort_.html">"model/<wbr>Sort"</a>
@@ -361,6 +359,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_utils_index_.html">"utils/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_wolk_rest_.html">"wolk-<wbr>rest"</a>
 					</li>
 				</ul>
 			</nav>
