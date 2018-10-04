@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from 'axios';
 import Client from '../Client';
 import * as fromProjections from '../common/Projection';
 import * as fromRoot from '../model';
-import * as fromModel from './template/model';
+import * as fromModel from './model';
 import { ConnectivityType } from './template/model/DeviceManifest';
 
 interface deviceParams {
@@ -37,12 +37,12 @@ export default class DeviceApi {
     projection = fromProjections.DeviceProjection.DEVICE_BASIC
   ): Promise<fromRoot.WolkResponse<any>> {
     const requestConfig: AxiosRequestConfig = {
+      headers: {
+        Accept: 'application/vnd.page+json'
+      },
       params: {
         ...parameters,
         projection
-      },
-      headers: {
-        Accept: 'application/vnd.page+json'
       }
     };
     try {
@@ -108,6 +108,32 @@ export default class DeviceApi {
   }
 
   public async create(newDevice: fromModel.DeviceCreationDto): Promise<fromRoot.WolkResponse<any>> {
+    const requestConfig: AxiosRequestConfig = {
+      data: newDevice
+    };
+
+    try {
+      const response = await this.client.request('POST', `${this.requestMappingUrl}`, requestConfig);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async createJasper(newDevice: fromModel.JasperCreationDto): Promise<fromRoot.WolkResponse<any>> {
+    const requestConfig: AxiosRequestConfig = {
+      data: newDevice
+    };
+
+    try {
+      const response = await this.client.request('POST', `${this.requestMappingUrl}`, requestConfig);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async createLoRa(newDevice: fromModel.LoRaCreationDto): Promise<fromRoot.WolkResponse<any>> {
     const requestConfig: AxiosRequestConfig = {
       data: newDevice
     };

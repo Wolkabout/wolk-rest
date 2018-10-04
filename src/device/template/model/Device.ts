@@ -1,7 +1,6 @@
 import { DeviceActuator } from './Actuator';
 import { DeviceAlarm } from './Alarm';
 import { DeviceConfig } from './Config';
-import { ConnectivityType } from './DeviceManifest';
 import { DeviceSensor } from './Feed';
 
 export interface CreateDeviceDTO {
@@ -61,17 +60,4 @@ export interface DeviceDTO {
   path: string;
   password: string;
   serviceStatuses: ServiceStatus[];
-}
-
-export interface DeviceCreationDto {
-  name: string;
-  deviceKey: string;
-  protocol: string;
-  defaultBinding: boolean;
-  type: string;
-  connectivityType: ConnectivityType;
-  firmwareUpdateType: string;
-  connectivityParams?: string[];
-  deviceTypeParams?: string[];
-  firmwareUpdateParams?: string[];
 }

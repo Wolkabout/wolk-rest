@@ -1,5 +1,5 @@
 import { DeviceManifest } from '../../../../src/device/template/model';
-import { ConnectivityType, DeviceType } from './../../../../src/device/template/model/DeviceManifest';
+import { Connectivity, DeviceType } from './../../../../src/device/template/model/DeviceManifest';
 export const deviceManifest: DeviceManifest = {
   actuators: [
     {
@@ -145,7 +145,7 @@ export const deviceManifest: DeviceManifest = {
       size: 3
     }
   ],
-  connectivityType: ConnectivityType.MQTT_BROKER,
+  connectivityType: Connectivity.MQTT_BROKER,
   contextId: 17,
   description: 'Manifest with all supported features',
   deviceType: DeviceType.STANDARD,
@@ -268,27 +268,27 @@ export const deviceManifest: DeviceManifest = {
 export const deviceManifestFailName = 'Python Simulator 88';
 
 export const deviceManifestFail: DeviceManifest = {
+  actuators: [],
+  alarms: [],
+  configs: [],
+  connectivityType: Connectivity.MQTT_BROKER,
+  contextId: 17,
+  description: 'Manifest with non supported features',
+  deviceType: DeviceType.STANDARD,
+  feeds: [],
+  firmwareUpdateType: 'DFU',
+  generallyAvailable: true,
   id: 2000,
   name: 'Dummy Manifest for Failing',
   protocol: 'JsonSingleReferenceProtocol',
-  connectivityType: ConnectivityType.MQTT_BROKER,
-  contextId: 17,
-  deviceType: DeviceType.STANDARD,
-  firmwareUpdateType: 'DFU',
-  description: 'Manifest with non supported features',
-  published: false,
-  feeds: [],
-  actuators: [],
-  alarms: [],
-  configs: [],
-  generallyAvailable: true
+  published: false
 };
 
 export const updateDto = {
-  feeds: [],
   actuators: [],
   alarms: [],
   configs: [],
-  name: 'WRT - Manifest to delete',
-  description: `You shouldn't see this manifest. Test failed`
+  description: `You shouldn't see this manifest. Test failed`,
+  feeds: [],
+  name: 'WRT - Manifest to delete'
 };
