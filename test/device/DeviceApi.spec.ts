@@ -4,7 +4,8 @@ import { HTTP_ERRORS } from '../../src/utils';
 import { getAuthenticatedWolkRestInstance } from '../utils';
 
 import * as fromModels from '../../src/device/template/model';
-import * as fromResources from './template/resources';
+import * as fromResources from './resources/device';
+import * as fromTemplateResources from './template/resources';
 
 describe('Device API', () => {
   let wolkRest: WolkREST;
@@ -49,11 +50,85 @@ describe('Device API', () => {
     });
   });
 
+  describe('[GET] /api/devices/{deviceKey}', async () => {
+    test('Should get device details by key', async () => {
+      const { status, data } = await wolkRest.device().getDeviceByKey('sremDevice');
+
+      expect(status).toEqual(200);
+      expect.any(data);
+    });
+
+    test('Should fail to get non existing device details by key', async () => {
+      try {
+        await wolkRest.device().getDeviceByKey('');
+      } catch ({ code }) {
+        expect(code).toEqual(HTTP_ERRORS.BAD_REQUEST);
+      }
+    });
+  });
+
+  describe('[PUT] /api/devices/{deviceKey}', async () => {
+    let newDeviceId;
+    let newDeviceKey;
+
+    beforeAll(async () => {
+      const {
+        data: { id, deviceKey }
+      } = await wolkRest.device().create(fromResources.deviceCreationDto);
+      newDeviceId = id;
+      newDeviceKey = deviceKey;
+    });
+    test('Should generate new password for device by key', async () => {
+      const { status, data } = await wolkRest.device().generatePassword(newDeviceKey);
+
+      expect(status).toEqual(200);
+      expect.any(data);
+    });
+
+    test('Should fail to generate new password for device by key', async () => {
+      try {
+        await wolkRest.device().generatePassword('');
+      } catch ({ code }) {
+        expect(code).toEqual(HTTP_ERRORS.INTERNAL_SERVER_ERROR); // should be not found, server has bug atm
+      }
+    });
+
+    afterAll(async () => {
+      await wolkRest.device().deleteBulk([newDeviceId]);
+    });
+  });
+
+  describe('[POST] /api/devices', async () => {
+    let newDeviceId;
+    test('Should create new standard mqtt_broker device', async () => {
+      const {
+        status,
+        data: { id }
+      } = await wolkRest.device().create(fromResources.deviceCreationDto);
+
+      newDeviceId = id;
+      expect(status).toBe(201);
+      expect.objectContaining(fromResources.deviceCreationDto);
+    });
+
+    test('Should fail to create new device', async () => {
+      try {
+        await wolkRest.device().create(fromResources.failCreationDto);
+      } catch ({ code }) {
+        expect(code).toEqual(HTTP_ERRORS.BAD_REQUEST);
+      }
+    });
+
+    afterAll(async () => {
+      await wolkRest.device().deleteBulk([newDeviceId]);
+    });
+  });
+
   describe('[DELETE] /api/device', async () => {
     beforeAll(async () => {
       const { data: devices } = await wolkRest
         .deviceManifest()
-        .registerDevice(fromResources.deviceManifest.id!, fromResources.createDeviceFromManifest);
+        .registerDevice(fromTemplateResources.deviceManifest.id!, fromTemplateResources.createDeviceFromManifest);
 
       [deviceToDelete] = devices;
     });
