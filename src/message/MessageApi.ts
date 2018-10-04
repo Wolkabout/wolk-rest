@@ -21,15 +21,15 @@ export default class MessageApi {
     read?: boolean;
   } = {}): Promise<WolkResponse<PageOfMessage>> {
     const requestConfig: AxiosRequestConfig = {
-      params: {
-        since,
-        to,
-        type,
-        query,
-        read
-      },
       headers: {
         Accept: 'application/json'
+      },
+      params: {
+        query,
+        read,
+        since,
+        to,
+        type
       }
     };
 

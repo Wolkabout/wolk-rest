@@ -1,7 +1,7 @@
-![coverage-lines-badge](https://img.shields.io/badge/Lines-90.15%25%20%28494%2F548%29-brightgreen.svg)
-![coverage-statements-badge](https://img.shields.io/badge/Statements-91.2%25%20%28570%2F625%29-brightgreen.svg)
-![coverage-functions-badge](https://img.shields.io/badge/Functions-97.06%25%20%28132%2F136%29-brightgreen.svg)
-![coverage-branches-badge](https://img.shields.io/badge/Branches-77.36%25%20%2841%2F53%29-yellow.svg)
+![coverage-lines-badge](https://img.shields.io/badge/Lines-89.55%25%20%28557%2F622%29-brightgreen.svg)
+![coverage-statements-badge](https://img.shields.io/badge/Statements-90.58%25%20%28644%2F711%29-brightgreen.svg)
+![coverage-functions-badge](https://img.shields.io/badge/Functions-96.67%25%20%28145%2F150%29-brightgreen.svg)
+![coverage-branches-badge](https://img.shields.io/badge/Branches-77.05%25%20%2847%2F61%29-yellow.svg)
 ![Local Coverage-shield-badge-1](https://img.shields.io/badge/Local%20Coverage-100%25-brightgreen.svg)
 
 # WolkAbout client library

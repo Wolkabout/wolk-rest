@@ -38,11 +38,11 @@ export default class TemplateApi {
 
   public async getTemplatesPaged(query?: string): Promise<fromRoot.WolkResponse<any>> {
     const requestConfig: AxiosRequestConfig = {
-      params: {
-        query
-      },
       headers: {
         Accept: 'application/vnd.page+json'
+      },
+      params: {
+        query
       }
     };
 

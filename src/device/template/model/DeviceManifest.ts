@@ -24,7 +24,7 @@ export interface DeviceManifest {
  * Available types will be sent in server info
  * @default MQTT_BROKER - Usual connection type
  */
-export enum ConnectivityType {
+export enum Connectivity {
   /**
    * Usual connection type.
    */
@@ -46,6 +46,8 @@ export enum ConnectivityType {
    */
   TTN = 'TTN'
 }
+
+export type ConnectivityType = keyof typeof Connectivity;
 
 /**
  * Types of devices supported on our platform.
