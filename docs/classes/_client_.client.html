@@ -91,17 +91,17 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_client_.client.html#_axios" class="tsd-kind-icon">_axios</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_client_.client.html#_sessionstorageconfig" class="tsd-kind-icon">_session<wbr>Storage<wbr>Config</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_client_.client.html#_storage" class="tsd-kind-icon">_storage</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_client_.client.html#autosaveenabled" class="tsd-kind-icon">auto<wbr>Save<wbr>Enabled</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_client_.client.html#cleartoken" class="tsd-kind-icon">clear<wbr>Token</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_client_.client.html#gettoken" class="tsd-kind-icon">get<wbr>Token</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_client_.client.html#removeauthheader" class="tsd-kind-icon">remove<wbr>Auth<wbr>Header</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_client_.client.html#request" class="tsd-kind-icon">request</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_client_.client.html#setauthheader" class="tsd-kind-icon">set<wbr>Auth<wbr>Header</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_client_.client.html#settoken" class="tsd-kind-icon">set<wbr>Token</a></li>
 							</ul>
 						</section>
@@ -114,13 +114,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Client<span class="tsd-signature-symbol">(</span>baseURL<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, sessionStorageConfig<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_model_sessionstorageconfig_.sessionstorageconfig.html" class="tsd-signature-type">SessionStorageConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_client_.client.html" class="tsd-signature-type">Client</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Client<span class="tsd-signature-symbol">(</span>baseURL<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, storage<span class="tsd-signature-symbol">: </span><a href="../interfaces/_model_sessionstorage_.sessionstorage.html" class="tsd-signature-type">SessionStorage</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_client_.client.html" class="tsd-signature-type">Client</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Client.ts:13</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/Client.ts#L9">Client.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -129,7 +129,7 @@
 									<h5>baseURL: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sessionStorageConfig: <a href="../interfaces/_model_sessionstorageconfig_.sessionstorageconfig.html" class="tsd-signature-type">SessionStorageConfig</a></h5>
+									<h5>storage: <a href="../interfaces/_model_sessionstorage_.sessionstorage.html" class="tsd-signature-type">SessionStorage</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_client_.client.html" class="tsd-signature-type">Client</a></h4>
@@ -145,17 +145,7 @@
 					<div class="tsd-signature tsd-kind-icon">_axios<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">AxiosInstance</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Client.ts:11</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_sessionstorageconfig" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _session<wbr>Storage<wbr>Config</h3>
-					<div class="tsd-signature tsd-kind-icon">_session<wbr>Storage<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_model_sessionstorageconfig_.sessionstorageconfig.html" class="tsd-signature-type">SessionStorageConfig</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in Client.ts:13</li>
+							<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/Client.ts#L8">Client.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -165,30 +155,13 @@
 					<div class="tsd-signature tsd-kind-icon">_storage<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_model_sessionstorage_.sessionstorage.html" class="tsd-signature-type">SessionStorage</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in Client.ts:12</li>
+							<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/Client.ts#L9">Client.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="autosaveenabled" class="tsd-anchor"></a>
-					<h3>auto<wbr>Save<wbr>Enabled</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">auto<wbr>Save<wbr>Enabled<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in Client.ts:93</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="cleartoken" class="tsd-anchor"></a>
 					<h3>clear<wbr>Token</h3>
@@ -199,7 +172,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Client.ts:89</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/Client.ts#L62">Client.ts:62</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -216,10 +189,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Client.ts:81</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/Client.ts#L54">Client.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="removeauthheader" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> remove<wbr>Auth<wbr>Header</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Auth<wbr>Header<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/Client.ts#L50">Client.ts:50</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -233,7 +223,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Client.ts:58</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/Client.ts#L26">Client.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -272,6 +262,23 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="setauthheader" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> set<wbr>Auth<wbr>Header</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Auth<wbr>Header<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/Client.ts#L46">Client.ts:46</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="settoken" class="tsd-anchor"></a>
 					<h3>set<wbr>Token</h3>
@@ -282,7 +289,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Client.ts:85</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/Client.ts#L58">Client.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -322,13 +329,7 @@
 								<a href="_client_.client.html#_axios" class="tsd-kind-icon">_axios</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_client_.client.html#_sessionstorageconfig" class="tsd-kind-icon">_session<wbr>Storage<wbr>Config</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_client_.client.html#_storage" class="tsd-kind-icon">_storage</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_client_.client.html#autosaveenabled" class="tsd-kind-icon">auto<wbr>Save<wbr>Enabled</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_client_.client.html#cleartoken" class="tsd-kind-icon">clear<wbr>Token</a>
@@ -336,8 +337,14 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_client_.client.html#gettoken" class="tsd-kind-icon">get<wbr>Token</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_client_.client.html#removeauthheader" class="tsd-kind-icon">remove<wbr>Auth<wbr>Header</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_client_.client.html#request" class="tsd-kind-icon">request</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_client_.client.html#setauthheader" class="tsd-kind-icon">set<wbr>Auth<wbr>Header</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_client_.client.html#settoken" class="tsd-kind-icon">set<wbr>Token</a>

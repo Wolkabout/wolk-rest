@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;index&quot; | WolkREST client library</title>
+	<title>Connectivity | WolkREST client library</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,26 +56,124 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_index_.html">&quot;index&quot;</a>
+					<a href="../modules/_device_template_model_devicemanifest_.html">&quot;device/template/model/DeviceManifest&quot;</a>
+				</li>
+				<li>
+					<a href="_device_template_model_devicemanifest_.connectivity.html">Connectivity</a>
 				</li>
 			</ul>
-			<h1>External module &quot;index&quot;</h1>
+			<h1>Enumeration Connectivity</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Defines all possible values for ConnectivityType.
+						Available types will be sent in server info</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>default</dt>
+						<dd><p>MQTT_BROKER - Usual connection type</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_index_.wolkrest.html" class="tsd-kind-icon">WolkREST</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_device_template_model_devicemanifest_.connectivity.html#mqtt_broker" class="tsd-kind-icon">MQTT_<wbr>BROKER</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_device_template_model_devicemanifest_.connectivity.html#mqtt_gateway" class="tsd-kind-icon">MQTT_<wbr>GATEWAY</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_device_template_model_devicemanifest_.connectivity.html#mqtt_jasper" class="tsd-kind-icon">MQTT_<wbr>JASPER</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_device_template_model_devicemanifest_.connectivity.html#mqtt_sub_device" class="tsd-kind-icon">MQTT_<wbr>SUB_<wbr>DEVICE</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_device_template_model_devicemanifest_.connectivity.html#ttn" class="tsd-kind-icon">TTN</a></li>
 							</ul>
 						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Enumeration members</h2>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="mqtt_broker" class="tsd-anchor"></a>
+					<h3>MQTT_<wbr>BROKER</h3>
+					<div class="tsd-signature tsd-kind-icon">MQTT_<wbr>BROKER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;MQTT_BROKER&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/template/model/DeviceManifest.ts#L31">device/template/model/DeviceManifest.ts:31</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Usual connection type.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="mqtt_gateway" class="tsd-anchor"></a>
+					<h3>MQTT_<wbr>GATEWAY</h3>
+					<div class="tsd-signature tsd-kind-icon">MQTT_<wbr>GATEWAY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;MQTT_GATEWAY&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/template/model/DeviceManifest.ts#L39">device/template/model/DeviceManifest.ts:39</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Gateway device</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="mqtt_jasper" class="tsd-anchor"></a>
+					<h3>MQTT_<wbr>JASPER</h3>
+					<div class="tsd-signature tsd-kind-icon">MQTT_<wbr>JASPER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;MQTT_JASPER&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/template/model/DeviceManifest.ts#L35">device/template/model/DeviceManifest.ts:35</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Connected via Tele2 Jasper</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="mqtt_sub_device" class="tsd-anchor"></a>
+					<h3>MQTT_<wbr>SUB_<wbr>DEVICE</h3>
+					<div class="tsd-signature tsd-kind-icon">MQTT_<wbr>SUB_<wbr>DEVICE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;MQTT_SUB_DEVICE&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/template/model/DeviceManifest.ts#L43">device/template/model/DeviceManifest.ts:43</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Device connected via gateway to platform.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="ttn" class="tsd-anchor"></a>
+					<h3>TTN</h3>
+					<div class="tsd-signature tsd-kind-icon">TTN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;TTN&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/template/model/DeviceManifest.ts#L47">device/template/model/DeviceManifest.ts:47</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Device connected via LoRa</p>
+						</div>
 					</div>
 				</section>
 			</section>
@@ -87,14 +185,44 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_index_.html">"index"</a>
+						<a href="../modules/_device_template_model_devicemanifest_.html">"device/template/model/<wbr>Device<wbr>Manifest"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_index_.wolkrest.html" class="tsd-kind-icon">WolkREST</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="_device_template_model_devicemanifest_.connectivity.html" class="tsd-kind-icon">Connectivity</a>
+						<ul>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_device_template_model_devicemanifest_.connectivity.html#mqtt_broker" class="tsd-kind-icon">MQTT_<wbr>BROKER</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_device_template_model_devicemanifest_.connectivity.html#mqtt_gateway" class="tsd-kind-icon">MQTT_<wbr>GATEWAY</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_device_template_model_devicemanifest_.connectivity.html#mqtt_jasper" class="tsd-kind-icon">MQTT_<wbr>JASPER</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_device_template_model_devicemanifest_.connectivity.html#mqtt_sub_device" class="tsd-kind-icon">MQTT_<wbr>SUB_<wbr>DEVICE</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_device_template_model_devicemanifest_.connectivity.html#ttn" class="tsd-kind-icon">TTN</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="_device_template_model_devicemanifest_.devicetype.html" class="tsd-kind-icon">Device<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_device_template_model_devicemanifest_.devicemanifest.html" class="tsd-kind-icon">Device<wbr>Manifest</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_device_template_model_devicemanifest_.html#connectivitytype" class="tsd-kind-icon">Connectivity<wbr>Type</a>
 					</li>
 				</ul>
 			</nav>

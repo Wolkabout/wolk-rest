@@ -91,12 +91,25 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_device_deviceapi_.deviceapi.html#client" class="tsd-kind-icon">client</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_device_deviceapi_.deviceapi.html#requestmappingurl" class="tsd-kind-icon">request<wbr>Mapping<wbr>Url</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#countbystate" class="tsd-kind-icon">count<wbr>ByState</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#createbulk" class="tsd-kind-icon">create<wbr>Bulk</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#createjasper" class="tsd-kind-icon">create<wbr>Jasper</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#createlora" class="tsd-kind-icon">create<wbr>LoRa</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#delete" class="tsd-kind-icon">delete</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#deletebulk" class="tsd-kind-icon">delete<wbr>Bulk</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#generatepassword" class="tsd-kind-icon">generate<wbr>Password</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#getdevicebykey" class="tsd-kind-icon">get<wbr>Device<wbr>ByKey</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#list" class="tsd-kind-icon">list</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#listpaged" class="tsd-kind-icon">list<wbr>Paged</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#numberofdevicesuntillimit" class="tsd-kind-icon">number<wbr>OfDevices<wbr>Until<wbr>Limit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_device_deviceapi_.deviceapi.html#renamedevice" class="tsd-kind-icon">rename<wbr>Device</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,7 +127,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in device/DeviceApi.ts:5</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L16">device/DeviceApi.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -136,13 +149,215 @@
 					<div class="tsd-signature tsd-kind-icon">client<span class="tsd-signature-symbol">:</span> <a href="_client_.client.html" class="tsd-signature-type">Client</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in device/DeviceApi.ts:6</li>
+							<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L18">device/DeviceApi.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="requestmappingurl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> request<wbr>Mapping<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">request<wbr>Mapping<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;/api/devices&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L16">device/DeviceApi.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="countbystate" class="tsd-anchor"></a>
+					<h3>count<wbr>ByState</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">count<wbr>ByState<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L90">device/DeviceApi.ts:90</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use to get number of devices divided by state ONLINE | OFFLINE;</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>&#39;DEVICE_READ&#39;||&#39;DEVICE_CREATE&#39;||&#39;DEVICE_UPDATE&#39;||&#39;DEVICE_DELETE&#39; access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="create" class="tsd-anchor"></a>
+					<h3>create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>newDevice<span class="tsd-signature-symbol">: </span><a href="../interfaces/_device_model_devicecreation_.devicecreationdto.html" class="tsd-signature-type">DeviceCreationDto</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L142">device/DeviceApi.ts:142</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use to create Standard device.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>DEVICE_CREATE access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>newDevice: <a href="../interfaces/_device_model_devicecreation_.devicecreationdto.html" class="tsd-signature-type">DeviceCreationDto</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createbulk" class="tsd-anchor"></a>
+					<h3>create<wbr>Bulk</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Bulk<span class="tsd-signature-symbol">(</span>newDevices<span class="tsd-signature-symbol">: </span><a href="../interfaces/_device_model_devicecreation_.devicecreationdto.html" class="tsd-signature-type">DeviceCreationDto</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L193">device/DeviceApi.ts:193</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Used to create multiple devices at once.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>DEVICE_CREATE access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>newDevices: <a href="../interfaces/_device_model_devicecreation_.devicecreationdto.html" class="tsd-signature-type">DeviceCreationDto</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createjasper" class="tsd-anchor"></a>
+					<h3>create<wbr>Jasper</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Jasper<span class="tsd-signature-symbol">(</span>newDevice<span class="tsd-signature-symbol">: </span><a href="../interfaces/_device_model_devicecreation_.jaspercreationdto.html" class="tsd-signature-type">JasperCreationDto</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L159">device/DeviceApi.ts:159</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use to create Jasper device.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>DEVICE_CREATE access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>newDevice: <a href="../interfaces/_device_model_devicecreation_.jaspercreationdto.html" class="tsd-signature-type">JasperCreationDto</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createlora" class="tsd-anchor"></a>
+					<h3>create<wbr>LoRa</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>LoRa<span class="tsd-signature-symbol">(</span>newDevice<span class="tsd-signature-symbol">: </span><a href="../interfaces/_device_model_devicecreation_.loracreationdto.html" class="tsd-signature-type">LoRaCreationDto</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L176">device/DeviceApi.ts:176</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use to create LoRa device.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>DEVICE_CREATE access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>newDevice: <a href="../interfaces/_device_model_devicecreation_.loracreationdto.html" class="tsd-signature-type">LoRaCreationDto</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="delete" class="tsd-anchor"></a>
+					<h3>delete</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>deviceId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L213">device/DeviceApi.ts:213</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Used to delete single device.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>DEVICE_DELETE access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>deviceId: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="deletebulk" class="tsd-anchor"></a>
 					<h3>delete<wbr>Bulk</h3>
@@ -153,13 +368,224 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in device/DeviceApi.ts:8</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L24">device/DeviceApi.ts:24</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Used to delete multiple devices at once.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>DEVICE_DELETE access permision</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>deviceIds: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="generatepassword" class="tsd-anchor"></a>
+					<h3>generate<wbr>Password</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Password<span class="tsd-signature-symbol">(</span>deviceKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L129">device/DeviceApi.ts:129</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use to change device password.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>DEVICE_UPDATE access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>deviceKey: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getdevicebykey" class="tsd-anchor"></a>
+					<h3>get<wbr>Device<wbr>ByKey</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Device<wbr>ByKey<span class="tsd-signature-symbol">(</span>deviceKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L116">device/DeviceApi.ts:116</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use to get device details by deviceKey.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>&#39;DEVICE_READ&#39;||&#39;DEVICE_CREATE&#39;||&#39;DEVICE_UPDATE&#39;||&#39;DEVICE_DELETE&#39; access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>deviceKey: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="list" class="tsd-anchor"></a>
+					<h3>list</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">list<span class="tsd-signature-symbol">(</span>parameters<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_device_deviceapi_.deviceparams.html" class="tsd-signature-type">deviceParams</a>, projection<span class="tsd-signature-symbol">?: </span><a href="../enums/_common_projection_.deviceprojection.html" class="tsd-signature-type">DeviceProjection</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L68">device/DeviceApi.ts:68</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use to get lisy of devices</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>&#39;DEVICE_READ&#39;||&#39;DEVICE_CREATE&#39;||&#39;DEVICE_UPDATE&#39;||&#39;DEVICE_DELETE&#39; access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parameters: <a href="../interfaces/_device_deviceapi_.deviceparams.html" class="tsd-signature-type">deviceParams</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> projection: <a href="../enums/_common_projection_.deviceprojection.html" class="tsd-signature-type">DeviceProjection</a><span class="tsd-signature-symbol"> =&nbsp;fromProjections.DeviceProjection.DEVICE_BASIC</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="listpaged" class="tsd-anchor"></a>
+					<h3>list<wbr>Paged</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">list<wbr>Paged<span class="tsd-signature-symbol">(</span>parameters<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_device_deviceapi_.deviceparams.html" class="tsd-signature-type">deviceParams</a>, projection<span class="tsd-signature-symbol">?: </span><a href="../enums/_common_projection_.deviceprojection.html" class="tsd-signature-type">DeviceProjection</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L43">device/DeviceApi.ts:43</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use to get paged list of devices</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>&#39;DEVICE_READ&#39;||&#39;DEVICE_CREATE&#39;||&#39;DEVICE_UPDATE&#39;||&#39;DEVICE_DELETE&#39; access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parameters: <a href="../interfaces/_device_deviceapi_.deviceparams.html" class="tsd-signature-type">deviceParams</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> projection: <a href="../enums/_common_projection_.deviceprojection.html" class="tsd-signature-type">DeviceProjection</a><span class="tsd-signature-symbol"> =&nbsp;fromProjections.DeviceProjection.DEVICE_BASIC</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="numberofdevicesuntillimit" class="tsd-anchor"></a>
+					<h3>number<wbr>OfDevices<wbr>Until<wbr>Limit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">number<wbr>OfDevices<wbr>Until<wbr>Limit<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L103">device/DeviceApi.ts:103</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use to get device number of available slots for devices.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>&#39;DEVICE_READ&#39;||&#39;DEVICE_CREATE&#39;||&#39;DEVICE_UPDATE&#39;||&#39;DEVICE_DELETE&#39; access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="renamedevice" class="tsd-anchor"></a>
+					<h3>rename<wbr>Device</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">rename<wbr>Device<span class="tsd-signature-symbol">(</span>deviceKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/device/DeviceApi.ts#L226">device/DeviceApi.ts:226</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Used to rename device.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>requires</dt>
+									<dd><p>DEVICE_UPDATE access permision</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>deviceKey: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -192,13 +618,55 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_device_deviceapi_.deviceapi.html#client" class="tsd-kind-icon">client</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_device_deviceapi_.deviceapi.html#requestmappingurl" class="tsd-kind-icon">request<wbr>Mapping<wbr>Url</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#countbystate" class="tsd-kind-icon">count<wbr>ByState</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#create" class="tsd-kind-icon">create</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#createbulk" class="tsd-kind-icon">create<wbr>Bulk</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#createjasper" class="tsd-kind-icon">create<wbr>Jasper</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#createlora" class="tsd-kind-icon">create<wbr>LoRa</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#delete" class="tsd-kind-icon">delete</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_device_deviceapi_.deviceapi.html#deletebulk" class="tsd-kind-icon">delete<wbr>Bulk</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#generatepassword" class="tsd-kind-icon">generate<wbr>Password</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#getdevicebykey" class="tsd-kind-icon">get<wbr>Device<wbr>ByKey</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#list" class="tsd-kind-icon">list</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#listpaged" class="tsd-kind-icon">list<wbr>Paged</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#numberofdevicesuntillimit" class="tsd-kind-icon">number<wbr>OfDevices<wbr>Until<wbr>Limit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_device_deviceapi_.deviceapi.html#renamedevice" class="tsd-kind-icon">rename<wbr>Device</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../interfaces/_device_deviceapi_.deviceparams.html" class="tsd-kind-icon">device<wbr>Params</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

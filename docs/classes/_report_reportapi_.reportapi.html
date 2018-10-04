@@ -97,9 +97,16 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_report_reportapi_.reportapi.html#createreport" class="tsd-kind-icon">create<wbr>Report</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_report_reportapi_.reportapi.html#createreportfeed" class="tsd-kind-icon">create<wbr>Report<wbr>Feed</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_report_reportapi_.reportapi.html#deletereport" class="tsd-kind-icon">delete<wbr>Report</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_report_reportapi_.reportapi.html#deletereportfeed" class="tsd-kind-icon">delete<wbr>Report<wbr>Feed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_report_reportapi_.reportapi.html#getdatasnapshot" class="tsd-kind-icon">get<wbr>Data<wbr>Snapshot</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_report_reportapi_.reportapi.html#getdatasnapshotforfeeds" class="tsd-kind-icon">get<wbr>Data<wbr>Snapshot<wbr>For<wbr>Feeds</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_report_reportapi_.reportapi.html#getreport" class="tsd-kind-icon">get<wbr>Report</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_report_reportapi_.reportapi.html#getreportbyfeed" class="tsd-kind-icon">get<wbr>Report<wbr>ByFeed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_report_reportapi_.reportapi.html#listreportfeeds" class="tsd-kind-icon">list<wbr>Report<wbr>Feeds</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_report_reportapi_.reportapi.html#listreports" class="tsd-kind-icon">list<wbr>Reports</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_report_reportapi_.reportapi.html#updatereport" class="tsd-kind-icon">update<wbr>Report</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,7 +124,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in report/ReportApi.ts:6</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L6">report/ReportApi.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -139,7 +146,7 @@
 					<div class="tsd-signature tsd-kind-icon">client<span class="tsd-signature-symbol">:</span> <a href="_client_.client.html" class="tsd-signature-type">Client</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in report/ReportApi.ts:7</li>
+							<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L7">report/ReportApi.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -156,7 +163,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in report/ReportApi.ts:13</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L13">report/ReportApi.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -177,6 +184,32 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createreportfeed" class="tsd-anchor"></a>
+					<h3>create<wbr>Report<wbr>Feed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Report<wbr>Feed<span class="tsd-signature-symbol">(</span>reportId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, feedIds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L120">report/ReportApi.ts:120</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>reportId: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>feedIds: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="deletereport" class="tsd-anchor"></a>
 					<h3>delete<wbr>Report</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -186,7 +219,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in report/ReportApi.ts:34</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L30">report/ReportApi.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -207,6 +240,126 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="deletereportfeed" class="tsd-anchor"></a>
+					<h3>delete<wbr>Report<wbr>Feed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Report<wbr>Feed<span class="tsd-signature-symbol">(</span>reportId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, feedId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L142">report/ReportApi.ts:142</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>reportId: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>feedId: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getdatasnapshot" class="tsd-anchor"></a>
+					<h3>get<wbr>Data<wbr>Snapshot</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Snapshot<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_report_model_index_.datasnapshot.html" class="tsd-signature-type">DataSnapshot</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L72">report/ReportApi.ts:72</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>params: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>feed<wbr>Ids<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> from<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> to<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_report_model_index_.datasnapshot.html" class="tsd-signature-type">DataSnapshot</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getdatasnapshotforfeeds" class="tsd-anchor"></a>
+					<h3>get<wbr>Data<wbr>Snapshot<wbr>For<wbr>Feeds</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<wbr>Snapshot<wbr>For<wbr>Feeds<span class="tsd-signature-symbol">(</span>reportId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_report_model_index_.datasnapshot.html" class="tsd-signature-type">DataSnapshot</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L151">report/ReportApi.ts:151</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>reportId: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>params: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>feed<wbr>Ids<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> from<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> to<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_report_model_index_.datasnapshot.html" class="tsd-signature-type">DataSnapshot</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getreport" class="tsd-anchor"></a>
+					<h3>get<wbr>Report</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Report<span class="tsd-signature-symbol">(</span>reportId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_report_model_index_.reportdto.html" class="tsd-signature-type">ReportDto</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L98">report/ReportApi.ts:98</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>reportId: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_report_model_index_.reportdto.html" class="tsd-signature-type">ReportDto</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getreportbyfeed" class="tsd-anchor"></a>
 					<h3>get<wbr>Report<wbr>ByFeed</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -216,7 +369,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in report/ReportApi.ts:59</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L48">report/ReportApi.ts:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -241,6 +394,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="listreportfeeds" class="tsd-anchor"></a>
+					<h3>list<wbr>Report<wbr>Feeds</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">list<wbr>Report<wbr>Feeds<span class="tsd-signature-symbol">(</span>reportId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_report_model_index_.feedreport.html" class="tsd-signature-type">FeedReport</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L133">report/ReportApi.ts:133</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>reportId: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_report_model_index_.feedreport.html" class="tsd-signature-type">FeedReport</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="listreports" class="tsd-anchor"></a>
 					<h3>list<wbr>Reports</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -250,10 +426,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in report/ReportApi.ts:47</li>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L39">report/ReportApi.ts:39</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_report_model_index_.reportshortdto.html" class="tsd-signature-type">ReportShortDto</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="updatereport" class="tsd-anchor"></a>
+					<h3>update<wbr>Report</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Report<span class="tsd-signature-symbol">(</span>reportDto<span class="tsd-signature-symbol">: </span><a href="../interfaces/_report_model_index_.reportdto.html" class="tsd-signature-type">ReportDto</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Wolkabout/wolk-rest/blob/53ddeaa/src/report/ReportApi.ts#L107">report/ReportApi.ts:107</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>reportDto: <a href="../interfaces/_report_model_index_.reportdto.html" class="tsd-signature-type">ReportDto</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_model_wolkresponse_.wolkresponse.html" class="tsd-signature-type">WolkResponse</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -287,13 +486,34 @@
 								<a href="_report_reportapi_.reportapi.html#createreport" class="tsd-kind-icon">create<wbr>Report</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_report_reportapi_.reportapi.html#createreportfeed" class="tsd-kind-icon">create<wbr>Report<wbr>Feed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_report_reportapi_.reportapi.html#deletereport" class="tsd-kind-icon">delete<wbr>Report</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_report_reportapi_.reportapi.html#deletereportfeed" class="tsd-kind-icon">delete<wbr>Report<wbr>Feed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_report_reportapi_.reportapi.html#getdatasnapshot" class="tsd-kind-icon">get<wbr>Data<wbr>Snapshot</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_report_reportapi_.reportapi.html#getdatasnapshotforfeeds" class="tsd-kind-icon">get<wbr>Data<wbr>Snapshot<wbr>For<wbr>Feeds</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_report_reportapi_.reportapi.html#getreport" class="tsd-kind-icon">get<wbr>Report</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_report_reportapi_.reportapi.html#getreportbyfeed" class="tsd-kind-icon">get<wbr>Report<wbr>ByFeed</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_report_reportapi_.reportapi.html#listreportfeeds" class="tsd-kind-icon">list<wbr>Report<wbr>Feeds</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_report_reportapi_.reportapi.html#listreports" class="tsd-kind-icon">list<wbr>Reports</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_report_reportapi_.reportapi.html#updatereport" class="tsd-kind-icon">update<wbr>Report</a>
 							</li>
 						</ul>
 					</li>
