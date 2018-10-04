@@ -51,13 +51,13 @@ export default class ReportApi {
     const { from, to, feedIds = [] } = params;
 
     const requestConfig: AxiosRequestConfig = {
+      headers: {
+        Accept: 'APPLICATION/VND.FEEDREPORT+JSON'
+      },
       params: {
         from,
         to,
         feedIds: feedIds.join(',')
-      },
-      headers: {
-        Accept: 'APPLICATION/VND.FEEDREPORT+JSON'
       }
     };
 
@@ -77,13 +77,13 @@ export default class ReportApi {
     const { from, to, feedIds = [] } = params;
 
     const requestConfig: AxiosRequestConfig = {
+      headers: {
+        Accept: 'APPLICATION/VND.SNAPSHOT.WITH.INTERVAL.V2+JSON'
+      },
       params: {
         from,
         to,
         feedIds: feedIds.join(',')
-      },
-      headers: {
-        Accept: 'APPLICATION/VND.SNAPSHOT.WITH.INTERVAL.V2+JSON'
       }
     };
 
@@ -155,13 +155,13 @@ export default class ReportApi {
     const { from, to, feedIds = [] } = params;
 
     const requestConfig: AxiosRequestConfig = {
+      headers: {
+        Accept: 'APPLICATION/VND.SNAPSHOT.WITH.INTERVAL.V2+JSON'
+      },
       params: {
         from,
         to,
         feedIds: feedIds.join(',')
-      },
-      headers: {
-        Accept: 'APPLICATION/VND.SNAPSHOT.WITH.INTERVAL.V2+JSON'
       }
     };
 

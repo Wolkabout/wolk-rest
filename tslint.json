@@ -8,7 +8,7 @@
     "no-console": true,
     "import-name": false,
     "prettier": true,
-    "object-literal-sort-keys": true,
+    "object-literal-sort-keys": [true, "shorthand-first"],
     "ordered-imports": [
       true,
       {
