@@ -51,14 +51,14 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/dotenv": "^4.0.3",
-    "@types/jest": "^23.3.1",
+    "@types/jest": "^23.3.9",
     "@types/node": "^10.5.5",
     "@types/qs": "^6.5.1",
     "coffeescript": "^2.3.1",
     "dotenv": "^6.0.0",
     "husky": "^0.14.3",
     "istanbul-reporter-badges": "^1.0.2",
-    "jest": "^23.5.0",
+    "jest": "^23.6.0",
     "nyc": "^12.0.2",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2",
@@ -71,7 +71,7 @@
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.16.1",
     "source-map-support": "^0.5.8",
-    "ts-jest": "^23.1.4",
+    "ts-jest": "^23.10.4",
     "ts-node": "^7.0.0",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2",
@@ -85,7 +85,7 @@
     "qs": "^6.5.2"
   },
   "engines": {
-    "node": ">=10.8.0",
+    "node": ">=10.13.0",
     "npm": ">=6.2.0"
   }
 }
