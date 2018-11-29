@@ -5,7 +5,7 @@ export interface Endpoint {
   enabledMessage: boolean;
   description: string;
   enabledAsset: boolean;
-  id: number;
+  id?: number;
   type: EndpointType;
   value: string;
 }

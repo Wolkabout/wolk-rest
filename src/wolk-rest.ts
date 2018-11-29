@@ -5,6 +5,7 @@ import DashboardApi from './dashboard/DashboardApi';
 import WidgetApi from './dashboard/WidgetApi';
 import DeviceApi from './device/DeviceApi';
 import DeviceManifestApi from './device/template/DeviceManifestApi';
+import EndpointApi from './endpoint/EndpointApi';
 import InfoApi from './info/InfoApi';
 import MessageApi from './message/MessageApi';
 import { SessionStorage } from './model/SessionStorage';
@@ -27,6 +28,7 @@ export class WolkREST {
   private readonly dashboardApi: DashboardApi;
   private readonly deviceApi: DeviceApi;
   private readonly deviceManifestApi: DeviceManifestApi;
+  private readonly endpointApi: EndpointApi;
   private readonly infoApi: InfoApi;
   private readonly messageApi: MessageApi;
   private readonly profileApi: ProfileApi;
@@ -45,6 +47,7 @@ export class WolkREST {
     this.dashboardApi = new DashboardApi(this.client);
     this.deviceApi = new DeviceApi(this.client);
     this.deviceManifestApi = new DeviceManifestApi(this.client);
+    this.endpointApi = new EndpointApi(this.client);
     this.infoApi = new InfoApi(this.client);
     this.messageApi = new MessageApi(this.client);
     this.profileApi = new ProfileApi(this.client);
@@ -72,6 +75,9 @@ export class WolkREST {
   }
   info(): InfoApi {
     return this.infoApi;
+  }
+  endpoint(): EndpointApi {
+    return this.endpointApi;
   }
   message(): MessageApi {
     return this.messageApi;

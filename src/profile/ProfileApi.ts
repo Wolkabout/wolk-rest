@@ -1,6 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import { Permission, User } from '../authentication/model';
 import Client from '../Client';
+import * as fromEndpoint from '../endpoint/model';
 import * as fromRoot from '../model';
 import * as fromModels from './model';
 
@@ -66,8 +67,8 @@ export default class ProfileApi {
   }
 
   public async myEndpoints(
-    endpointType: fromModels.EndpointType
-  ): Promise<fromRoot.WolkResponse<fromModels.Endpoint[]>> {
+    endpointType: fromEndpoint.EndpointType
+  ): Promise<fromRoot.WolkResponse<fromEndpoint.Endpoint[]>> {
     const requestConfig: AxiosRequestConfig = {
       params: {
         endpointType
